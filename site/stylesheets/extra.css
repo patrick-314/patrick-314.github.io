@@ -1,0 +1,17 @@
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css');
+
+body {
+    font-family: "LXGW WenKai Screen",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 代码块字体保持不变 */
+code, pre {
+    font-family: "Roboto Mono", "Consolas", monospace;
+}
+
+/* 返回顶部按钮 */
+button.md-top {
+    font-family: "LXGW WenKai Screen";
+    font-size: 16px;
+    font-weight: bold;
+}

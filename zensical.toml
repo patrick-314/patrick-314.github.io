@@ -5,7 +5,7 @@ site_description = "一个使用 Zensical 构建的文档网站"
 
 site_author = "Patrick"
 
-site_url = "https://patricklab.top/"
+site_url = "https://www.patricklab.top/"
  copyright = """
  Copyright &copy; 2026 patrick
 """

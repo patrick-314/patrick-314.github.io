@@ -45,7 +45,7 @@ extra_css = [
 ]
 
 favicon = "images/star.png"
-
+custom_dir = "docs/overrides"
 language = "zh"
 
 features = [

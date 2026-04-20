@@ -28,5 +28,3 @@ title: Patrick-Lab
 
 - [学习笔记](../blog/)
 - [AIDD](../blog/)
-
-

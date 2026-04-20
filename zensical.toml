@@ -16,7 +16,11 @@ nav = [
    { "Markdown语法" = "markdown.md" },
     { "Hello World" = "hello,world.md" },
    { "学习笔记" = [
-    {"药物化学"=[]},
+    {"药物化学"=[
+      {"基础知识"="blog/Medicinal_Chemistry/基础知识.md"},
+      {"第一章绪论"="blog/Medicinal_Chemistry/第一章绪论.md"},
+      {"第二章新药研究的基本原理与方法"="blog/Medicinal_Chemistry/第二章.md"}
+    ]},
     {"药理学"=[]},
     {"药物分析"=[
         {"第一章"="blog/Pharmaceutical_Analysis/第一章.md"}
@@ -29,10 +33,17 @@ nav = [
    ]}
  ]
 
-extra_css = ["stylesheets/extra.css"]
+extra_css = [
+  "stylesheets/extra.css",
+   "https://unpkg.com/katex@0.16.9/dist/katex.min.css"
+]
 
-# Read more: https://zensical.org/docs/customization/#additional-javascript
-#extra_javascript = ["javascripts/extra.js"]
+extra_javascript = [
+  "https://unpkg.com/smiles-drawer/dist/smiles-drawer.min.js",
+  "/javascripts/smiles.js",
+    "javascripts/mathjax.js",
+    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+]
 
 # ----------------------------------------------------------------------------
 # Section for configuring theme options
@@ -141,7 +152,9 @@ custom_checkbox = true
 [project.markdown_extensions."pymdownx.highlight"]     # 代码高亮
 [project.markdown_extensions."pymdownx.inlinehilite"] # 行内代码高亮
 [project.markdown_extensions."pymdownx.superfences"]  # 代码块和 Mermaid
-
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
 # ===== 其他功能 =====
 [project.markdown_extensions."pymdownx.keys"]         # 键盘按键 (++ctrl+alt+del++)
 [project.markdown_extensions."pymdownx.smartsymbols"]  # 智能符号转换

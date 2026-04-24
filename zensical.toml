@@ -35,14 +35,20 @@ nav = [
 
 extra_css = [
   "stylesheets/extra.css",
-   "https://unpkg.com/katex@0.16.9/dist/katex.min.css"
+   "https://unpkg.com/katex@0.16.9/dist/katex.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css", # Aplayer 样式表
+    "stylesheets/music_player.css", # 音乐播放器样式表
 ]
 
 extra_javascript = [
   "https://unpkg.com/smiles-drawer/dist/smiles-drawer.min.js",
   "/javascripts/smiles.js",
     "javascripts/mathjax.js",
-    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js", # Aplayer 脚本
+    "https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js", # MetingJS 脚本
+    "javascripts/music_player.js", # 音乐播放器脚本
+    "javascripts/extra.js"# （可选）按钮与播放器避让页脚脚本
 ]
 
 # ----------------------------------------------------------------------------

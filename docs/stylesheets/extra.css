@@ -1,7 +1,8 @@
-@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css');
+@import url('https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css');
 
 body {
-    font-family: "LXGW WenKai Screen",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "LXGW WenKai", sans-serif;
+  font-weight: normal;
 }
 
 /* 代码块字体保持不变 */

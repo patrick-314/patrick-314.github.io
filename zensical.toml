@@ -17,13 +17,14 @@ nav = [
     { "Hello World" = "hello,world.md" },
    { "学习笔记" = [
     {"药物化学"=[
-      {"基础知识"="blog/Medicinal_Chemistry/基础知识.md"},
-      {"第一章绪论"="blog/Medicinal_Chemistry/第一章绪论.md"},
-      {"第二章新药研究的基本原理与方法"="blog/Medicinal_Chemistry/第二章.md"}
+      {"基础知识"="blog/药物化学/基础知识.md"},
+      {"第一章绪论"="blog/药物化学/第一章.md"},
+      {"第二章新药研究的基本原理与方法"="blog/药物化学/第二章.md"},
+      {"第三章药物代谢反应"="blog/药物化学/第三章.md"}
     ]},
     {"药理学"=[]},
     {"药物分析"=[
-        {"第一章"="blog/Pharmaceutical_Analysis/第一章.md"}
+        {"第一章"="blog/药物分析/第一章.md"}
     ]},
     {"药剂学"=[]},
   
@@ -36,14 +37,18 @@ nav = [
 extra_css = [
     "https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css", # Aplayer 样式表
     "stylesheets/music_player.css", # 音乐播放器样式表，
-    "stylesheets/extra.css"
+    "stylesheets/extra.css",
+    "https://unpkg.com/katex@0/dist/katex.min.css"
 ]
 
 extra_javascript = [
     "https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js", # Aplayer 脚本
     "https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js", # MetingJS 脚本
     "javascripts/music_player.js", # 音乐播放器脚本
-    "javascripts/extra.js"# （可选）按钮与播放器避让页脚脚本
+    "javascripts/extra.js", # （可选）按钮与播放器避让页脚脚本
+    "javascripts/katex.js",
+    "https://unpkg.com/katex@0/dist/katex.min.js",
+    "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"
 ]
 
 # ----------------------------------------------------------------------------
@@ -53,7 +58,7 @@ extra_javascript = [
 #字体
 extra_css = [
     "stylesheets/extra.css",
-    'https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css',
+    'https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css',
 ]
 
 favicon = "images/star.png"

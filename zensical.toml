@@ -59,7 +59,7 @@ extra_javascript = [
 #字体
 extra_css = [
     "stylesheets/extra.css",
-    'https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css',
+    'https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css'
 ]
 
 favicon = "images/star.png"

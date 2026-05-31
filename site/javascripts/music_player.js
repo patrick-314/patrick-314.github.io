@@ -24,7 +24,7 @@ function createMusicUI() {
     const metingElement = document.createElement("meting-js");
     metingElement.setAttribute("server", "netease");
     metingElement.setAttribute("type", "playlist");
-    metingElement.setAttribute("id", "1361336637"); // 笔者的网易云 Playlist ID
+    metingElement.setAttribute("id", "17583751945"); // 笔者的网易云 Playlist ID
     metingElement.setAttribute("fixed", "false");
     metingElement.setAttribute("mini", "false");
     metingElement.setAttribute("autoplay", "false");

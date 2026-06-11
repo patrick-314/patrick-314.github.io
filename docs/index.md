@@ -5,7 +5,7 @@ title: Patrick-Lab
 
 # <center>Patrick's Blog</center>
 <img 
-  src="/images/patrick.svg" 
+  src="/images/patrick.jpg" 
   alt="Patrick" 
   style="
     display: block;

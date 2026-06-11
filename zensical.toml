@@ -12,9 +12,7 @@ site_url = "https://www.patricklab.top/"
 #导航配置
 nav = [
    { "主页" = "index.md" },
-   {"第一篇文章"="blog/posts/first-post.md"},
    { "Markdown语法" = "markdown.md" },
-    { "Hello World" = "hello,world.md" },
    { "学习笔记" = [
     {"药物化学"=[
       {"基础知识"="blog/药物化学/基础知识.md"},
@@ -52,6 +50,8 @@ extra_javascript = [
     "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"
 ]
 
+repo_url = "https://github.com/patrick-314"
+repo_name = "patrick-314"
 # ----------------------------------------------------------------------------
 # Section for configuring theme options
 # ----------------------------------------------------------------------------
@@ -74,12 +74,14 @@ features = [
     "content.code.copy",
 ]
 
+logo = "images/star.png"
 #logo = "assets/star.png"
 
-#[project.theme.icon]
-logo = "images/star.png"
+[project.theme.icon]
 
-#[project.theme.font]
+repo = "fontawesome/brands/github"
+
+[project.theme.font]
 text = "LXGW WenKai Screen"  # 文本字体
 code = "Roboto Mono"  # 代码字体
 

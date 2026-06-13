@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天然药物化学 · 第二章 糖和苷 · 复习</title>
+<style>
+:root{
+  --primary:#2C5F2D;
+  --secondary:#97BC62;
+  --accent:#D9A441;
+  --bg:#F7F8F3;
+  --card:#FFFFFF;
+  --text:#23321E;
+  --muted:#6B7A63;
+  --line:#E2E8DA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:-apple-system,"PingFang SC","Microsoft Yahei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+nav{
+  width:230px;
+  background:var(--primary);
+  color:#fff;
+  padding:24px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  flex-shrink:0;
+}
+nav h1{
+  font-size:18px;
+  margin:0 20px 4px;
+  font-weight:700;
+}
+nav .sub{
+  margin:0 20px 20px;
+  font-size:12px;
+  color:#CFE3CF;
+}
+nav .nav-item{
+  display:block;
+  padding:11px 20px;
+  cursor:pointer;
+  font-size:14px;
+  color:#E5F0E3;
+  border-left:3px solid transparent;
+  transition:.15s;
+}
+nav .nav-item:hover{background:rgba(255,255,255,.08);}
+nav .nav-item.active{
+  background:rgba(255,255,255,.14);
+  border-left-color:var(--accent);
+  color:#fff;
+  font-weight:600;
+}
+nav .nav-section-title{
+  margin:18px 20px 6px;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#9DBE96;
+}
+main{
+  flex:1;
+  padding:32px 40px 80px;
+  max-width:980px;
+}
+.section{display:none;}
+.section.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-header{
+  margin-bottom:24px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.section-header h2{
+  font-size:28px;
+  margin:0 0 6px;
+  color:var(--primary);
+}
+.section-header p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px 24px;
+  margin-bottom:18px;
+  box-shadow:0 2px 10px rgba(44,95,45,.06);
+}
+.card h3{
+  margin:0 0 12px;
+  font-size:18px;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.card h3 .num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;height:26px;
+  border-radius:50%;
+  background:var(--secondary);
+  color:#fff;
+  font-size:13px;
+  flex-shrink:0;
+}
+.card h4{
+  margin:14px 0 8px;
+  font-size:15px;
+  color:#3E5C3A;
+}
+.card p{margin:6px 0;font-size:14.5px;}
+.card ul{margin:6px 0 6px 0;padding-left:22px;}
+.card li{margin:4px 0;font-size:14.5px;}
+.tag{
+  display:inline-block;
+  background:var(--secondary);
+  color:#fff;
+  font-size:11px;
+  padding:2px 9px;
+  border-radius:20px;
+  margin-right:6px;
+}
+.tag.accent{background:var(--accent);}
+.tag.muted{background:#A8B79E;}
+
+.kw{
+  background:#EFF6E6;
+  border-left:3px solid var(--secondary);
+  padding:8px 14px;
+  border-radius:8px;
+  margin:8px 0;
+  font-size:14px;
+}
+.kw b{color:var(--primary);}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+  margin:10px 0;
+}
+table th, table td{
+  border:1px solid var(--line);
+  padding:7px 10px;
+  text-align:left;
+}
+table th{
+  background:#EFF6E6;
+  color:var(--primary);
+  font-weight:600;
+}
+table tr:nth-child(even) td{background:#FAFCF7;}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:760px){
+  .grid2{grid-template-columns:1fr;}
+  .layout{flex-direction:column;}
+  nav{width:100%;height:auto;position:relative;}
+  main{padding:20px;}
+}
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:10px 0;
+}
+.timeline .step{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.timeline .dot{
+  flex-shrink:0;
+  width:30px;height:30px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;
+}
+.timeline .content{font-size:14px;}
+.timeline .content b{color:var(--primary);}
+
+/* Flashcards */
+.flash-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:14px;
+}
+.flashcard{
+  width:240px;
+  height:150px;
+  perspective:1000px;
+  cursor:pointer;
+}
+.flashcard .inner{
+  width:100%;height:100%;
+  position:relative;
+  transition:transform .5s;
+  transform-style:preserve-3d;
+}
+.flashcard.flipped .inner{transform:rotateY(180deg);}
+.flashcard .face{
+  position:absolute;width:100%;height:100%;
+  backface-visibility:hidden;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:14px;
+  font-size:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.flashcard .front{background:var(--primary);color:#fff;font-weight:600;}
+.flashcard .back{background:#fff;color:var(--text);transform:rotateY(180deg);border:1px solid var(--line);font-size:13px;overflow-y:auto;}
+.flashcard .front .hint{
+  position:absolute;bottom:8px;right:10px;font-size:10px;opacity:.6;
+}
+
+/* Quiz */
+.quiz-card{
+  background:#fff;
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(44,95,45,.06);
+}
+.quiz-q{font-weight:600;margin-bottom:10px;font-size:14.5px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.15s;
+}
+.quiz-opt:hover{border-color:var(--secondary);background:#F4F9EF;}
+.quiz-opt.correct{background:#E4F4DD;border-color:var(--primary);color:var(--primary);font-weight:600;}
+.quiz-opt.wrong{background:#FBE7E4;border-color:#C0524A;color:#C0524A;}
+.quiz-opt.disabled{cursor:default;}
+.quiz-explain{
+  margin-top:10px;
+  font-size:13.5px;
+  color:var(--muted);
+  background:#F4F7F0;
+  border-radius:8px;
+  padding:8px 12px;
+  display:none;
+}
+.quiz-explain.show{display:block;}
+
+.quiz-progress{
+  position:sticky;
+  top:0;
+  background:var(--bg);
+  padding:10px 0;
+  font-size:14px;
+  color:var(--muted);
+  z-index:5;
+  border-bottom:1px solid var(--line);
+  margin-bottom:14px;
+}
+.score-pill{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  border-radius:20px;
+  padding:3px 12px;
+  font-weight:600;
+  margin-left:8px;
+}
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:9px 18px;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.btn:hover{background:#244A25;}
+.btn.secondary{background:var(--secondary);}
+
+.collapsible{margin:8px 0;}
+.collapsible .head{
+  cursor:pointer;
+  font-weight:600;
+  color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+  font-size:14.5px;
+  padding:6px 0;
+}
+.collapsible .head::before{
+  content:"▶";
+  font-size:10px;
+  transition:.2s;
+}
+.collapsible.open .head::before{transform:rotate(90deg);}
+.collapsible .body{
+  display:none;
+  padding:6px 0 6px 18px;
+  font-size:14px;
+  border-left:2px solid var(--secondary);
+  margin-left:4px;
+}
+.collapsible.open .body{display:block;}
+
+.pathway-box{
+  background:#F4F9EF;
+  border:1px dashed var(--secondary);
+  border-radius:10px;
+  padding:12px 16px;
+  margin:8px 0;
+  font-size:14px;
+}
+.pathway-box .arrow{color:var(--accent);font-weight:700;}
+
+.intro-card{
+  background:linear-gradient(135deg,var(--primary),#3E7A3F);
+  color:#fff;
+  border-radius:14px;
+  padding:26px 28px;
+  margin-bottom:24px;
+}
+.intro-card h2{margin:0 0 8px;font-size:26px;}
+.intro-card p{margin:4px 0;font-size:14.5px;opacity:.95;}
+.intro-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+.intro-grid .item{
+  background:rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:.15s;
+}
+.intro-grid .item:hover{background:rgba(255,255,255,.22);}
+.intro-grid .item .icon{font-size:24px;}
+.intro-grid .item .label{font-size:13px;margin-top:6px;}
+@media (max-width:760px){
+  .intro-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <h1>📘 天然药物化学</h1>
+    <div class="sub">第二章 · 糖和苷 — 复习手册</div>
+    <div class="nav-item active" data-target="overview">🏠 总览 / 重点难点</div>
+    <div class="nav-section-title">知识章节</div>
+    <div class="nav-item" data-target="sec1">第一节 单糖的立体化学</div>
+    <div class="nav-item" data-target="sec2">第二节 糖和苷的分类</div>
+    <div class="nav-item" data-target="sec3">第三节 糖的理化性质</div>
+    <div class="nav-item" data-target="sec4">第四节 苷键的裂解</div>
+    <div class="nav-item" data-target="sec5">第五节 提取分离</div>
+    <div class="nav-item" data-target="sec6">第六节 糖的核磁共振性质</div>
+    <div class="nav-item" data-target="sec7">第七节 糖链的结构测定</div>
+    <div class="nav-section-title">复习工具</div>
+    <div class="nav-item" data-target="flashcards">🃏 速记卡片</div>
+    <div class="nav-item" data-target="quiz">📝 自测题</div>
+  </nav>
+
+  <main>
+    <!-- OVERVIEW SECTION -->
+    <section class="section active" id="overview">
+      <div class="intro-card">
+        <h2>第二章 糖和苷 · 复习总览</h2>
+        <p>南方医科大学 · 天然药物化学（人民卫生出版社第七版）</p>
+        <p>本章涵盖：单糖的立体化学、糖和苷的分类、糖的理化性质、苷键的裂解、提取分离、糖的核磁共振性质、糖链的结构测定七大板块。</p>
+        <div class="intro-grid">
+          <div class="item" onclick="showSection('sec1')"><div class="icon">🧬</div><div class="label">第一节 单糖的立体化学</div></div>
+          <div class="item" onclick="showSection('sec2')"><div class="icon">🏷️</div><div class="label">第二节 糖和苷的分类</div></div>
+          <div class="item" onclick="showSection('sec3')"><div class="icon">⚗️</div><div class="label">第三节 糖的理化性质</div></div>
+          <div class="item" onclick="showSection('sec4')"><div class="icon">✂️</div><div class="label">第四节 苷键的裂解</div></div>
+          <div class="item" onclick="showSection('sec5')"><div class="icon">🧪</div><div class="label">第五节 提取分离</div></div>
+          <div class="item" onclick="showSection('sec6')"><div class="icon">🔬</div><div class="label">第六节 糖的核磁共振性质</div></div>
+          <div class="item" onclick="showSection('sec7')"><div class="icon">🔗</div><div class="label">第七节 糖链的结构测定</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">★</span>重点难点框架（[基本要求]）</h3>
+        <div class="grid2">
+          <div>
+            <h4>🟢 掌握（核心，必考）</h4>
+            <ul>
+              <li><b>单糖的立体结构</b>（Fischer/Haworth表示法、D/L构型、端基差向异构、构象）</li>
+              <li><b>苷键的裂解方法</b>及其特点（酸水解、乙酰解、碱水解、酶解、Smith降解）</li>
+              <li><b>苷的结构特征、分类和鉴别方法</b></li>
+            </ul>
+          </div>
+          <div>
+            <h4>🟡 熟悉</h4>
+            <ul>
+              <li><b>糖链的结构测定方法</b>（纯度、分子量、单糖鉴定、连接位置/顺序、苷键构型）</li>
+              <li><b>糖苷的核磁性质和苷化位移规律</b>（"同五异十其余七"、"同小异大"）</li>
+            </ul>
+          </div>
+        </div>
+        <h4>⚪ 了解</h4>
+        <ul><li>糖和苷的分类（按糖单位数目、苷键原子等）；多糖的提取、纯化方法</li></ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">i</span>使用说明</h3>
+        <p>左侧导航可在七节之间切换；点击带 <b>▶</b> 的标题可展开/收起详细内容；"速记卡片"用于快速记忆关键概念（点击翻面）；"自测题"提供选择题自测并即时反馈。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="sec1">
+      <div class="section-header">
+        <h2>第一节　单糖的立体化学</h2>
+        <p>糖的定义 · 表示方法 · 成环方式 · 绝对构型 · 端基差向异构 · 构象</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、糖的定义</h3>
+        <div class="kw"><b>糖类（saccharides，又称碳水化合物 carbohydrates）</b>：是一类<b>多羟基醛或酮</b>，或通过水解能产生这些醛酮的物质</div>
+        <div class="kw"><b>单糖（monosaccharide）</b>：糖的基本单位，为<b>不能再水解</b>的多羟基的醛或多羟基酮</div>
+        <div class="kw"><b>苷类（glycosides）</b>：又称苷或配糖体。是由糖或糖的衍生物与另一非糖物质（<b>苷元/糖苷配基</b>）通过糖的<b>半缩醛或半缩酮羟基与苷元脱水形成</b>的一类化合物</div>
+        <div class="kw">⚠️ 关键关系：苷的共性是<b>糖和苷键</b>；<b>多糖含苷键但不是苷</b></div>
+        <p>天然界单糖从三碳糖至八碳糖均存在。最简单的醛糖为<b>甘油醛</b>（glyceraldehyde），最简单的酮糖为<b>二羟基丙酮</b>（1,3-dihydroxyacetone）。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、糖的表示方法</h3>
+        <p>单糖常用三种表示方法：<b>Fischer投影式</b>、<b>Haworth式</b>、<b>优势构象式</b>（以D-葡萄糖为例）。</p>
+        <div class="collapsible">
+          <div class="head">Fischer投影式书写规则</div>
+          <div class="body">碳主链竖直放置，醛基（羰基）位于顶端，羟甲基位于底端，链上中间碳上的取代基水平放置两端。投影式中，<b>水平键朝向平面前，竖直键位于平面后</b>。</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>三、糖的成环方式</h3>
+        <p>单糖在水溶液中形成<b>半缩醛环状结构</b>：</p>
+        <div class="grid2">
+          <div class="kw"><b>五元氧环 — 呋喃环（furanose）</b><br>例：α/β-D-葡萄呋喃糖</div>
+          <div class="kw"><b>六元氧环 — 吡喃环（pyranose）</b><br>例：α/β-D-葡萄吡喃糖</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>四、糖的绝对构型表示法</h3>
+        <div class="kw">习惯上将单糖<b>最后一个手性碳原子</b>（距离羰基最远的手性碳）的构型定为单糖的<b>绝对构型</b>。</div>
+
+        <div class="collapsible">
+          <div class="head">1. Fischer投影式中D、L构型的规定</div>
+          <div class="body">相对于左右旋（L、D-）甘油醛而来，以距离醛基（或羰基）最远的手性碳原子上的<b>-OH</b>而定：<b>向右为D-构型，向左为L-构型</b>。例：D-木糖为D型，L-鼠李糖为L型。</div>
+        </div>
+        <div class="collapsible">
+          <div class="head">2. Haworth式中绝对构型的判定</div>
+          <div class="body">
+          <ul>
+            <li><b>六碳醛糖和甲基五碳糖构成的吡喃糖</b>：C5上的取代基，向上为D型，向下为L型</li>
+            <li><b>六碳醛糖构成的呋喃型</b>：因C5、C6部分成为环外侧链，构型判断仍以C5为标准；<b>C5为R构型者为D型糖，C5为S构型者为L型糖</b></li>
+            <li><b>五碳醛糖构成的吡喃糖</b>：C4上的取代基，<b>向上为L型，向下为D型</b>（与六碳醛糖规则相反！）</li>
+            <li><b>五碳醛糖构成的呋喃糖</b>：C4上的取代基，<b>向上为D型，向下为L型</b></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>五、糖的端基差向异构</h3>
+        <div class="grid2">
+          <div class="kw"><b>差向异构体（epimer）</b><br>具有多个手性中心的化合物，只有<b>一个手性中心不同</b>而形成的异构体</div>
+          <div class="kw"><b>端基差向异构体（anomer）</b><br>单糖成环后形成了一个新的手性碳原子（<b>端基碳</b>），形成的一对异构体，具有<b>α、β</b>两种构型</div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">1. Fischer投影式中端基差向异构体构型的确定</div>
+          <div class="body">"<b>同α异β</b>"：C1-OH（端基碳）与距离羰基最远的手性碳原子上的OH<b>在同侧者为α型，异侧者为β型</b>。</div>
+        </div>
+        <div class="collapsible">
+          <div class="head">2. Haworth式中端基差向异构体构型的确定</div>
+          <div class="body">
+          <ul>
+            <li><b>六碳醛糖和甲基五碳糖构成的吡喃糖</b>："<b>同β异α</b>"：C1-OH（端基碳）与距离羰基最远的手性碳原子上的取代基（C5-OH）在<b>同侧者为β型，异侧者为α型</b></li>
+            <li><b>五碳醛糖构成的吡喃糖</b>：C1-OH和C4-OH<b>在同侧者为α型，异侧者为β型</b></li>
+            <li><b>五碳醛糖构成的呋喃糖</b>：C1-OH和C4-取代基<b>在同侧者为β型，异侧者为α型</b></li>
+          </ul>
+          </div>
+        </div>
+        <div class="kw">⚠️ α、β表示的是糖端基碳的<b>相对构型</b>。从端基碳绝对构型来看：<b>β-D 和 α-L</b>，<b>α-D 和 β-L</b> 型糖（优势构象一样时）的端基碳<b>绝对构型是一样的</b>。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>六、糖的构象</h3>
+        <p>单糖的构象式：<b>呋喃型糖</b> — 五元氧环，<b>信封式</b>；<b>吡喃型糖</b> — <b>椅式构象为优势构象</b>（C1式、1C式，即 <sup>4</sup>C<sub>1</sub> 式与 <sup>1</sup>C<sub>4</sub> 式）。</p>
+        <div class="collapsible">
+          <div class="head">a键、e键的书写方法</div>
+          <div class="body">
+          <ul>
+            <li>面上的碳，a键在面上</li>
+            <li>面下的碳，a键在面下</li>
+            <li>e键隔键平行</li>
+          </ul>
+          </div>
+        </div>
+        <div class="kw">
+          <b>规律1</b>：<b>D型糖采取C1式更稳定</b>，<b>L型葡萄糖采取1C式</b>更稳定。<br>
+          <b>规律2</b>：β-构型的端基OH总是处于<b>平伏键（e键）</b>。
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="sec2">
+      <div class="section-header">
+        <h2>第二节　糖和苷的分类</h2>
+        <p>糖的分类（按糖单位数目） · 苷的分类（按苷键原子等）</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、糖的分类（按照糖单位数目）</h3>
+
+        <div class="collapsible open">
+          <div class="head">1. 单糖（monosaccharide）</div>
+          <div class="body">
+          <ul>
+            <li><b>单糖本身</b>：五碳醛糖、六碳醛糖、六碳酮糖、甲基五碳醛糖、支碳链糖</li>
+            <li><b>命名</b>：单糖词尾 <b>-ose</b>；糖醛酸 <b>-uronic acid</b>；苷 <b>-oside</b></li>
+            <li><b>单糖衍生物</b>：氨基糖、去氧糖、糖醛酸、糖醇、环醇</li>
+          </ul>
+          <p>常见单糖举例：D-木糖（D-xylose）、D-果糖（D-fructose）、D-葡萄糖（D-glucose）、L-鼠李糖（L-rhamnose）、岩藻糖（fucose）等。</p>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">2. 低聚糖类（oligosaccharide）</div>
+          <div class="body">
+          <b>2~9个单糖</b>通过苷键结合而成的直链或支链聚糖。<br>
+          分类：①根据单糖个数——二糖、三糖、四糖等；②根据是否含游离醛基或酮基——<b>还原糖和非还原糖</b>。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">3. 多聚糖类（polysaccharide）</div>
+          <div class="body">
+          <ul>
+            <li><b>植物多糖</b>：淀粉、纤维素、果聚糖、半纤维素、树胶、粘液质</li>
+            <li><b>动物多糖</b>：糖原、甲壳素、肝素、硫酸软骨素、透明质酸</li>
+          </ul>
+          <div class="kw"><b>淀粉特性</b>：呈颗粒状，溶于热水成胶态悬浮液。分为<b>直链淀粉（α1→4连接）</b>和<b>支链淀粉（α1→4连接为主，含α1→6连接的支链）</b>，分子呈螺旋状，碘分子进入螺环通道形成<b>包结化合物而显色</b>，颜色与聚合度有关。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、苷的分类</h3>
+        <div class="kw"><b>苷（配糖体）</b>：由糖或糖的衍生物（如氨基糖、糖醛酸等）的端基碳上的羟基与另一非糖物质（苷元）通过缩合形成的化合物，故有<b>α苷和β苷</b>之分。</div>
+
+        <h4>分类维度</h4>
+        <table>
+          <tr><th>分类依据</th><th>类型</th></tr>
+          <tr><td>根据生物体内的存在形式</td><td>原生苷、次生苷</td></tr>
+          <tr><td>根据所连单糖的个数</td><td>单糖苷、双糖苷等</td></tr>
+          <tr><td>根据糖链的数目</td><td>单糖链苷、双糖链苷</td></tr>
+          <tr><td>根据苷元的不同</td><td>黄酮苷、蒽醌苷</td></tr>
+          <tr><td>根据生物活性或特性</td><td>强心苷、皂苷</td></tr>
+          <tr><td><b>根据苷键原子</b>（重点）</td><td>氧苷、氮苷、硫苷、碳苷</td></tr>
+        </table>
+
+        <h4>根据苷键原子分类（重点详解）</h4>
+        <div class="collapsible open">
+          <div class="head">1. 氧苷（O-苷）— 共五类</div>
+          <div class="body">
+          <table>
+            <tr><th>类型</th><th>定义</th><th>代表苷</th></tr>
+            <tr><td><b>醇苷</b></td><td>苷元为醇</td><td>红景天苷</td></tr>
+            <tr><td><b>酚苷</b></td><td>苷元为酚</td><td>天麻苷</td></tr>
+            <tr><td><b>氰苷</b></td><td>苷元为α-羟腈，易分解成<b>醛或酮和氢氰酸（HCN）</b></td><td>苦杏仁苷</td></tr>
+            <tr><td><b>酯苷（酰苷）</b></td><td>苷元的羧酸基与糖的半缩醛(酮)羟基脱水缩合</td><td>山慈菇苷A</td></tr>
+            <tr><td><b>吲哚苷</b></td><td>苷元为吲哚醇</td><td>靛苷</td></tr>
+          </table>
+          </div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">2. 硫苷（S-苷）</div>
+          <div class="body">苷元的<b>巯基（-SH）</b>与糖或糖衍生物的半缩醛(酮)羟基脱水缩合成苷，如：<b>白芥子苷</b>。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">3. 氮苷（N-苷）</div>
+          <div class="body">苷元的<b>胺基</b>与糖或糖衍生物的半缩醛(酮)羟基脱水缩合成苷，如：<b>腺苷</b>。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">4. 碳苷（C-苷）</div>
+          <div class="body">苷元碳上的<b>氢</b>与糖或糖衍生物的半缩醛(酮)羟基脱水缩合成苷。<b>苷元多为间苯二酚、间苯三酚类化合物</b>，常见于<b>黄酮、蒽醌、酚酸类</b>，如：<b>牡荆素</b>。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="sec3">
+      <div class="section-header">
+        <h2>第三节　糖的理化性质</h2>
+        <p>一般性质 · 氧化反应 · 糠醛形成反应 · 羟基反应 · 羰基反应 · 硼酸络合反应</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、一般性质</h3>
+        <ul>
+          <li><b>溶解性</b>：小分子糖极性大，水溶度大；多糖随聚合度增大，水溶度下降</li>
+          <li><b>极性</b>：单糖 &gt; 双糖 &gt; 叁糖；苷的极性：苷元 &lt; 单糖苷 &lt; 双糖苷 &lt; 叁糖苷</li>
+          <li><b>味</b>：单糖、低聚糖有甜味；多糖无甜味</li>
+          <li><b>旋光性</b>：多有旋光性</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、化学性质 — 1. 氧化反应</h3>
+        <p>单糖分子有醛（酮）、伯醇、仲醇和邻二醇等结构，氧化条件不同其产物也不同。</p>
+        <div class="kw">单糖结构中反应活泼性顺序：<b>端基碳原子 &gt; 伯碳 &gt; 仲碳</b></div>
+
+        <table>
+          <tr><th>反应</th><th>氧化剂</th><th>说明</th></tr>
+          <tr><td><b>银镜反应（Tollen reaction）</b></td><td>Ag⁺</td><td>以Ag⁺为氧化剂</td></tr>
+          <tr><td><b>费林反应（Fehling reaction）</b></td><td>Cu²⁺</td><td>以Cu²⁺为氧化剂</td></tr>
+          <tr><td><b>过碘酸反应</b></td><td>HIO4</td><td>氧化邻二羟基等，生成醛等</td></tr>
+        </table>
+
+        <div class="collapsible open">
+          <div class="head">过碘酸反应详解（重要）</div>
+          <div class="body">
+          <p><b>主要作用于</b>：邻二醇、α-氨基醇、α-羟基醛（酮）、邻二酮和某些活性次甲基等结构。</p>
+          <h4>反应特点</h4>
+          <ul>
+            <li>反应<b>定量进行</b>（试剂与反应物基本是1:1）</li>
+            <li>在<b>水溶液</b>中进行（否则不反应）</li>
+            <li><b>反应速度：顺式 &gt; 反式</b>（因顺式易形成环式中间体）</li>
+            <li><b>游离单糖</b>产物及消耗过碘酸用<b>Fischer式</b>计算；<b>成苷</b>时糖产物及消耗过碘酸用<b>Haworth式</b>计算</li>
+            <li><b>在异侧不能扭转的邻二醇不起反应</b>（如1,6-葡萄呋喃糖酐）</li>
+          </ul>
+          <h4>用途</h4>
+          <ul>
+            <li>推测糖中邻二-OH多少（试剂与反应物基本1:1）</li>
+            <li>同一分子式的糖，推测是<b>吡喃糖还是呋喃糖</b></li>
+            <li>推测低聚糖和多聚糖的<b>聚合度</b></li>
+            <li>推测<b>1,3连接还是1,4连接</b>（糖与糖连接的位置）</li>
+            <li>鉴别糖的种类：<b>氨基糖反应中有氨气产生</b></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>2. 糠醛形成反应（Molisch反应）</h3>
+        <div class="pathway-box">
+          单糖 <span class="arrow">→</span>（浓酸4-10mol/L，加热，-3H2O）<span class="arrow">→</span> 呋喃环结构（糠醛/5-羟甲基糠醛）<br>
+          多糖 <span class="arrow">→</span>（矿酸10%HCl）<span class="arrow">→</span> 单糖 <span class="arrow">→</span>（脱水）<span class="arrow">→</span> 糠醛/5-羟甲基糠醛<br>
+          糠醛衍生物 + 芳胺或酚类（苯酚、萘酚、苯胺、蒽酮）<span class="arrow">→</span> 显色
+        </div>
+        <div class="kw">⚠️ <b>碳苷和糖醛酸</b>与Molisch试剂反应往往呈<b>阴性</b>。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>3. 羟基反应</h3>
+        <p>糖的-OH反应：<b>醚化、酯化和缩醛(酮)化</b>。</p>
+        <div class="kw">反应活性顺序：<b>半缩醛羟基（C1-OH） &gt; 伯醇基（C6-OH） &gt; 仲醇</b>（伯醇因处于末端空间利于反应，活性高于仲醇）；仲醇中，<b>C2活性大于其他OH</b>（羰基诱导效应）</div>
+
+        <h4>3.1 醚化反应（甲基化）</h4>
+        <table>
+          <tr><th>方法</th><th>试剂</th><th>特点</th></tr>
+          <tr><td>1) Haworth法（不常用）</td><td>Me2SO4 + 30%NaOH</td><td>醇-OH全甲基化（需反复多次）；用IR判断-OH吸收峰；限量试剂(1:1)可得甲苷</td></tr>
+          <tr><td>2) Purdie法</td><td>MeI + Ag2O</td><td>全甲基化(醇-OH)；只能用于苷，不宜用于还原糖（Ag2O可氧化C1-OH）</td></tr>
+          <tr><td>3) Hakomori法（箱守法）</td><td>DMSO + NaH + MeI</td><td>非水溶剂(DMSO)中一次全甲基化</td></tr>
+          <tr><td>4) 重氮甲烷法</td><td>CH2N2/Et2O + MeOH</td><td>部分甲基化(-COOH、-CHO等)</td></tr>
+        </table>
+
+        <h4>3.2 酰化反应（酯化反应）</h4>
+        <div class="kw">羟基活性顺序与甲基化相同，即<b>C1-OH、C6-OH较易，C3最难</b>（C2位取代后引起的空间障碍使C3最难被酰化）。利用酰化可<b>判断糖上-OH数目、保护-OH</b>等。</div>
+
+        <h4>3.3 缩酮和缩醛化反应</h4>
+        <p>酮或醛在脱水剂（矿酸、无水ZnCl2、无水CuSO4等）存在下，可与多元醇的两个有适当空间位置的羟基形成环状缩酮（ketal）和缩醛（acetal）。</p>
+        <div class="grid2">
+          <div class="kw"><b>酮类</b>易与<b>顺邻-OH</b>生成 → <b>五元环状物</b>（如：糖+丙酮→五元环缩酮/异丙叉衍生物；六碳醛糖+丙酮多为双异丙叉衍生物）</div>
+          <div class="kw"><b>醛类</b>易与<b>1,3-双-OH</b>生成 → <b>六元环状物</b>（如：苯甲醛与糖生成苯甲叉衍生物，有顺式和反式两种）</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>4. 羰基反应</h3>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content">还原糖 + 苯肼 <b>→ 糖腙</b>（多为水溶性的）</div></div>
+          <div class="step"><div class="dot">2</div><div class="content">还原糖 + 3分子苯肼 <b>→ 糖脎</b>（较难溶于水）</div></div>
+        </div>
+        <div class="kw">⚠️ <b>2-去氧糖不能成脎</b>（因C2上无-OH）。应用：糖的<b>鉴定、分离和纯化</b>。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>5. 硼酸络合反应</h3>
+        <p>糖的<b>邻二-OH</b>可与许多试剂生成络合物，借生成络合物的某些物理常数的改变，可有助于糖的<b>分离、鉴定和构型推定</b>。重要的络合反应包括：<b>硼酸络合物、钼酸络合物、铜氨离子络合物</b>等。</p>
+        <div class="pathway-box">糖 + 硼酸（H3BO3，<b>Lewis酸</b>，接受电子对）<span class="arrow">→</span> 络合物（酸性增加，可离子化），可形成平面三叉体或四面体结构</div>
+
+        <h4>硼酸络合反应的应用</h4>
+        <ul>
+          <li>络合后中性可变为酸性，可进行<b>酸碱中和滴定</b></li>
+          <li>可进行<b>离子交换法</b>分离</li>
+          <li>可进行<b>电泳鉴定</b></li>
+          <li>可在<b>混有硼砂缓冲液的硅胶薄层</b>上进行色谱分离</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="sec4">
+      <div class="section-header">
+        <h2>第四节　苷键的裂解</h2>
+        <p>裂解方式分类 · 五大裂解方法详解</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>苷键裂解的分类方式</h3>
+        <table>
+          <tr><th>分类依据</th><th>类型</th></tr>
+          <tr><td><b>按裂解程度</b></td><td>全裂解、部分裂解（部分裂解：8-10%甲酸、40-50%乙酸、酶解、乙酰解、甲醇解）</td></tr>
+          <tr><td><b>按方法</b></td><td>均相、双相水解</td></tr>
+          <tr><td><b>按催化剂</b></td><td>酸、碱、乙酰解、酶解、过碘酸裂解等</td></tr>
+        </table>
+
+        <h4>一、苷键裂解的目的和应用</h4>
+        <div class="kw">为鉴定苷的结构，如<b>糖和糖的连接方式、苷元和糖的连接方式、糖的种类、个数</b>等。</div>
+
+        <h4>二、苷键裂解法（五种）</h4>
+        <p>1. 酸催化水解反应　2. 乙酰解反应　3. 碱催化水解　4. 酶催化水解反应　5. 氧化开裂法（Smith降解法）</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>1. 酸催化水解反应</h3>
+        <p>苷键属<b>缩醛结构</b>，易为稀酸水解。</p>
+        <div class="kw"><b>反应机理</b>：苷原子先质子化，然后断键生成<b>阳碳离子</b>或<b>半椅型中间体</b>，在水中溶剂化而成糖。</div>
+
+        <div class="collapsible open">
+          <div class="head">酸水解难易顺序规律（重点记忆）</div>
+          <div class="body">
+          <ul>
+            <li><b>C-苷 &gt; S-苷 &gt; O-苷 &gt; N-苷</b>（但酰胺活性很低）</li>
+            <li><b>醇苷 &gt; 酚苷、烯醇苷</b></li>
+            <li><b>2-氨基糖 &gt; 2-羟基糖 &gt; 6-去氧糖 &gt; 2-去氧糖 &gt; 2,6-二去氧糖(苷)</b></li>
+            <li><b>吡喃糖苷 &gt; 呋喃糖苷</b>；<b>醛糖苷 &gt; 酮糖苷</b></li>
+            <li><b>糖醛酸 &gt; 七碳糖 &gt; 六碳糖 &gt; 甲基五碳糖 &gt; 五碳糖</b></li>
+          </ul>
+          </div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">其他影响水解速率的因素</div>
+          <div class="body">
+          <ul>
+            <li>在构象相同的糖中：<b>a键(竖键)-OH多则易水解</b></li>
+            <li><b>芳香苷较脂肪属苷易水解</b>：酚苷 &gt; 萜苷、甾苷（因苷元部分有供电结构，脂肪属苷元无供电结构）</li>
+            <li><b>苷元为小基团</b>：苷键<b>横键比竖键易水解（e &gt; a）</b>（横键易质子化）</li>
+            <li><b>苷元为大基团</b>：苷键<b>竖键比横键易水解（a &gt; e）</b>（苷的不稳定性促使其易水解）</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>2. 乙酰解反应</h3>
+        <div class="kw"><b>常用试剂</b>：醋酐 + 酸（如H2SO4、HClO4、CF3COOH 或Lewis酸 ZnCl2、BF3等）；<b>反应条件</b>：一般室温放置数天</div>
+        <p><b>反应机理</b>：与酸催化水解相似，以<b>CH3CO⁺（乙酰基，Ac）</b>为进攻基团。乙酰解反应<b>易发生糖的端基异构化</b>。</p>
+
+        <h4>乙酰解应用</h4>
+        <ul>
+          <li>酰化可保护苷元上的-OH，使苷元增加亲脂性，可用于<b>提纯和鉴定</b></li>
+          <li>乙酰解法可<b>开裂一部分苷键而保留另一部分苷键</b></li>
+        </ul>
+        <div class="kw">⚠️ β-苷键的葡萄糖双糖反应速率（乙酰解难易顺序，与<b>空间位阻</b>相关）：<br><b>（1→6） &gt;&gt; （1→4） &gt;&gt; （1→3） &gt;&gt; （1→2）</b></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>3. 碱催化水解</h3>
+        <div class="kw">一般苷键对稀碱<b>稳定</b>，但某些特殊苷易被碱水解，如：<b>酯苷、酚苷、与羰基共轭的烯醇苷、β-吸电子基取代的苷</b></div>
+        <p><b>C1-OH与C2-OH</b>关系判断水解产物：<b>反式</b>易水解，产物为<b>1,6-葡萄糖酐</b>；<b>顺式</b>产物为正常的糖。可利用水解产物<b>判断苷键构型</b>。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>4. 酶催化水解反应</h3>
+        <div class="kw"><b>特点</b>：反应条件温和，专属性高；保持苷元结构不变；可<b>判断苷键构型</b>。</div>
+        <table>
+          <tr><th>常用水解酶</th><th>水解专一性</th></tr>
+          <tr><td>杏仁苷酶</td><td>只水解 β-六碳醛糖苷键</td></tr>
+          <tr><td>麦芽糖酶</td><td>只水解 α-D-葡萄糖糖苷键</td></tr>
+          <tr><td>纤维素酶</td><td>只水解 β-D-葡萄糖糖苷键</td></tr>
+          <tr><td>蜗牛酶</td><td>只水解 β-苷键</td></tr>
+          <tr><td>转化糖酶</td><td>只水解 β-果糖苷键</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>5. 氧化开裂法（Smith降解法）</h3>
+        <div class="kw"><b>试剂</b>：过碘酸（HIO4）、四氢硼钠（NaBH4）、稀酸</div>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content">NaIO4 <b>氧化开裂成醛</b></div></div>
+          <div class="step"><div class="dot">2</div><div class="content">NaBH4 <b>还原成醇</b></div></div>
+          <div class="step"><div class="dot">3</div><div class="content"><b>酸化水解</b></div></div>
+        </div>
+        <div class="kw">⚠️ <b>特点</b>：条件温和，易得到原苷元；<b>适合于苷元不稳定的苷和碳苷的裂解</b>。</div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section" id="sec5">
+      <div class="section-header">
+        <h2>第五节　提取分离</h2>
+        <p>提取方法 · 纯化（水提醇沉/系统分离） · 六种多糖分离方法</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、提取</h3>
+        <div class="grid2">
+          <div class="kw">
+            <b>提取溶剂</b><br>
+            单糖、低聚糖、苷：常用<b>水或稀醇</b>提取<br>
+            多糖：用<b>水或稀碱液</b>提取
+          </div>
+          <div class="kw">
+            <b>纯化方法</b><br>
+            <b>水提醇沉法</b>：醇溶为苷、低聚糖；沉淀为多糖<br>
+            <b>系统分离法</b>：EtOAc层 — 单糖苷；正丁醇层 — 低聚糖苷、单糖
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、分离（六种方法）</h3>
+        <div class="collapsible open">
+          <div class="head">1. 季铵盐沉淀法</div>
+          <div class="body">用于<b>酸性多糖</b>的分离。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">2. 分级沉淀或分级溶解</div>
+          <div class="body">多糖在<b>不同浓度的醇或丙酮</b>中具有不同的溶解度。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">3. 离子交换色谱</div>
+          <div class="body">适用于分离<b>酸性、中性多糖和粘多糖</b>。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">4. 纤维素柱色谱</div>
+          <div class="body">兼有<b>吸附色谱和分配色谱</b>的性质。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">5. 纸色谱（PC）</div>
+          <div class="body">用于<b>单糖的鉴定</b>。展开剂：<b>BAW（n-BuOH:HAc:H2O = 4:1:5，上相）</b>；极性小，Rf值大。</div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">6. 凝胶柱色谱</div>
+          <div class="body">
+          常用凝胶：<b>葡聚糖凝胶（Sephadex G）</b>、<b>琼脂糖凝胶（Sepharose, Bio-gel A）</b>、<b>聚丙烯酰胺凝胶（Bio-gel P）</b>等。<br>
+          洗脱剂：各种浓度的<b>盐溶液及缓冲液</b>。<br>
+          原理：分离多糖，<b>按分子大小和形状不同</b>分离。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section" id="sec6">
+      <div class="section-header">
+        <h2>第六节　糖的核磁共振性质</h2>
+        <p>¹H-NMR性质 · ¹³C-NMR性质 · 苷化位移规律</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、糖的¹H-NMR性质</h3>
+        <h4>1. 化学位移</h4>
+        <table>
+          <tr><th>质子类型</th><th>δ (ppm)</th></tr>
+          <tr><td>糖端基质子</td><td>4.3~6.0</td></tr>
+          <tr><td>其它碳上质子</td><td>3.2~4.2</td></tr>
+          <tr><td>C6-CH3（鼠李糖）</td><td>1.0 (3H, d, J=6Hz)</td></tr>
+        </table>
+
+        <div class="collapsible open">
+          <div class="head">2. 偶合常数 J1,2 判断苷键构型（吡喃型糖C1式）</div>
+          <div class="body">
+          <ul>
+            <li>苷键为α-D或α-L型，<b>端基质子和C2-H均为竖键（a,a）时，J=6~8Hz</b>；C2-H为横键时，J=2~4Hz</li>
+            <li>苷键为β-D或β-L型，<b>端基质子为横键时，J=2~4Hz</b></li>
+          </ul>
+          <div class="kw">⚠️ <b>呋喃型糖偶合常数变化不大，不能用端基质子偶合常数判断苷键构型</b>。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、糖的¹³C-NMR性质</h3>
+        <h4>1. 化学位移及偶合常数</h4>
+        <table>
+          <tr><th>碳类型</th><th>δ (ppm)</th></tr>
+          <tr><td><b>端基碳</b></td><td>95~105</td></tr>
+          <tr><td>CH-OH（C2、C3、C4）</td><td>70~85</td></tr>
+          <tr><td>CH2-OH（C6）</td><td>约62</td></tr>
+          <tr><td>CH3（如鼠李糖C6-CH3）</td><td>&lt;20</td></tr>
+        </table>
+
+        <div class="collapsible open">
+          <div class="head">偶合常数 ¹JC1-H1（用于苷键判定）</div>
+          <div class="body">
+          吡喃糖（优势构象C1式）：<br>
+          <ul>
+            <li><b>α-D或α-L型苷键：170~175Hz</b></li>
+            <li><b>β-D或β-L型苷键：160~165Hz</b></li>
+          </ul>
+          鼠李糖（优势构象1C式）：α-L型 170~175Hz；β-L型 160~165Hz。
+          </div>
+        </div>
+
+        <h4>2. 苷化位移（Glycosylation shift）</h4>
+        <div class="kw"><b>定义</b>：糖与苷元成苷后，苷元的α-C、β-C 和糖的端基碳的化学位移值发生变化，这种变化称为苷化位移。<br>
+        <b>应用</b>：推测糖与苷元、糖与糖的连接位置，苷元被苷化碳的绝对构型及碳氢信号归属。</div>
+
+        <div class="collapsible open">
+          <div class="head">苷化位移记忆口诀：同五异十其余七 / 同小异大</div>
+          <div class="body">
+          <p><b>规律</b>：苷化位移值<b>与苷元的结构有关，与糖的种类无关</b>。若苷元为链状结构，端基碳（约-1~-2ppm）的苷化位移随苷元为伯、仲、叔基而递减；苷元的α-C（约+5~+7ppm）、β-C（约-4ppm）变化不大。</p>
+          <div class="kw">
+          <b>"同五异十其余七"</b>：当苷元和端基碳的<b>绝对构型相同</b>时，<b>α-C向低场位移约+5ppm</b>；不同时位移<b>约+10ppm</b>（仅限于两个β-C取代不同的环醇苷）；其余的苷则位移约<b>+7ppm</b>。<br><br>
+          <b>"同小异大"</b>：当苷元β-C的前手性和端基碳的绝对构型<b>相同</b>时，<b>β-C向高场位移约-2ppm</b>；不同时则约<b>-4ppm</b>（限于两个β-C为前手性碳的环醇苷）。
+          </div>
+          </div>
+        </div>
+        <div class="kw">⚠️ <b>酯苷、酚苷的苷化位移较特殊</b>：当糖与-OH形成酯苷键或酚苷键时，<b>端基碳和苷元α-碳均向高场位移</b>。</div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section" id="sec7">
+      <div class="section-header">
+        <h2>第七节　糖链的结构测定</h2>
+        <p>纯度/分子量测定 · 单糖鉴定与绝对构型 · 连接位置/顺序 · 苷键构型确定</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>糖链结构测定的内容</h3>
+        <div class="kw">单糖的组成、单糖的绝对构型测定、糖的氧环、糖与糖的连接位置和顺序、苷键的构型等。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>1. 纯度测定</h3>
+        <div class="kw">多糖纯品实质上是<b>一定分子量范围的均一组分</b>。</div>
+        <p><b>常用方法</b>：超离心法、高压电泳法（制成硼酸络合物）、凝胶色谱法、旋光测定法（分级沉淀，测比旋度）。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>2. 分子量测定</h3>
+        <p>主要采用<b>质谱法</b>，包括：<b>FDMS</b>（场解析质谱）、<b>FABMS</b>（快原子轰击质谱）、<b>ESIMS</b>（电喷雾质谱）、<b>MALDI-TOF-MS</b>（基质辅助激光解析电离飞行时间质谱）。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>3. 单糖的鉴定</h3>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content"><b>全水解</b></div></div>
+          <div class="step"><div class="dot">2</div><div class="content"><b>PC、TLC</b>：与单糖对照品比较，鉴定糖的种类</div></div>
+          <div class="step"><div class="dot">3</div><div class="content"><b>薄层扫描</b>：测定单糖的分子比</div></div>
+          <div class="step"><div class="dot">4</div><div class="content"><b>气相色谱、HPLC</b>等定性定量分析</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>4. 单糖绝对构型的测定</h3>
+        <table>
+          <tr><th>方法</th><th>原理/常用试剂</th></tr>
+          <tr><td><b>GC法</b></td><td>在分子中引入一个<b>同种构型</b>的新手性中心，使对映异构体变成非对映异构体；常用 <b>L-半胱氨酸甲酯</b></td></tr>
+          <tr><td><b>HPLC法</b></td><td>引入一个新的手性中心；常用 <b>S-苯基乙基胺</b></td></tr>
+          <tr><td>其他</td><td>手性色谱柱法、手性检测器法、旋光比较法</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>5. 糖连接位置的测定</h3>
+        <ul>
+          <li>糖链（多糖、苷）<b>全甲基化水解</b> → 甲基化单糖<b>气相色谱</b>定性定量分析（<b>游离羟基的部位即为糖的连接位置</b>）</li>
+          <li><b>¹H-NMR</b>：全乙酰化后测¹H-NMR，CHOAc、CHOR、CH2OAc、CH2OR的质子信号化学位移不同</li>
+          <li><b>苷化位移</b></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">7</span>6. 糖链连接顺序的确定</h3>
+        <table>
+          <tr><th>方法</th><th>说明</th></tr>
+          <tr><td><b>部分水解法</b></td><td>稀酸水解、甲醇解、乙酰解、碱水解等</td></tr>
+          <tr><td><b>质谱分析</b></td><td>FABMS、FDMS、CIMS等，分析质谱碎片（<b>从外侧糖依次裂解</b>）</td></tr>
+          <tr><td><b>¹³C-NMR弛豫时间</b></td><td><b>外侧糖的自旋弛豫时间T1比内侧糖大</b>（自旋晶格弛豫/纵向弛豫时间，涉及自旋子在相邻晶格间能量传递）</td></tr>
+          <tr><td><b>2D-NMR</b></td><td>¹H-¹H COSY、HMQC、HMBC、NOESY、HOHAHA等</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">8</span>7. 苷键构型的确定（α和β型）</h3>
+        <table>
+          <tr><th>方法</th><th>说明</th></tr>
+          <tr><td><b>核磁共振法</b></td><td>糖端基质子 J(H1,2)；端基碳 J(C1,H1) 和化学位移</td></tr>
+          <tr><td><b>酶解法</b></td><td>利用酶的专属性判断苷键构型</td></tr>
+          <tr><td><b>分子旋光差法（Klyne法）</b></td><td>将苷和苷元的分子旋光差与组成该苷的糖的一对甲苷（α和β型）的分子旋光度比较，<b>数值相近者即为相同苷键</b></td></tr>
+          <tr><td><b>红外法</b></td><td><b>α-葡萄糖苷在770、780 cm⁻¹有强吸收峰</b></td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">9</span>本章小结</h3>
+        <ul>
+          <li>常见的几种单糖的结构特征</li>
+          <li>糖的化学性质：过碘酸氧化、Smith降解、醚化反应、酰化反应、缩酮和缩醛反应，以及硼酸络合反应</li>
+          <li>苷键的裂解规律和特征</li>
+          <li>糖的核磁共振谱学特征：糖上的质子在¹H-NMR谱及碳原子信号在¹³C-NMR上出现的大致位置；根据J值判断多数糖苷端基碳原子构型；苷化位移规律</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section class="section" id="flashcards">
+      <div class="section-header">
+        <h2>🃏 速记卡片</h2>
+        <p>点击卡片翻转查看答案，覆盖七节核心考点</p>
+      </div>
+      <div class="flash-wrap" id="flashWrap"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <div class="section-header">
+        <h2>📝 自测题</h2>
+        <p>选择题，点击选项查看是否正确及解析</p>
+      </div>
+      <div class="quiz-progress">已完成 <span id="quizDone">0</span> / <span id="quizTotal">0</span> 题 <span class="score-pill">正确率 <span id="quizScore">0%</span></span></div>
+      <div id="quizWrap"></div>
+      <button class="btn secondary" onclick="resetQuiz()">重新开始</button>
+    </section>
+  </main>
+</div>
+
+<script>
+// Navigation
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach(item=>{
+  item.addEventListener('click', ()=>showSection(item.dataset.target));
+});
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  navItems.forEach(n=>n.classList.toggle('active', n.dataset.target===id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// Collapsibles
+document.querySelectorAll('.collapsible .head').forEach(h=>{
+  h.addEventListener('click', ()=>{
+    h.parentElement.classList.toggle('open');
+  });
+});
+
+// FLASHCARDS DATA
+// Fill in: {f: "正面问题/术语", b: "背面答案/解释"}
+const flashcards = [
+  {f:"糖、单糖、苷的定义区别？", b:"糖类：多羟基醛或酮，或水解能产生这些醛酮的物质；单糖：糖的基本单位，不能再水解的多羟基醛或多羟基酮；苷：糖通过半缩醛/半缩酮羟基与苷元脱水形成的化合物。苷的共性是糖+苷键；多糖含苷键但不是苷"},
+  {f:"Fischer投影式中糖的D/L构型如何判定？", b:"以距离醛基(羰基)最远的手性碳原子上的-OH而定：向右为D-构型，向左为L-构型（相对于D/L-甘油醛）"},
+  {f:"Haworth式中六碳醛糖吡喃糖与五碳醛糖吡喃糖的D/L判定有何不同？", b:"六碳醛糖和甲基五碳糖构成的吡喃糖：C5取代基向上为D型，向下为L型；五碳醛糖构成的吡喃糖：C4取代基向上为L型，向下为D型（规则相反！）"},
+  {f:"差向异构体(epimer)与端基差向异构体(anomer)的区别？", b:"差向异构体：多个手性中心的化合物中只有一个手性中心不同形成的异构体；端基差向异构体：单糖成环后新形成的端基碳上的一对α、β异构体"},
+  {f:"Fischer式中端基差向异构体α/β如何判定？", b:"\"同α异β\"：C1-OH(端基碳)与距离羰基最远手性碳上的OH在同侧者为α型，异侧者为β型"},
+  {f:"Haworth式中六碳醛糖吡喃糖端基异构体α/β如何判定？", b:"\"同β异α\"：C1-OH(端基碳)与C5-OH(距羰基最远手性碳上的取代基)在同侧者为β型，异侧者为α型"},
+  {f:"β-D型糖与哪种构型的端基碳绝对构型相同？", b:"β-D 与 α-L 的端基碳绝对构型相同；α-D 与 β-L 的端基碳绝对构型相同（优势构象一样时）"},
+  {f:"吡喃型糖的优势构象及D型/L型糖分别采取哪种椅式？", b:"吡喃型糖优势构象为椅式(C1式即4C1式，1C式即1C4式)。规律：D型糖采取C1式更稳定，L型葡萄糖采取1C式更稳定；β-构型端基OH总是处于平伏键(e键)"},
+  {f:"低聚糖的定义及还原糖/非还原糖的分类依据？", b:"低聚糖：2~9个单糖通过苷键结合而成的直链或支链聚糖；按是否含游离醛基或酮基分为还原糖和非还原糖"},
+  {f:"直链淀粉与支链淀粉的连接方式区别？", b:"直链淀粉：α1→4连接；支链淀粉：以α1→4连接为主，含α1→6连接的支链。分子呈螺旋状，碘分子进入螺环通道形成包结化合物而显色，颜色与聚合度有关"},
+  {f:"根据苷键原子，苷可分为哪四大类？", b:"氧苷(O-苷)、氮苷(N-苷)、硫苷(S-苷)、碳苷(C-苷)"},
+  {f:"氧苷(O-苷)细分为哪五类及代表化合物？", b:"醇苷(红景天苷)、酚苷(天麻苷)、氰苷(苦杏仁苷，分解产生HCN)、酯苷/酰苷(山慈菇苷A)、吲哚苷(靛苷)"},
+  {f:"碳苷(C-苷)的结构特征及代表化合物？", b:"苷元碳上的氢与糖的半缩醛(酮)羟基脱水缩合成苷；苷元多为间苯二酚、间苯三酚类化合物，常见于黄酮、蒽醌、酚酸类，代表化合物：牡荆素"},
+  {f:"单糖、双糖、叁糖的极性大小关系？苷的极性顺序？", b:"单糖 > 双糖 > 叁糖；苷的极性：苷元 < 单糖苷 < 双糖苷 < 叁糖苷"},
+  {f:"单糖结构中反应活泼性顺序及银镜反应/费林反应的氧化剂？", b:"反应活泼性顺序：端基碳原子 > 伯碳 > 仲碳；银镜反应(Tollen)以Ag+为氧化剂，费林反应(Fehling)以Cu2+为氧化剂"},
+  {f:"过碘酸反应主要作用于哪些结构？反应速度顺式与反式哪个快？", b:"主要作用于：邻二醇、α-氨基醇、α-羟基醛(酮)、邻二酮和某些活性次甲基等结构；反应速度：顺式 > 反式(因顺式易形成环式中间体)"},
+  {f:"过碘酸反应的5个主要用途？", b:"①推测糖中邻二-OH多少 ②推测同分子式糖是吡喃糖还是呋喃糖 ③推测低聚糖/多聚糖的聚合度 ④推测1,3连接还是1,4连接 ⑤鉴别糖种类(氨基糖反应有氨气产生)"},
+  {f:"Molisch反应的原理及碳苷/糖醛酸的特殊反应？", b:"单糖在浓酸(4-10mol/L)加热脱水(-3H2O)生成呋喃环结构(糠醛/5-羟甲基糠醛)，与芳胺或酚类(苯酚、萘酚、苯胺、蒽酮)显色；碳苷和糖醛酸与Molisch试剂反应往往呈阴性"},
+  {f:"糖的-OH反应活性顺序及原因？", b:"C1-OH(半缩醛羟基) > C6-OH(伯醇) > 仲醇；伯醇因处于末端空间利于反应活性高于仲醇；仲醇中C2活性最大(羰基诱导效应)"},
+  {f:"四种糖的甲基化方法及其特点？", b:"Haworth法(Me2SO4+30%NaOH，不常用，限量可得甲苷)；Purdie法(MeI+Ag2O，只能用于苷，不宜用于还原糖)；Hakomori法(DMSO+NaH+MeI，非水溶剂一次全甲基化)；重氮甲烷法(CH2N2/Et2O+MeOH，部分甲基化-COOH/-CHO等)"},
+  {f:"糖的酰化反应中C3为什么最难被酰化？", b:"羟基活性与甲基化相同(C1-OH、C6-OH较易，C3最难)；因C2位取代后引起的空间障碍，使C3最难被酰化。利用酰化可判断糖上-OH数目、保护-OH"},
+  {f:"缩酮和缩醛反应中酮类和醛类分别易与什么形式的-OH反应？", b:"酮类易与顺邻-OH生成五元环状物(异丙叉衍生物)；醛类易与1,3-双-OH生成六元环状物(如苯甲叉衍生物，有顺式和反式)"},
+  {f:"糖腙与糖脎的区别？2-去氧糖能否成脎？", b:"还原糖+苯肼→糖腙(多为水溶性);还原糖+3分子苯肼→糖脎(较难溶于水)；2-去氧糖不能成脎(因C2上无-OH)。应用于糖的鉴定、分离和纯化"},
+  {f:"硼酸络合反应的本质及应用？", b:"H3BO3是Lewis酸(接受电子对)，与糖的邻二-OH络合后中性变酸性(可离子化)；应用：①酸碱中和滴定 ②离子交换法分离 ③电泳鉴定 ④硼砂缓冲液硅胶薄层色谱"},
+  {f:"苷键裂解的难易顺序（按苷键原子和糖的差异）？", b:"按原子：C-苷 > S-苷 > O-苷 > N-苷(酰胺活性很低)；按糖：醇苷 > 酚苷/烯醇苷；2-氨基糖 > 2-羟基糖 > 6-去氧糖 > 2-去氧糖 > 2,6-二去氧糖；吡喃糖苷 > 呋喃糖苷，醛糖苷 > 酮糖苷；糖醛酸 > 七碳糖 > 六碳糖 > 甲基五碳糖 > 五碳糖"},
+  {f:"苷元为小基团/大基团时，苷键横键(e)与竖键(a)的水解速率关系？", b:"苷元为小基团：横键比竖键易水解(e>a，横键易质子化)；苷元为大基团：竖键比横键易水解(a>e，苷的不稳定性促使其易水解)"},
+  {f:"乙酰解反应的常用试剂及β-苷键葡萄糖双糖的反应速率顺序？", b:"常用试剂：醋酐+酸(H2SO4/HClO4/CF3COOH或Lewis酸ZnCl2/BF3)，室温放置数天，以CH3CO+为进攻基团，易发生端基异构化；速率顺序(与空间位阻相关)：(1→6) >> (1→4) >> (1→3) >> (1→2)"},
+  {f:"碱催化水解中C1-OH与C2-OH顺式/反式分别水解产生什么产物？", b:"反式易水解，产物为1,6-葡萄糖酐；顺式产物为正常的糖。可利用水解产物判断苷键构型"},
+  {f:"五种常用糖苷水解酶及其专一性？", b:"杏仁苷酶：只水解β-六碳醛糖苷键；麦芽糖酶：只水解α-D-葡萄糖糖苷键；纤维素酶：只水解β-D-葡萄糖糖苷键；蜗牛酶：只水解β-苷键；转化糖酶：只水解β-果糖苷键"},
+  {f:"Smith降解法的三步反应及其特点和适用范围？", b:"①NaIO4氧化开裂成醛 ②NaBH4还原成醇 ③酸化水解；特点：条件温和易得原苷元，适合苷元不稳定的苷和碳苷的裂解"},
+  {f:"糖类提取的纯化方法：水提醇沉法与系统分离法分别得到什么？", b:"水提醇沉法：醇溶为苷、低聚糖；沉淀为多糖。系统分离法：EtOAc层为单糖苷；正丁醇层为低聚糖苷、单糖"},
+  {f:"季铵盐沉淀法和离子交换色谱分别适用于哪类多糖的分离？", b:"季铵盐沉淀法：用于酸性多糖的分离；离子交换色谱：适用于分离酸性、中性多糖和粘多糖"},
+  {f:"纸色谱(PC)鉴定单糖常用展开剂及其极性规律？", b:"展开剂BAW(n-BuOH:HAc:H2O = 4:1:5，上相)；极性小，Rf值大"},
+  {f:"凝胶柱色谱常用的三种凝胶及分离原理？", b:"葡聚糖凝胶(Sephadex G)、琼脂糖凝胶(Sepharose/Bio-gel A)、聚丙烯酰胺凝胶(Bio-gel P)；洗脱剂为各种浓度盐溶液及缓冲液；按分子大小和形状不同分离多糖"},
+  {f:"糖端基质子和其他碳上质子的¹H-NMR化学位移范围？", b:"糖端基质子：δ4.3~6.0；其它碳上质子：δ3.2~4.2；鼠李糖C6-CH3：δ1.0(3H,d,J=6Hz)"},
+  {f:"吡喃型糖C1式中，J1,2偶合常数如何判断苷键构型？", b:"α-D或α-L型：端基质子和C2-H均为竖键(a,a)时J=6~8Hz；β-D或β-L型：端基质子为横键时J=2~4Hz。⚠️呋喃型糖偶合常数变化不大，不能用此法判断"},
+  {f:"糖端基碳、CH-OH、CH2-OH的¹³C-NMR化学位移范围？", b:"端基碳：δ95~105；CH-OH(C2/C3/C4)：δ70~85；CH2-OH(C6)：约δ62；CH3：<δ20"},
+  {f:"吡喃糖¹JC1-H1偶合常数如何用于苷键判定？", b:"优势构象C1式：α-D或α-L型苷键 170~175Hz；β-D或β-L型苷键 160~165Hz（用于苷键判定）；鼠李糖优势构象1C式中α-L型170~175Hz，β-L型160~165Hz"},
+  {f:"苷化位移\"同五异十其余七\"口诀的含义？", b:"当苷元和端基碳的绝对构型相同时，α-C向低场位移约+5ppm；不同时位移约+10ppm（限两个β-C取代不同的环醇苷）；其余的苷位移约+7ppm"},
+  {f:"苷化位移\"同小异大\"口诀的含义？", b:"当苷元β-C的前手性和端基碳的绝对构型相同时，β-C向高场位移约-2ppm；不同时约-4ppm（限两个β-C为前手性碳的环醇苷）"},
+  {f:"酯苷、酚苷的苷化位移有何特殊性？", b:"当糖与-OH形成酯苷键或酚苷键时，端基碳和苷元α-碳均向高场位移（与一般醇苷规律相反）"},
+  {f:"单糖绝对构型测定的GC法和HPLC法分别常用什么试剂？", b:"GC法：引入同种构型新手性中心，使对映异构体变成非对映异构体，常用L-半胱氨酸甲酯；HPLC法：引入新手性中心，常用S-苯基乙基胺"},
+  {f:"糖链连接顺序确定的四种方法？", b:"①部分水解法(稀酸水解、甲醇解、乙酰解、碱水解) ②质谱分析(FABMS/FDMS/CIMS，从外侧糖依次裂解) ③¹³C-NMR弛豫时间(外侧糖T1比内侧糖大) ④2D-NMR(COSY/HMQC/HMBC/NOESY/HOHAHA)"},
+  {f:"苷键构型(α/β)确定的四种方法？", b:"①核磁共振法(J(H1,2)、J(C1,H1)及化学位移) ②酶解法 ③分子旋光差法(Klyne法，与糖的甲苷旋光度比较) ④红外法(α-葡萄糖苷在770、780cm⁻¹有强吸收峰)"},
+];
+
+const flashWrap = document.getElementById('flashWrap');
+flashcards.forEach((card,i)=>{
+  const el = document.createElement('div');
+  el.className='flashcard';
+  el.innerHTML = `
+    <div class="inner">
+      <div class="face front">${card.f}<span class="hint">点击翻转</span></div>
+      <div class="face back">${card.b}</div>
+    </div>`;
+  el.addEventListener('click', ()=>el.classList.toggle('flipped'));
+  flashWrap.appendChild(el);
+});
+
+// QUIZ DATA
+// Fill in: {q: "题目", opts: ["选项A","选项B","选项C","选项D"], correct: 0, explain: "解析"}
+const quizData = [
+  {q:"单糖的绝对构型是以哪个手性碳原子的构型来确定的？",
+   opts:["距离羰基最近的手性碳","距离羰基最远的手性碳","端基碳","C2位手性碳"], correct:1,
+   explain:"习惯上将单糖最后一个手性碳原子（即距离羰基最远的手性碳）的构型定为单糖的绝对构型。"},
+  {q:"Fischer投影式中，距离醛基最远的手性碳上-OH向右，该糖的构型为？",
+   opts:["L-构型","D-构型","α-构型","β-构型"], correct:1,
+   explain:"Fischer投影式中，以距离醛基（或羰基）最远的手性碳原子上的-OH而定，向右为D-构型，向左为L-构型。"},
+  {q:"在Haworth式中，由五碳醛糖构成的吡喃糖，C4取代基向上时，该糖为？",
+   opts:["D型","L型","α型","β型"], correct:1,
+   explain:"五碳醛糖构成的吡喃糖：C4上的取代基向上为L型，向下为D型（与六碳醛糖吡喃糖规则相反）。"},
+  {q:"单糖成环后形成的新手性碳（端基碳）产生的一对异构体称为？",
+   opts:["差向异构体(epimer)","端基差向异构体(anomer)","顺反异构体","构造异构体"], correct:1,
+   explain:"端基差向异构体（anomer）是单糖成环后形成新的手性碳原子（端基碳），所产生的一对α、β异构体。"},
+  {q:"β-D型糖的端基碳绝对构型与下列哪种构型相同（优势构象一样时）？",
+   opts:["α-D","α-L","β-L以外的所有","无对应关系"], correct:1,
+   explain:"β-D 和 α-L、α-D 和 β-L 型糖（优势构象一样时）的端基碳绝对构型是一样的。"},
+  {q:"D型糖更稳定的构象式是？",
+   opts:["1C4式（1C式）","4C1式（C1式）","信封式","半椅式"], correct:1,
+   explain:"规律：D型糖采取C1式（4C1式）更稳定，L型葡萄糖采取1C式（1C4式）更稳定。"},
+  {q:"以下关于β构型端基OH的描述正确的是？",
+   opts:["总是处于直立键(a键)","总是处于平伏键(e键)","随构象任意变化","与构型无关"], correct:1,
+   explain:"规律2：β-构型的端基OH总是处于平伏键（e键）。"},
+  {q:"低聚糖按是否含有游离醛基或酮基可分为？",
+   opts:["二糖和三糖","原生苷和次生苷","还原糖和非还原糖","单糖苷和双糖苷"], correct:2,
+   explain:"低聚糖根据是否含有游离的醛基或酮基分为还原糖和非还原糖。"},
+  {q:"支链淀粉中除α1→4连接外还含有哪种连接方式？",
+   opts:["α1→3连接","α1→6连接","β1→4连接","β1→6连接"], correct:1,
+   explain:"支链淀粉分子呈螺旋状，以α1→4连接为主，但含有α1→6连接的支链。"},
+  {q:"苷元为α-羟腈、易分解产生氢氰酸(HCN)的氧苷类型是？",
+   opts:["醇苷","酚苷","氰苷","酯苷"], correct:2,
+   explain:"氰苷：苷元为α-羟腈形成的苷，易分解成醛或酮和氢氰酸（HCN），如苦杏仁苷。"},
+  {q:"牡荆素是哪种苷键原子类型的代表化合物？",
+   opts:["氧苷(O-苷)","氮苷(N-苷)","硫苷(S-苷)","碳苷(C-苷)"], correct:3,
+   explain:"碳苷(C-苷)：苷元碳上的氢与糖的半缩醛(酮)羟基脱水缩合成苷，苷元多为间苯二酚、间苯三酚类，常见于黄酮、蒽醌、酚酸类，代表化合物为牡荆素。"},
+  {q:"白芥子苷是哪种苷键原子类型的代表化合物？",
+   opts:["氧苷","氮苷","硫苷","碳苷"], correct:2,
+   explain:"硫苷(S-苷)：苷元的巯基(-SH)与糖的半缩醛(酮)羟基脱水缩合成苷，代表化合物为白芥子苷。"},
+  {q:"以下苷的极性大小顺序，正确的是？",
+   opts:["苷元 < 单糖苷 < 双糖苷 < 叁糖苷","叁糖苷 < 双糖苷 < 单糖苷 < 苷元","苷元 > 单糖苷 > 双糖苷 > 叁糖苷","所有苷极性相同"], correct:0,
+   explain:"苷的极性：苷元 < 单糖苷 < 双糖苷 < 叁糖苷。"},
+  {q:"单糖结构中反应活泼性顺序正确的是？",
+   opts:["伯碳 > 端基碳原子 > 仲碳","端基碳原子 > 伯碳 > 仲碳","仲碳 > 伯碳 > 端基碳原子","三者活性相同"], correct:1,
+   explain:"单糖结构中反应活泼性顺序：端基碳原子 > 伯碳 > 仲碳。"},
+  {q:"过碘酸反应主要作用于以下哪种结构？",
+   opts:["孤立双键","邻二醇及α-羟基醛(酮)等结构","芳香环","羧酸"], correct:1,
+   explain:"过碘酸反应主要作用于：邻二醇、α-氨基醇、α-羟基醛(酮)、邻二酮和某些活性次甲基等结构。"},
+  {q:"过碘酸氧化反应的反应速度规律是？",
+   opts:["顺式 > 反式","反式 > 顺式","顺式与反式速度相同","与构型无关"], correct:0,
+   explain:"反应速度：顺式 > 反式，因顺式易形成环式中间体。"},
+  {q:"过碘酸反应中，游离单糖产物及消耗过碘酸用哪种结构式计算？",
+   opts:["Haworth式","Fischer式","优势构象式","椅式"], correct:1,
+   explain:"游离单糖产物及消耗过碘酸用Fischer式计算；成苷时糖产物及消耗过碘酸用Haworth式计算。"},
+  {q:"哪类化合物与Molisch试剂反应往往呈阴性？",
+   opts:["单糖","双糖","碳苷和糖醛酸","多糖"], correct:2,
+   explain:"碳苷和糖醛酸与Molisch试剂反应往往呈阴性。"},
+  {q:"糖的-OH反应活性顺序中，活性最高的是？",
+   opts:["C6-OH(伯醇)","C1-OH(半缩醛羟基)","C3-OH","仲醇C2-OH"], correct:1,
+   explain:"反应活性顺序：半缩醛羟基（C1-OH）> 伯醇基（C6-OH） > 仲醇。"},
+  {q:"Purdie法（MeI+Ag2O）甲基化反应的主要限制是？",
+   opts:["不能用于苷","只能用于苷，不宜用于还原糖","只能部分甲基化","需在水溶液中进行"], correct:1,
+   explain:"Purdie法：只能用于苷，不宜用于还原糖（即有C1-OH的糖），因Ag2O有氧化作用，可使C1-OH氧化。"},
+  {q:"Hakomori法（箱守法）甲基化反应使用的非水溶剂是？",
+   opts:["乙醇","DMSO（二甲基亚砜）","丙酮","乙酸乙酯"], correct:1,
+   explain:"Hakomori法：样品+DMSO+NaH+MeI→全甲基化（一次），该反应在非水溶剂DMSO中进行。"},
+  {q:"糖的酰化反应中，C3最难被酰化的原因是？",
+   opts:["C3活性本身最低","C2位取代后引起的空间障碍","C3不含羟基","C3被保护"], correct:1,
+   explain:"羟基活性与甲基化反应相同，由于C2位取代后引起的空间障碍，使得C3最难被酰化。"},
+  {q:"以下哪种糖不能与苯肼形成糖脎？",
+   opts:["葡萄糖","果糖","2-去氧糖","半乳糖"], correct:2,
+   explain:"2-去氧糖不能成脎，因C2上无-OH。"},
+  {q:"硼酸（H3BO3）与糖的邻二-OH发生络合反应时，硼酸的化学性质是？",
+   opts:["Lewis碱","Brønsted酸","Lewis酸","中性盐"], correct:2,
+   explain:"H3BO3是接受电子对的Lewis酸，与糖的邻二-OH络合后中性可变为酸性（可离子化）。"},
+  {q:"苷键裂解难易顺序中，C-苷、S-苷、O-苷、N-苷的关系是？",
+   opts:["N-苷 > O-苷 > S-苷 > C-苷","C-苷 > S-苷 > O-苷 > N-苷","O-苷 > C-苷 > S-苷 > N-苷","四者裂解难易相同"], correct:1,
+   explain:"酸水解难易顺序：C-苷 > S-苷 > O-苷 > N-苷（但酰胺活性很低）。"},
+  {q:"苷元为小基团时，苷键横键(e)与竖键(a)的水解速率关系是？",
+   opts:["a > e","e > a（横键易质子化）","e = a","无法判断"], correct:1,
+   explain:"苷元为小基团苷键横键比竖键易水解(e > a)，因横键易质子化；苷元为大基团时则a > e。"},
+  {q:"乙酰解反应中β-苷键葡萄糖双糖的反应速率最快的连接方式是？",
+   opts:["(1→2)","(1→3)","(1→4)","(1→6)"], correct:3,
+   explain:"β-苷键的葡萄糖双糖反应速率（与空间位阻相关）：(1→6) >> (1→4) >> (1→3) >> (1→2)，(1→6)最快。"},
+  {q:"碱催化水解中，C1-OH与C2-OH呈反式关系的糖，水解产物是？",
+   opts:["正常的糖","1,6-葡萄糖酐","糠醛","糖脎"], correct:1,
+   explain:"C1-OH与C2-OH：反式易水解，其产物为1,6-葡萄糖酐；顺式产物为正常的糖，可利用此判断苷键构型。"},
+  {q:"以下哪种酶只水解α-D-葡萄糖糖苷键？",
+   opts:["杏仁苷酶","麦芽糖酶","纤维素酶","蜗牛酶"], correct:1,
+   explain:"麦芽糖酶只水解α-D-葡萄糖糖苷键；纤维素酶只水解β-D-葡萄糖糖苷键；杏仁苷酶只水解β-六碳醛糖苷键。"},
+  {q:"Smith降解法（氧化开裂法）的三步反应顺序是？",
+   opts:["NaBH4还原→NaIO4氧化→酸化水解","NaIO4氧化→NaBH4还原→酸化水解","酸化水解→NaIO4氧化→NaBH4还原","NaIO4氧化→酸化水解→NaBH4还原"], correct:1,
+   explain:"Smith降解法分三步：(1)NaIO4氧化开裂成醛 (2)NaBH4还原成醇 (3)酸化水解。"},
+  {q:"水提醇沉法中，醇溶部分主要为？",
+   opts:["多糖","苷、低聚糖","蛋白质","纤维素"], correct:1,
+   explain:"水提醇沉法：醇溶为苷、低聚糖；沉淀为多糖。"},
+  {q:"纤维素柱色谱兼有哪两种色谱的性质？",
+   opts:["分子排阻色谱和离子交换色谱","吸附色谱和分配色谱","凝胶色谱和气相色谱","正相色谱和反相色谱"], correct:1,
+   explain:"纤维素柱色谱兼有吸附色谱和分配色谱的性质。"},
+  {q:"纸色谱鉴定单糖常用的展开剂BAW组成是？",
+   opts:["n-BuOH:HAc:H2O = 4:1:5","n-BuOH:HAc:H2O = 1:4:5","CHCl3:MeOH:H2O = 7:3:1","正己烷:乙酸乙酯 = 1:1"], correct:0,
+   explain:"纸色谱鉴定单糖展开剂BAW组成为 n-BuOH:HAc:H2O = 4:1:5(上相)；极性小，Rf值大。"},
+  {q:"凝胶柱色谱分离多糖的依据是？",
+   opts:["分子电荷差异","分子极性差异","分子大小和形状差异","分子吸光度差异"], correct:2,
+   explain:"凝胶柱色谱（如Sephadex G、Sepharose、Bio-gel P）按分子大小和形状不同分离多糖，洗脱剂为各种浓度盐溶液及缓冲液。"},
+  {q:"糖端基质子在¹H-NMR中的化学位移范围大致是？",
+   opts:["0.8~1.2","3.2~4.2","4.3~6.0","6~9"], correct:2,
+   explain:"糖端基质子化学位移范围为4.3~6.0；其它碳上质子在3.2~4.2。"},
+  {q:"吡喃型糖（C1式）中，若端基质子和C2-H均为竖键(J=6~8Hz)，对应苷键构型为？",
+   opts:["α-D或α-L型","β-D或β-L型","α-D或β-L型","无法判断"], correct:0,
+   explain:"苷键为α-D或α-L型时，当端基质子和C2-H为竖键，J=6~8Hz；C2-H为横键时J=2~4Hz。"},
+  {q:"为什么呋喃型糖不能用端基质子偶合常数判断苷键构型？",
+   opts:["呋喃糖没有端基质子","呋喃型糖偶合常数变化不大","呋喃糖结构过于复杂","呋喃糖不存在端基异构体"], correct:1,
+   explain:"呋喃型糖偶合常数变化不大，不能用端基质子偶合常数判断苷键构型。"},
+  {q:"糖端基碳在¹³C-NMR中的化学位移范围大致是？",
+   opts:["95~105","70~85","约62","<20"], correct:0,
+   explain:"端基碳：95~105；CH-OH(C2,C3,C4)：70~85；CH2-OH(C6)：约62；CH3：<20。"},
+  {q:"吡喃糖优势构象C1式中，β-D或β-L型苷键的¹JC1-H1偶合常数范围是？",
+   opts:["170~175Hz","160~165Hz","100~120Hz","200~220Hz"], correct:1,
+   explain:"吡喃糖(优势构象C1式)：α-D或α-L型苷键，¹JC1-H1为170~175Hz；β-D或β-L型苷键，为160~165Hz。"},
+  {q:"苷化位移规律\"同五异十其余七\"中，当苷元和端基碳绝对构型不同时（限两个β-C取代不同的环醇苷），α-C向低场位移约多少？",
+   opts:["+5ppm","+7ppm","+10ppm","-4ppm"], correct:2,
+   explain:"\"同五异十其余七\"：构型相同时α-C位移约+5ppm，不同时（限两个β-C取代不同的环醇苷）位移约+10ppm，其余的苷位移约+7ppm。"},
+  {q:"酯苷、酚苷的苷化位移有何特殊性？",
+   opts:["端基碳和苷元α-碳均向低场位移","端基碳和苷元α-碳均向高场位移","只有端基碳位移，α-碳不变","与一般醇苷规律相同"], correct:1,
+   explain:"当糖与-OH形成酯苷键或酚苷键时，其苷化位移值较特殊：端基碳和苷元α-碳均向高场位移。"},
+  {q:"单糖绝对构型测定的GC法中常用的衍生化试剂是？",
+   opts:["L-半胱氨酸甲酯","S-苯基乙基胺","醋酐","重氮甲烷"], correct:0,
+   explain:"GC法常用L-半胱氨酸甲酯，引入一个同种构型的新手性中心，使对映异构体变成非对映异构体；HPLC法常用S-苯基乙基胺。"},
+  {q:"糖链连接顺序确定中，¹³C-NMR弛豫时间法的依据是？",
+   opts:["外侧糖的自旋弛豫时间T1比内侧糖大","外侧糖的自旋弛豫时间T1比内侧糖小","内外侧糖弛豫时间相同","只能用于单糖"], correct:0,
+   explain:"¹³C-NMR的弛豫时间：外侧糖的自旋弛豫时间T1比内侧糖大（自旋晶格弛豫/纵向弛豫时间）。"},
+  {q:"α-葡萄糖苷的红外谱图特征吸收峰位置是？",
+   opts:["1730cm⁻¹","2900cm⁻¹","770、780cm⁻¹","3400cm⁻¹"], correct:2,
+   explain:"红外法确定苷键构型：α-葡萄糖苷在770、780 cm⁻¹有强吸收峰。"},
+  {q:"分子旋光差法（Klyne法）判断苷键构型的原理是？",
+   opts:["比较苷与苷元的旋光度绝对值","将苷和苷元的分子旋光差与该苷糖的一对甲苷(α/β型)旋光度比较，数值相近者为相同苷键","测定苷的比旋光度即可确定","与红外吸收峰对照"], correct:1,
+   explain:"Klyne法：将苷和苷元的分子旋光差与组成该苷的糖的一对甲苷(α和β型)的分子旋光度比较，数值相近的一个便是与之有相同苷键者。"},
+];
+
+let answered = new Array(quizData.length).fill(false);
+let correctCount = 0;
+
+const quizWrap = document.getElementById('quizWrap');
+document.getElementById('quizTotal').textContent = quizData.length;
+
+function renderQuizCard(item, idx){
+  const card = document.createElement('div');
+  card.className='quiz-card';
+  card.innerHTML = `
+    <div class="quiz-q">${idx+1}. ${item.q}</div>
+    <div class="quiz-opts">
+      ${item.opts.map((o,i)=>`<div class="quiz-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o}</div>`).join('')}
+    </div>
+    <div class="quiz-explain">${item.explain}</div>
+  `;
+  const optEls = card.querySelectorAll('.quiz-opt');
+  optEls.forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      if(answered[idx]) return;
+      answered[idx]=true;
+      const chosen = parseInt(opt.dataset.i);
+      optEls.forEach((o,i)=>{
+        o.classList.add('disabled');
+        if(i===item.correct) o.classList.add('correct');
+        else if(i===chosen) o.classList.add('wrong');
+      });
+      if(chosen===item.correct) correctCount++;
+      card.querySelector('.quiz-explain').classList.add('show');
+      updateQuizStats();
+    });
+  });
+  return card;
+}
+
+quizData.forEach((item, idx)=>{
+  quizWrap.appendChild(renderQuizCard(item, idx));
+});
+
+function updateQuizStats(){
+  const done = answered.filter(Boolean).length;
+  document.getElementById('quizDone').textContent = done;
+  const score = done>0 ? Math.round(correctCount/done*100) : 0;
+  document.getElementById('quizScore').textContent = score+'%';
+}
+
+function resetQuiz(){
+  answered = new Array(quizData.length).fill(false);
+  correctCount = 0;
+  quizWrap.innerHTML='';
+  quizData.forEach((item, idx)=>{
+    quizWrap.appendChild(renderQuizCard(item, idx));
+  });
+  updateQuizStats();
+}
+updateQuizStats();
+</script>
+</body>
+</html>

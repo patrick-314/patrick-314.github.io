@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天然药物化学 · 第三章 苯丙素类 · 复习</title>
+<style>
+:root{
+  --primary:#2C5F2D;
+  --secondary:#97BC62;
+  --accent:#D9A441;
+  --bg:#F7F8F3;
+  --card:#FFFFFF;
+  --text:#23321E;
+  --muted:#6B7A63;
+  --line:#E2E8DA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:-apple-system,"PingFang SC","Microsoft Yahei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+nav{
+  width:230px;
+  background:var(--primary);
+  color:#fff;
+  padding:24px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  flex-shrink:0;
+}
+nav h1{
+  font-size:18px;
+  margin:0 20px 4px;
+  font-weight:700;
+}
+nav .sub{
+  margin:0 20px 20px;
+  font-size:12px;
+  color:#CFE3CF;
+}
+nav .nav-item{
+  display:block;
+  padding:11px 20px;
+  cursor:pointer;
+  font-size:14px;
+  color:#E5F0E3;
+  border-left:3px solid transparent;
+  transition:.15s;
+}
+nav .nav-item:hover{background:rgba(255,255,255,.08);}
+nav .nav-item.active{
+  background:rgba(255,255,255,.14);
+  border-left-color:var(--accent);
+  color:#fff;
+  font-weight:600;
+}
+nav .nav-section-title{
+  margin:18px 20px 6px;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#9DBE96;
+}
+main{
+  flex:1;
+  padding:32px 40px 80px;
+  max-width:980px;
+}
+.section{display:none;}
+.section.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-header{
+  margin-bottom:24px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.section-header h2{
+  font-size:28px;
+  margin:0 0 6px;
+  color:var(--primary);
+}
+.section-header p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px 24px;
+  margin-bottom:18px;
+  box-shadow:0 2px 10px rgba(44,95,45,.06);
+}
+.card h3{
+  margin:0 0 12px;
+  font-size:18px;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.card h3 .num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;height:26px;
+  border-radius:50%;
+  background:var(--secondary);
+  color:#fff;
+  font-size:13px;
+  flex-shrink:0;
+}
+.card h4{
+  margin:14px 0 8px;
+  font-size:15px;
+  color:#3E5C3A;
+}
+.card p{margin:6px 0;font-size:14.5px;}
+.card ul{margin:6px 0 6px 0;padding-left:22px;}
+.card li{margin:4px 0;font-size:14.5px;}
+.tag{
+  display:inline-block;
+  background:var(--secondary);
+  color:#fff;
+  font-size:11px;
+  padding:2px 9px;
+  border-radius:20px;
+  margin-right:6px;
+}
+.tag.accent{background:var(--accent);}
+.tag.muted{background:#A8B79E;}
+
+.kw{
+  background:#EFF6E6;
+  border-left:3px solid var(--secondary);
+  padding:8px 14px;
+  border-radius:8px;
+  margin:8px 0;
+  font-size:14px;
+}
+.kw b{color:var(--primary);}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+  margin:10px 0;
+}
+table th, table td{
+  border:1px solid var(--line);
+  padding:7px 10px;
+  text-align:left;
+}
+table th{
+  background:#EFF6E6;
+  color:var(--primary);
+  font-weight:600;
+}
+table tr:nth-child(even) td{background:#FAFCF7;}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:760px){
+  .grid2{grid-template-columns:1fr;}
+  .layout{flex-direction:column;}
+  nav{width:100%;height:auto;position:relative;}
+  main{padding:20px;}
+}
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:10px 0;
+}
+.timeline .step{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.timeline .dot{
+  flex-shrink:0;
+  width:30px;height:30px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;
+}
+.timeline .content{font-size:14px;}
+.timeline .content b{color:var(--primary);}
+
+/* Flashcards */
+.flash-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:14px;
+}
+.flashcard{
+  width:240px;
+  height:150px;
+  perspective:1000px;
+  cursor:pointer;
+}
+.flashcard .inner{
+  width:100%;height:100%;
+  position:relative;
+  transition:transform .5s;
+  transform-style:preserve-3d;
+}
+.flashcard.flipped .inner{transform:rotateY(180deg);}
+.flashcard .face{
+  position:absolute;width:100%;height:100%;
+  backface-visibility:hidden;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:14px;
+  font-size:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.flashcard .front{background:var(--primary);color:#fff;font-weight:600;}
+.flashcard .back{background:#fff;color:var(--text);transform:rotateY(180deg);border:1px solid var(--line);font-size:13px;overflow-y:auto;}
+.flashcard .front .hint{
+  position:absolute;bottom:8px;right:10px;font-size:10px;opacity:.6;
+}
+
+/* Quiz */
+.quiz-card{
+  background:#fff;
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(44,95,45,.06);
+}
+.quiz-q{font-weight:600;margin-bottom:10px;font-size:14.5px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.15s;
+}
+.quiz-opt:hover{border-color:var(--secondary);background:#F4F9EF;}
+.quiz-opt.correct{background:#E4F4DD;border-color:var(--primary);color:var(--primary);font-weight:600;}
+.quiz-opt.wrong{background:#FBE7E4;border-color:#C0524A;color:#C0524A;}
+.quiz-opt.disabled{cursor:default;}
+.quiz-explain{
+  margin-top:10px;
+  font-size:13.5px;
+  color:var(--muted);
+  background:#F4F7F0;
+  border-radius:8px;
+  padding:8px 12px;
+  display:none;
+}
+.quiz-explain.show{display:block;}
+
+.quiz-progress{
+  position:sticky;
+  top:0;
+  background:var(--bg);
+  padding:10px 0;
+  font-size:14px;
+  color:var(--muted);
+  z-index:5;
+  border-bottom:1px solid var(--line);
+  margin-bottom:14px;
+}
+.score-pill{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  border-radius:20px;
+  padding:3px 12px;
+  font-weight:600;
+  margin-left:8px;
+}
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:9px 18px;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.btn:hover{background:#244A25;}
+.btn.secondary{background:var(--secondary);}
+
+.collapsible{margin:8px 0;}
+.collapsible .head{
+  cursor:pointer;
+  font-weight:600;
+  color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+  font-size:14.5px;
+  padding:6px 0;
+}
+.collapsible .head::before{
+  content:"▶";
+  font-size:10px;
+  transition:.2s;
+}
+.collapsible.open .head::before{transform:rotate(90deg);}
+.collapsible .body{
+  display:none;
+  padding:6px 0 6px 18px;
+  font-size:14px;
+  border-left:2px solid var(--secondary);
+  margin-left:4px;
+}
+.collapsible.open .body{display:block;}
+
+.pathway-box{
+  background:#F4F9EF;
+  border:1px dashed var(--secondary);
+  border-radius:10px;
+  padding:12px 16px;
+  margin:8px 0;
+  font-size:14px;
+}
+.pathway-box .arrow{color:var(--accent);font-weight:700;}
+
+.intro-card{
+  background:linear-gradient(135deg,var(--primary),#3E7A3F);
+  color:#fff;
+  border-radius:14px;
+  padding:26px 28px;
+  margin-bottom:24px;
+}
+.intro-card h2{margin:0 0 8px;font-size:26px;}
+.intro-card p{margin:4px 0;font-size:14.5px;opacity:.95;}
+.intro-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+.intro-grid .item{
+  background:rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:.15s;
+}
+.intro-grid .item:hover{background:rgba(255,255,255,.22);}
+.intro-grid .item .icon{font-size:24px;}
+.intro-grid .item .label{font-size:13px;margin-top:6px;}
+@media (max-width:760px){
+  .intro-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <h1>📘 天然药物化学</h1>
+    <div class="sub">第三章 · 苯丙素类 — 复习手册</div>
+    <div class="nav-item active" data-target="overview">🏠 总览 / 重点难点</div>
+    <div class="nav-section-title">知识章节</div>
+    <div class="nav-item" data-target="sec1">第一节 苯丙酸类</div>
+    <div class="nav-item" data-target="sec2">第二节 香豆素类</div>
+    <div class="nav-item" data-target="sec3">第三节 木脂素类</div>
+    <div class="nav-section-title">复习工具</div>
+    <div class="nav-item" data-target="flashcards">🃏 速记卡片</div>
+    <div class="nav-item" data-target="quiz">📝 自测题</div>
+  </nav>
+
+  <main>
+    <!-- OVERVIEW SECTION -->
+    <section class="section active" id="overview">
+      <div class="intro-card">
+        <h2>第三章 苯丙素类 · 复习总览</h2>
+        <p>南方医科大学药学院 · 天然药物化学教学团队</p>
+        <p>苯丙素类（Phenylpropanoids）：一类含有一个或几个<b>C6-C3单位</b>的天然成分。本章涵盖苯丙酸类、香豆素类、木脂素类三大组成部分。</p>
+        <div class="intro-grid">
+          <div class="item" onclick="showSection('sec1')"><div class="icon">🌿</div><div class="label">第一节 苯丙酸类</div></div>
+          <div class="item" onclick="showSection('sec2')"><div class="icon">🟡</div><div class="label">第二节 香豆素类</div></div>
+          <div class="item" onclick="showSection('sec3')"><div class="icon">🪵</div><div class="label">第三节 木脂素类</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">★</span>重点难点框架</h3>
+        <div class="grid2">
+          <div>
+            <h4>🟢 核心考点（必考）</h4>
+            <ul>
+              <li><b>苯丙素类的定义</b>：含一个或几个C6-C3单位的天然成分（苯丙酸、香豆素、木脂素）</li>
+              <li><b>香豆素的结构类型</b>：苯骈α-吡喃酮母核及其四大类型（简单、呋喃、吡喃、其他）</li>
+              <li><b>香豆素的呈色反应</b>：异羟肟酸铁反应、Gibb反应、Emerson反应及其原理</li>
+              <li><b>香豆素的碱水解反应</b>（内酯性质）及顺/反邻羟桂皮酸的转变</li>
+              <li><b>木脂素的定义与分类</b>：β-β'(8-8')连接为木脂素，非β碳相连为新木脂素</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🟡 重要内容</h4>
+            <ul>
+              <li>苯丙酸类代表化合物的结构与生物活性（茴香脑、桂皮醛、绿原酸、丹参多酚酸盐等）</li>
+              <li>香豆素的波谱学特性：UV、IR、¹H-NMR、¹³C-NMR、MS各自的特征规律</li>
+              <li>木脂素的十余种结构类型代表化合物（二苄基丁烷类、四氢呋喃类、联苯环辛烯类等）</li>
+              <li>苯丙素的提取分离方法（溶剂提取法、各类分离材料）</li>
+            </ul>
+          </div>
+        </div>
+        <h4>⚪ 背景了解</h4>
+        <ul><li>木脂素的理化性质（旋光性、遇酸异构化）及生物活性（抗肿瘤、抗病毒、肝保护等八大活性）</li></ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">i</span>使用说明</h3>
+        <p>左侧导航可在三节之间切换；点击带 <b>▶</b> 的标题可展开/收起详细内容；"速记卡片"用于快速记忆关键概念（点击翻面）；"自测题"提供选择题自测并即时反馈。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="sec1">
+      <div class="section-header">
+        <h2>第一节　苯丙酸类</h2>
+        <p>定义与组成 · 代表化合物与生物活性 · 波谱特征 · 提取分离</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>苯丙素类的定义与组成</h3>
+        <div class="kw"><b>苯丙素类（Phenylpropanoids）定义</b>：一类含有一个或几个<b>C6-C3单位</b>的天然成分。</div>
+        <div class="grid2">
+          <div class="kw"><b>苯丙酸类</b>：游离的C6-C3单元，多为肉桂酸（桂皮酸）衍生物</div>
+          <div class="kw"><b>香豆素类</b>：C6-C3单元环合形成苯骈α-吡喃酮</div>
+        </div>
+        <div class="kw"><b>木脂素类</b>：两个（或多个）C6-C3单元通过β,β'(8,8')碳或其他位置连接而成的二聚体（少数三聚、四聚）</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>苯丙酸类代表化合物及生物活性</h3>
+        <table>
+          <tr><th>化合物</th><th>结构特点</th><th>生物活性/来源</th></tr>
+          <tr><td><b>茴香脑</b></td><td>4-甲氧基苯丙烯（H3CO-C6H4-CH=CH-CH3）</td><td>用于化疗或放疗所致的<b>白细胞减少症</b>；来源八角</td></tr>
+          <tr><td><b>桂皮醛</b></td><td>苯丙烯醛（C6H5-CH=CH-CHO）</td><td>具有<b>解热镇痛作用</b>；来源肉桂</td></tr>
+          <tr><td><b>桂皮酸</b></td><td>4-羟基苯丙烯酸（HO-C6H4-CH=CH-COOH）</td><td><b>增加白细胞、提高吞噬功能</b>，抗癌、抗放射，是较好的<b>免疫增强剂</b></td></tr>
+          <tr><td><b>芥子酸</b></td><td>3-甲氧基-4-羟基-5-甲氧基苯丙烯酸（含两个OCH3）</td><td>过量可造成动物<b>心脏的脂肪堆积</b></td></tr>
+          <tr><td><b>绿原酸</b></td><td>奎尼酸与咖啡酸缩合的酯</td><td><b>抗菌、利胆、升高白血球</b>等作用</td></tr>
+          <tr><td><b>迷迭香酸</b></td><td>咖啡酸与二氢咖啡酸缩合的酯</td><td>具有<b>抗菌抗炎作用</b></td></tr>
+        </table>
+        <div class="kw">⚠️ <b>丹参多酚酸盐（注射用）</b>：来源丹参，含丹酚酸B等多酚酸成分（多个邻二酚结构+羧酸镁盐），是临床用药实例。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>苯丙素的波谱特征</h3>
+        <p>苯丙酸类常见波谱特征结构包括：</p>
+        <ul>
+          <li><b>桂皮酸型</b>（苯环-CH=CH-COOH，反式构型为常见）</li>
+          <li><b>4-甲氧基-3-羟基桂皮酸型</b>（即阿魏酸/异阿魏酸类骨架，H3CO/HO取代）</li>
+          <li><b>4-羟基桂皮酸型</b>（对羟基桂皮酸，即香豆酸）</li>
+          <li><b>3,4-二羟基苯丙酸型（带α-OH取代）</b>（如二氢咖啡酸衍生结构）</li>
+        </ul>
+        <div class="kw">这些结构是辨识苯丙酸类化合物核磁谱图中特征芳环取代模式（邻二取代、对位取代）及侧链双键（=CH-COOH，常显示典型的反式偶合常数）的基础。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>苯丙素的提取分离</h3>
+        <div class="grid2">
+          <div class="kw"><b>提取</b>：溶剂提取法</div>
+          <div class="kw">
+          <b>分离</b>：常用分离材料包括<br>
+          ① 大孔树脂　② 聚酰胺　③ 硅胶<br>
+          ④ 葡聚糖凝胶　⑤ 反相色谱
+          </div>
+        </div>
+        <div class="kw"><b>显色</b>：广谱显色剂；<b>FeCl3</b>（用于检识酚羟基类成分）</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="sec2">
+      <div class="section-header">
+        <h2>第二节　香豆素类</h2>
+        <p>结构类型 · 理化性质 · 提取分离 · 波谱学特性 · 生物活性</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、香豆素的结构类型</h3>
+        <div class="kw"><b>香豆素母核</b>：苯骈α-吡喃酮，环上常有取代基。编号：1(O)、2(C=O)、3、4、4a、5、6、7、8、8a。</div>
+
+        <p>香豆素结构类型可分为四大类：<b>简单香豆素类、呋喃香豆素类（线型/角型）、吡喃香豆素类（线型/角型）、其他香豆素类</b>。</p>
+
+        <div class="collapsible open">
+          <div class="head">1) 简单香豆素类</div>
+          <div class="body">
+          仅<b>苯环上</b>有取代基的香豆素。取代基包括：<b>羟基、烷氧基、苯基、异戊烯基</b>等。<br>
+          <div class="kw">由于绝大多数香豆素在<b>C7位</b>都有含氧官能团存在，因此<b>7-羟香豆素</b>可认为是香豆素类成分的<b>母体</b>。</div>
+          通过共振结构分析，<b>C3、C6、C8位电负性较高，易于烷基化</b>（其中C3位烷基化不属于此类，而属于第四类型，即α-吡喃酮环上有取代基）。<br>
+          代表化合物：<b>七叶内酯</b>（6,7-二羟基香豆素）、<b>欧芹酚-7-甲醚</b>（8位异戊烯基取代+7-OMe）、<b>当归内酯</b>（6位异戊烯基酰基取代+7-OMe）。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">2) 呋喃香豆素类（furocoumarins，线型和角型）</div>
+          <div class="body">
+          香豆素核上的<b>异戊烯基</b>常与邻位酚羟基（<b>7-羟基</b>）环合成<b>呋喃环</b>，称为呋喃香豆素。<br>
+          <div class="kw">
+          <b>环合形成过程</b>：伞形花内酯（7-羟基香豆素）的<b>异戊烯基6位取代</b> → 环合 → <b>线型：补骨脂内酯型（6,7-呋喃骈香豆素型）</b><br>
+          伞形花内酯的<b>异戊烯基8位取代</b> → 环合 → <b>角型：异补骨脂内酯型（7,8-呋喃骈香豆素型）</b>，代表化合物<b>白芷内酯</b>
+          </div>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">3) 吡喃香豆素类（pyranocoumarins，线型和角型）</div>
+          <div class="body">
+          香豆素核上的异戊烯基常与邻位酚羟基（7-羟基）环合成<b>吡喃环</b>，称为吡喃香豆素。<br>
+          <div class="kw">
+          <b>环合形成过程</b>：伞形花内酯的异戊烯基<b>6位取代</b> → 环合 → <b>线型：花椒内酯型（6,7-吡喃骈香豆素型）</b><br>
+          伞形花内酯的异戊烯基<b>8位取代</b> → 环合 → <b>角型：邪蒿内酯型（7,8-吡喃骈香豆素型）</b>
+          </div>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">4) 其它香豆素类</div>
+          <div class="body">
+          指<b>α-吡喃酮环上有取代基</b>的香豆素类。还包括<b>二聚体和三聚体</b>。C3、C4上常有取代基：<b>苯基、羟基、异戊烯基</b>等。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、香豆素的理化性质</h3>
+
+        <h4>（一）性状</h4>
+        <div class="kw">游离香豆素多呈<b>淡黄色或者无色</b>，在<b>紫外光下呈现蓝色或者紫色荧光</b>。</div>
+
+        <h4>（二）溶解性</h4>
+        <div class="grid2">
+          <div class="kw"><b>游离香豆素</b>：亲脂性，难溶于水，可溶于苯、氯仿、乙醚等有机溶剂</div>
+          <div class="kw"><b>香豆素苷</b>：水溶性增大</div>
+        </div>
+
+        <h4>（三）碱水解反应（内酯性质，重点）</h4>
+        <div class="kw">
+        香豆素母核的内酯环可被OH⁻开环（加热可逆，OH⁻/H⁺平衡）生成<b>顺邻羟桂皮酸盐</b>（不易游离存在）；<br>
+        <b>长时间加热</b>则进一步转化为<b>反邻羟桂皮酸盐（安定状态）</b>。<br>
+        ⚠️ <b>反式产物不能再环合成内酯</b>（顺/反构型决定能否再环合）。
+        </div>
+
+        <h4>（四）呈色反应</h4>
+        <div class="collapsible open">
+          <div class="head">1. 异羟肟酸铁反应（识别内酯）</div>
+          <div class="body">
+          反应过程：香豆素 <span class="arrow">→</span>（OH⁻开环）<span class="arrow">→</span> 顺邻羟桂皮酸盐 <span class="arrow">→</span>（HONH2·HCl）<span class="arrow">→</span> 异羟肟酸结构 <span class="arrow">→</span>（Fe3+/H+）<span class="arrow">→</span> <b>异羟肟酸铁，呈红色</b>。
+          </div>
+        </div>
+        <div class="collapsible open">
+          <div class="head">2. Gibb反应和Emerson反应</div>
+          <div class="body">
+          <table>
+            <tr><th>反应</th><th>试剂</th><th>显色结果</th></tr>
+            <tr><td><b>Gibb反应</b></td><td>2,6-二氯(溴)苯醌氯亚胺</td><td><b>蓝色</b></td></tr>
+            <tr><td><b>Emerson反应</b></td><td>氨基安替匹林和铁氰化钾</td><td><b>红色</b></td></tr>
+          </table>
+          <div class="kw"><b>呈阳性条件</b>：化合物须<b>有游离酚羟基，且其对位无取代者</b>——呈阳性。原理：试剂与酚羟基<b>对位活性氢缩合</b>。</div>
+          反应顺序：香豆素（pH 9~10开环，COO⁻形式）→ 与Gibb或Emerson试剂反应 → 最终显色产物（蓝色/红色）。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>三、香豆素的提取分离</h3>
+        <h4>（一）提取</h4>
+        <p>三种主要提取方法：<b>1）溶剂提取法　2）水蒸气蒸馏法　3）碱溶酸沉法</b></p>
+
+        <div class="pathway-box">
+          <b>溶剂提取流程</b>：药材 <span class="arrow">→</span>（EtOH/MeOH提取）<span class="arrow">→</span> 醇提液 <span class="arrow">→</span>（回收溶剂，加水分散）<span class="arrow">→</span> 水溶液 <span class="arrow">→</span>（有机溶剂萃取，依极性递增）<span class="arrow">→</span> 石油醚 → 氯仿 → 乙酸乙酯 → 正丁醇（各极性层分别富集不同极性的香豆素成分）
+        </div>
+
+        <h4>（二）分离 — 柱层析方法</h4>
+        <table>
+          <tr><th>柱类型</th><th>常用填料</th></tr>
+          <tr><td><b>正相柱</b></td><td>硅胶、中性氧化铝</td></tr>
+          <tr><td><b>反相柱</b></td><td>RP-18、RP-8</td></tr>
+          <tr><td><b>树脂柱</b></td><td>D101、DIAION HP20、MCI CHP20P</td></tr>
+          <tr><td><b>分子筛柱</b></td><td>Sephadex G、LH-20</td></tr>
+        </table>
+        <div class="kw">此外还可使用<b>制备、半制备HPLC</b>进行精细分离。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>四、香豆素的波谱学特性</h3>
+
+        <div class="collapsible open">
+          <div class="head">（一）紫外光谱（UV）</div>
+          <div class="body">
+          香豆素在UV下显<b>蓝色荧光</b>。<br>
+          <table>
+            <tr><th>母核取代情况</th><th>最大吸收特征</th></tr>
+            <tr><td>无含氧官能团取代</td><td>最大吸收峰约 <b>274 nm、311 nm</b></td></tr>
+            <tr><td>有烷基取代</td><td>最大吸收峰和吸收强度<b>变化不大</b></td></tr>
+            <tr><td>有含氧取代</td><td>最大吸收峰<b>向红移</b></td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">（二）红外光谱（IR）</div>
+          <div class="body">
+          <table>
+            <tr><th>波数范围 (cm⁻¹)</th><th>归属</th></tr>
+            <tr><td><b>1750 ~ 1700</b></td><td>羰基(C=O)伸缩振动</td></tr>
+            <tr><td><b>3300 ~ 3000</b></td><td>OH伸缩振动</td></tr>
+            <tr><td><b>3025 ~ 2800</b></td><td>C-H伸缩振动</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">（三）¹H-NMR</div>
+          <div class="body">
+          环上质子由于受<b>内酯羰基吸电子共轭效应</b>影响，呈现典型的电荷分布规律：<br>
+          <div class="kw">
+          <b>C3、C6、C8-H</b>（共振中电子云密度较高位置）：信号在<b>较高场</b><br>
+          <b>C4、C5、C7-H</b>（电子云密度较低位置）：信号在<b>较低场</b>
+          </div>
+
+          <p>当C7-OR时，典型化学位移及偶合常数如下：</p>
+          <table>
+            <tr><th>位置</th><th>化学位移与偶合常数</th></tr>
+            <tr><td>C3-H</td><td>δ6.20, d, J₃,₄ = 9.0 Hz</td></tr>
+            <tr><td>C4-H</td><td>δ8.20, d, J₃,₄ = 9.0 Hz</td></tr>
+            <tr><td>C5-H</td><td>δ7.70, d, J = 9.0 Hz</td></tr>
+            <tr><td>C6-H</td><td>δ6.90, dd, J = 9.0, 2.5 Hz</td></tr>
+            <tr><td>C8-H</td><td>δ7.00, d, J = 2.5 Hz</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">（四）¹³C-NMR</div>
+          <div class="body">
+          香豆素母核上9个碳原子的化学位移值（无取代基）大致为：C2(羰基) 160.4、C3 116.4、C4 143.6、C4a 118.8、C5 128.1、C6 124.4、C7 153.9、C8 116.4、C8a 131.8（具体数值见原谱图）。<br>
+          <div class="kw">
+          <b>当-OR取代时的位移规律</b>：<br>
+          • <b>连接的碳</b>（即取代位）：化学位移<b>+30 ppm</b><br>
+          • <b>邻位碳</b>：化学位移<b>-13 ppm</b><br>
+          • <b>对位碳</b>：化学位移<b>-8 ppm</b>
+          </div>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">（五）质谱（MS）</div>
+          <div class="body">
+          香豆素类化合物MS特点：
+          <ul>
+            <li>有<b>强的分子离子峰</b></li>
+            <li><b>基峰是失去CO的苯骈呋喃离子</b></li>
+            <li>主要裂解途径是：<b>首先失去CO</b></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>五、香豆素的生物活性</h3>
+        <table>
+          <tr><th>化合物</th><th>生物活性/特点</th></tr>
+          <tr><td><b>黄曲霉素B1</b></td><td>呋喃骈香豆素类毒素（强毒性/致癌性代表化合物）</td></tr>
+          <tr><td><b>calanolide A</b></td><td>吡喃香豆素类，<b>anti-HIV（抗HIV活性）</b></td></tr>
+          <tr><td><b>Dicoumarol</b></td><td>双香豆素结构（两个香豆素母核以亚甲基连接）</td></tr>
+          <tr><td><b>蛇床子素</b></td><td>简单香豆素（7-OMe，8位异戊烯基取代）</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="sec3">
+      <div class="section-header">
+        <h2>第三节　木脂素</h2>
+        <p>结构类型（14类） · 理化性质 · 提取分离 · 结构鉴定 · 生物活性</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、结构类型 — 木脂素的定义</h3>
+        <div class="kw">
+        <b>木脂素（lignans）</b>：具有苯丙烷骨架的两个结构通过<b>β,β'（即8,8'）碳相连</b>而形成的一类天然产物。通常指其<b>二聚物</b>，少数为<b>三聚物和四聚物</b>。
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">木脂素 vs 新木脂素（早期定义）</div>
+          <div class="body">
+          <table>
+            <tr><th>类型</th><th>连接方式</th></tr>
+            <tr><td><b>木脂素</b></td><td>两分子苯丙素以侧链中<b>β碳原子（8-8'）</b>连结而成的化合物</td></tr>
+            <tr><td><b>新木脂素</b></td><td><b>非β碳原子相连</b>（如<b>3-3'、8-3'</b>）</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">苯丙素低聚体与杂木脂素</div>
+          <div class="body">
+          <ul>
+            <li><b>苯丙素低聚体</b>——三聚体、四聚体等：三聚体称为<b>倍半木脂素（sesquilignan）</b>；四聚体称为<b>二木脂素（dilignan）</b></li>
+            <li><b>杂木脂素</b>——由一分子苯丙素与黄酮、香豆素等结合而成；如<b>黄酮木脂素（flavonolignan）</b></li>
+            <li><b>降木脂素（norlignan）</b>——母核只有<b>16-17个碳原子</b></li>
+          </ul>
+          </div>
+        </div>
+
+        <h4>苯丙素的四种基本结构单元</h4>
+        <div class="grid2">
+          <div class="kw"><b>桂皮酸（cinnamic acid）</b>：苯环-CH=CH-COOH</div>
+          <div class="kw"><b>桂皮醇（cinnamyl alcohol）</b>：苯环-CH=CH-CH2OH</div>
+          <div class="kw"><b>丙烯苯（propenyl benzene）</b>：苯环-CH=CH-CH3</div>
+          <div class="kw"><b>烯丙苯（allyl benzene）</b>：苯环-CH2-CH=CH2</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>木脂素的十四种结构类型（重点速览）</h3>
+        <table>
+          <tr><th>类型</th><th>英文名</th><th>代表化合物</th></tr>
+          <tr><td><b>(一) 二苄基丁烷类</b></td><td>dibenzylbutanes</td><td>(+)-phyllanthin</td></tr>
+          <tr><td><b>(二) 二苄基丁内酯类</b></td><td>dibenzyltyrolactones</td><td>扁柏脂素 hinokinin</td></tr>
+          <tr><td><b>(三) 芳基萘类</b></td><td>arylnaphthalenes</td><td>奥托肉豆蔻脂素 otobain</td></tr>
+          <tr><td><b>(四) 四氢呋喃类</b></td><td>tetrahydrofurans</td><td>7-O-7'、7-O-9'、9-O-9'三种连接方式</td></tr>
+          <tr><td><b>(五) 双四氢呋喃类</b></td><td>furofurans</td><td>(+)-细辛脂素</td></tr>
+          <tr><td><b>(六) 联苯环辛烯类</b></td><td>dibenzocyclooctenes</td><td>五味子甲素 (+)-deoxyschizandrin</td></tr>
+          <tr><td><b>(七) 苯骈呋喃类</b></td><td>benzofurans</td><td>海风藤酮 kadsurenone；伯彻林 burchellin</td></tr>
+          <tr><td><b>(八) 双环辛烷类</b></td><td>bicyclo[3,2,1]octanes</td><td>macrophyllin</td></tr>
+          <tr><td><b>(十) 螺二烯酮类</b></td><td>spirodienones</td><td>风藤酮 futoenone</td></tr>
+          <tr><td><b>(十一) 联苯类</b></td><td>biphenylenes</td><td>厚朴酚 honokiol</td></tr>
+          <tr><td><b>(十二) 降木脂素</b></td><td>norlignans</td><td>蒙蒿素</td></tr>
+          <tr><td><b>(十三) 倍半木脂素</b></td><td>sesquilignans</td><td>拉帕酚A lappaol A</td></tr>
+          <tr><td><b>(十四) 杂木脂素类</b></td><td>—</td><td>猫眼草素 maoyancaosu；水飞蓟宾</td></tr>
+        </table>
+
+        <div class="collapsible open">
+          <div class="head">部分类型详解</div>
+          <div class="body">
+          <ul>
+            <li><b>四氢呋喃类</b>：分子内通过氧形成四氢呋喃环，连接方式分为<b>7-O-7'、7-O-9'、9-O-9'</b>三种，数字代表参与成环的侧链碳位置。</li>
+            <li><b>双四氢呋喃类（furofurans）</b>：分子中含两个相连的四氢呋喃环（呋喃骈呋喃骨架），代表化合物为<b>(+)-细辛脂素</b>，常见于细辛属植物。</li>
+            <li><b>联苯环辛烯类</b>：以<b>八元环联结两个芳环</b>为核心骨架，代表化合物<b>五味子甲素</b>，多含多个甲氧基（OMe），来源于五味子属植物。</li>
+            <li><b>苯骈呋喃类</b>：含苯并呋喃骈环系统，代表化合物<b>海风藤酮（kadsurenone）</b>，具有<b>血小板活化因子(PAF)拮抗活性</b>。</li>
+            <li><b>联苯类</b>：两个苯环直接以单键相连（无氧桥），代表化合物<b>厚朴酚（honokiol）</b>，来源厚朴。</li>
+            <li><b>杂木脂素类</b>：由苯丙素与黄酮类结合而成，代表化合物<b>水飞蓟宾</b>（黄酮木脂素，临床保肝药物水飞蓟素的主要成分）。</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>二、理化性质</h3>
+        <table>
+          <tr><th>性质</th><th>特点</th></tr>
+          <tr><td><b>形态</b></td><td>多呈<b>无色晶形</b>，<b>新木脂素不易结晶</b></td></tr>
+          <tr><td><b>溶解性</b></td><td><b>游离</b>——亲脂性，难溶水，溶于苯、氯仿等；<b>成苷</b>——水溶性增大</td></tr>
+          <tr><td><b>挥发性</b></td><td>多数不挥发，少数有<b>升华性质</b></td></tr>
+          <tr><td><b>旋光性</b></td><td>大多有<b>光学活性</b>，<b>遇酸易异构化</b></td></tr>
+        </table>
+
+        <div class="collapsible open">
+          <div class="head">遇酸异构化实例：d-芝麻脂素 ⇌ d-表芝麻脂素</div>
+          <div class="body">
+          <p>d-芝麻脂素在 <b>HCl/EtOH</b> 条件下可与其异构体 <b>d-表芝麻脂素</b> 相互转化。该过程涉及双四氢呋喃环系统中氢原子构型的改变——即环连接处的氢从<b>a键（直立键）</b>变为<b>e键（平伏键）</b>（或相反），从而改变两个四氢呋喃环的相对构型（顺式/反式融合关系）。</p>
+          <div class="kw">⚠️ 这是判断双四氢呋喃类木脂素稳定性及结构确证时需要注意的重要现象：酸处理可能导致<b>构型异构化</b>，影响后续光谱及活性数据解读。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>三、提取分离</h3>
+        <div class="grid2">
+          <div class="kw">
+          <b>提取</b>：多用<b>乙醇或丙酮</b>等提取后，再用极性较小的溶剂如<b>乙醚、氯仿</b>等进行萃取。
+          </div>
+          <div class="kw">
+          <b>分离</b>：色谱法、溶剂萃取法、分级沉淀法、重结晶法
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>四、结构鉴定</h3>
+        <div class="kw"><b>光谱法</b>：目前多用 <b>¹H-NMR 和 ¹³C-NMR谱</b> 进行木脂素结构鉴定（尤其用于确定立体构型、连接方式及取代模式）。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>五、生物活性</h3>
+        <p>木脂素具有广泛的生物活性，主要包括以下八类：</p>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content"><b>抗肿瘤作用</b></div></div>
+          <div class="step"><div class="dot">2</div><div class="content"><b>肝保护和抗氧化作用</b></div></div>
+          <div class="step"><div class="dot">3</div><div class="content"><b>对中枢神经系统的作用</b></div></div>
+          <div class="step"><div class="dot">4</div><div class="content"><b>血小板活化因子（PAF）拮抗活性</b></div></div>
+          <div class="step"><div class="dot">5</div><div class="content"><b>抗病毒作用</b></div></div>
+          <div class="step"><div class="dot">6</div><div class="content"><b>平滑肌解痉作用</b></div></div>
+          <div class="step"><div class="dot">7</div><div class="content"><b>毒鱼作用</b></div></div>
+          <div class="step"><div class="dot">8</div><div class="content"><b>杀虫作用</b></div></div>
+        </div>
+
+        <h4>代表化合物</h4>
+        <table>
+          <tr><th>化合物</th><th>结构类型/特点</th></tr>
+          <tr><td><b>鬼臼毒素</b></td><td>二苄基丁内酯类骨架，经典<b>抗肿瘤</b>木脂素（鬼臼毒素衍生药物为重要抗癌药来源）</td></tr>
+          <tr><td><b>戈米辛J</b></td><td>联苯环辛烯类（四个OMe取代+两个OH），来源五味子属</td></tr>
+          <tr><td><b>爵床子素B</b></td><td>苯骈呋喃骈结构，连有亚甲二氧苯基</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section class="section" id="flashcards">
+      <div class="section-header">
+        <h2>🃏 速记卡片</h2>
+        <p>点击卡片翻转查看答案，覆盖三节核心考点</p>
+      </div>
+      <div class="flash-wrap" id="flashWrap"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <div class="section-header">
+        <h2>📝 自测题</h2>
+        <p>选择题，点击选项查看是否正确及解析</p>
+      </div>
+      <div class="quiz-progress">已完成 <span id="quizDone">0</span> / <span id="quizTotal">0</span> 题 <span class="score-pill">正确率 <span id="quizScore">0%</span></span></div>
+      <div id="quizWrap"></div>
+      <button class="btn secondary" onclick="resetQuiz()">重新开始</button>
+    </section>
+  </main>
+</div>
+
+<script>
+// Navigation
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach(item=>{
+  item.addEventListener('click', ()=>showSection(item.dataset.target));
+});
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  navItems.forEach(n=>n.classList.toggle('active', n.dataset.target===id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// Collapsibles
+document.querySelectorAll('.collapsible .head').forEach(h=>{
+  h.addEventListener('click', ()=>{
+    h.parentElement.classList.toggle('open');
+  });
+});
+
+// FLASHCARDS DATA
+// Fill in: {f: "正面问题/术语", b: "背面答案/解释"}
+const flashcards = [
+  {f:"苯丙素类的定义？", b:"一类含有一个或几个C6-C3单位的天然成分，包括苯丙酸类、香豆素类、木脂素类三大组成部分"},
+  {f:"茴香脑和桂皮醛分别有什么生物活性？", b:"茴香脑：用于化疗或放疗所致的白细胞减少症；桂皮醛：具有解热镇痛作用"},
+  {f:"桂皮酸和芥子酸分别有什么生物活性？", b:"桂皮酸：增加白细胞、提高吞噬功能，抗癌、抗放射，是较好的免疫增强剂；芥子酸：过量可造成动物心脏的脂肪堆积"},
+  {f:"绿原酸和迷迭香酸分别有什么生物活性？", b:"绿原酸：抗菌、利胆、升高白血球等作用；迷迭香酸：具有抗菌抗炎作用"},
+  {f:"苯丙素提取分离常用的分离材料有哪些？显色用什么试剂？", b:"分离材料：大孔树脂、聚酰胺、硅胶、葡聚糖凝胶、反相色谱；显色：广谱显色剂、FeCl3"},
+  {f:"香豆素母核的结构是什么？", b:"苯骈α-吡喃酮（苯环与α-吡喃酮环并合），环上常有取代基"},
+  {f:"为什么7-羟香豆素可以认为是香豆素类成分的母体？", b:"因为绝大多数香豆素在C7位都有含氧官能团存在"},
+  {f:"香豆素母核上哪些位置电负性较高、易于烷基化？C3位烷基化属于哪一类型？", b:"C3、C6、C8位电负性较高，易于烷基化（属于简单香豆素类）；C3位烷基化不属于此类，而属于'其他香豆素类'（α-吡喃酮环上有取代基）"},
+  {f:"呋喃香豆素和吡喃香豆素是如何形成的？", b:"香豆素核上的异戊烯基常与邻位酚羟基（7-羟基）环合：环合成呋喃环 → 呋喃香豆素；环合成吡喃环 → 吡喃香豆素"},
+  {f:"呋喃香豆素线型/角型的代表化合物及其结构类型名称？", b:"线型：补骨脂内酯（6,7-呋喃骈香豆素型），来自异戊烯基6位取代后环合；角型：白芷内酯/异补骨脂内酯型（7,8-呋喃骈香豆素型），来自异戊烯基8位取代后环合"},
+  {f:"吡喃香豆素线型/角型的代表化合物及其结构类型名称？", b:"线型：花椒内酯（6,7-吡喃骈香豆素型）；角型：邪蒿内酯（7,8-吡喃骈香豆素型）"},
+  {f:"其他香豆素类指什么结构特征？", b:"指α-吡喃酮环上有取代基的香豆素类，还包括二聚体和三聚体；C3、C4上常有苯基、羟基、异戊烯基等取代基"},
+  {f:"游离香豆素的性状和溶解性特点？", b:"性状：多呈淡黄色或无色，紫外光下呈现蓝色或紫色荧光；溶解性：游离香豆素亲脂性，难溶水，可溶苯/氯仿/乙醚等；成苷后水溶性增大"},
+  {f:"香豆素碱水解（内酯性质）的两个产物及其稳定性差异？", b:"OH⁻开环先生成顺邻羟桂皮酸盐（不易游离存在），长时间加热进一步转化为反邻羟桂皮酸盐（安定状态）；反式产物不能再环合成内酯"},
+  {f:"异羟肟酸铁反应用于识别什么？显色结果是什么颜色？", b:"用于识别内酯（香豆素的内酯结构）；最终生成异羟肟酸铁，呈红色"},
+  {f:"Gibb反应和Emerson反应分别用什么试剂？显色结果分别是什么？", b:"Gibb反应：用2,6-二氯(溴)苯醌氯亚胺，呈蓝色；Emerson反应：用氨基安替匹林和铁氰化钾，呈红色"},
+  {f:"Gibb反应和Emerson反应呈阳性的结构条件是什么？", b:"化合物须有游离酚羟基，且其对位无取代者，才能呈阳性（试剂与酚羟基对位活性氢缩合）"},
+  {f:"香豆素提取的三种主要方法？", b:"1）溶剂提取法 2）水蒸气蒸馏法 3）碱溶酸沉法"},
+  {f:"香豆素溶剂提取的萃取流程（极性递增顺序）？", b:"药材→EtOH/MeOH提取→醇提液→回收溶剂加水分散→水溶液→依次用石油醚、氯仿、乙酸乙酯、正丁醇萃取（极性递增）"},
+  {f:"香豆素分离常用的正相柱、反相柱、树脂柱、分子筛柱填料分别是什么？", b:"正相柱：硅胶、中性氧化铝；反相柱：RP-18、RP-8；树脂柱：D101、DIAION HP20、MCI CHP20P；分子筛柱：Sephadex G、LH-20"},
+  {f:"香豆素母核无含氧官能团取代时UV最大吸收峰位置？有烷基/含氧取代时分别如何变化？", b:"无含氧官能团取代：约274nm、311nm；有烷基取代：最大吸收峰和强度变化不大；有含氧取代：最大吸收峰向红移"},
+  {f:"香豆素IR谱中羰基、OH、C-H伸缩振动分别在什么波数范围？", b:"羰基(C=O)伸缩振动：1750~1700cm⁻¹；OH伸缩振动：3300~3000cm⁻¹；C-H伸缩振动：3025~2800cm⁻¹"},
+  {f:"香豆素¹H-NMR中哪些位置质子在较高场，哪些在较低场？为什么？", b:"由于受内酯羰基吸电子共轭效应影响：C3、C6、C8-H在较高场；C4、C5、C7-H在较低场"},
+  {f:"当C7-OR取代时，C3-H和C4-H的化学位移及偶合常数？", b:"C3-H: δ6.20, d, J3,4=9.0Hz；C4-H: δ8.20, d, J3,4=9.0Hz"},
+  {f:"香豆素¹³C-NMR中-OR取代时连接碳、邻位碳、对位碳的化学位移变化规律？", b:"连接的碳：+30ppm；邻位碳：-13ppm；对位碳：-8ppm"},
+  {f:"香豆素类化合物质谱(MS)的三大特点？", b:"①有强的分子离子峰 ②基峰是失去CO的苯骈呋喃离子 ③主要裂解途径是首先失去CO"},
+  {f:"calanolide A 是什么结构类型，有什么生物活性？", b:"吡喃香豆素类化合物，具有anti-HIV（抗HIV）活性"},
+  {f:"木脂素(lignans)的定义？", b:"具有苯丙烷骨架的两个结构通过β,β'(即8,8')碳相连而形成的一类天然产物，通常指其二聚物，少数为三聚物和四聚物"},
+  {f:"木脂素与新木脂素的早期定义区别？", b:"木脂素：两分子苯丙素以侧链中β碳原子(8-8')连结而成；新木脂素：非β碳原子相连（如3-3'、8-3'）"},
+  {f:"倍半木脂素和二木脂素分别指什么？", b:"倍半木脂素(sesquilignan)：苯丙素三聚体；二木脂素(dilignan)：苯丙素四聚体"},
+  {f:"黄酮木脂素和降木脂素分别是什么？", b:"黄酮木脂素(flavonolignan)：由一分子苯丙素与黄酮等结合而成的杂木脂素，代表水飞蓟宾；降木脂素(norlignan)：母核只有16-17个碳原子，代表蒙蒿素"},
+  {f:"苯丙素的四种基本结构单元是什么？", b:"桂皮酸(cinnamic acid)、桂皮醇(cinnamyl alcohol)、丙烯苯(propenyl benzene)、烯丙苯(allyl benzene)"},
+  {f:"四氢呋喃类木脂素的三种连接方式？", b:"7-O-7'、7-O-9'、9-O-9'（数字代表参与成环的侧链碳位置）"},
+  {f:"五味子甲素属于哪种木脂素结构类型？", b:"联苯环辛烯类(dibenzocyclooctenes)，以八元环联结两个芳环为核心骨架，含多个OMe取代"},
+  {f:"厚朴酚属于哪种木脂素结构类型？有何结构特点？", b:"联苯类(biphenylenes)，两个苯环直接以单键相连（无氧桥），来源厚朴"},
+  {f:"海风藤酮属于哪种结构类型？具有什么生物活性？", b:"苯骈呋喃类(benzofurans)，具有血小板活化因子(PAF)拮抗活性"},
+  {f:"木脂素的形态和溶解性特点？", b:"形态：多呈无色晶形，新木脂素不易结晶；溶解性：游离木脂素亲脂性难溶水，溶于苯/氯仿等；成苷后水溶性增大"},
+  {f:"木脂素的挥发性和旋光性特点？", b:"挥发性：多数不挥发，少数有升华性质；旋光性：大多有光学活性，遇酸易异构化"},
+  {f:"d-芝麻脂素遇酸异构化生成什么？涉及什么键的变化？", b:"生成d-表芝麻脂素（HCl/EtOH条件下可逆转化），涉及双四氢呋喃环连接处氢原子从a键(直立键)变为e键(平伏键)或相反，改变两环的相对构型"},
+  {f:"木脂素的提取与分离方法？", b:"提取：多用乙醇或丙酮提取后，再用极性较小溶剂(乙醚、氯仿)萃取；分离：色谱法、溶剂萃取法、分级沉淀法、重结晶法"},
+  {f:"木脂素结构鉴定目前主要使用什么光谱法？", b:"目前多用¹H-NMR和¹³C-NMR谱"},
+  {f:"木脂素的八大生物活性？", b:"①抗肿瘤作用 ②肝保护和抗氧化作用 ③对中枢神经系统的作用 ④血小板活化因子拮抗活性 ⑤抗病毒作用 ⑥平滑肌解痉作用 ⑦毒鱼作用 ⑧杀虫作用"},
+  {f:"鬼臼毒素属于哪种木脂素结构类型？有何活性意义？", b:"二苄基丁内酯类骨架，是经典的抗肿瘤木脂素，鬼臼毒素衍生药物是重要的抗癌药来源"},
+];
+
+const flashWrap = document.getElementById('flashWrap');
+flashcards.forEach((card,i)=>{
+  const el = document.createElement('div');
+  el.className='flashcard';
+  el.innerHTML = `
+    <div class="inner">
+      <div class="face front">${card.f}<span class="hint">点击翻转</span></div>
+      <div class="face back">${card.b}</div>
+    </div>`;
+  el.addEventListener('click', ()=>el.classList.toggle('flipped'));
+  flashWrap.appendChild(el);
+});
+
+// QUIZ DATA
+// Fill in: {q: "题目", opts: ["选项A","选项B","选项C","选项D"], correct: 0, explain: "解析"}
+const quizData = [
+  {q:"苯丙素类的定义中，关键的化学单位是什么？",
+   opts:["C5单位","C6-C3单位","C6-C2单位","C4N单位"], correct:1,
+   explain:"苯丙素类定义：一类含有一个或几个C6-C3单位的天然成分，组成包括苯丙酸类、香豆素类、木脂素类。"},
+  {q:"具有解热镇痛作用的桂皮醛主要来源于哪种药材？",
+   opts:["八角","肉桂","丹参","紫苏"], correct:1,
+   explain:"桂皮醛（苯环-CH=CH-CHO）来源于肉桂，具有解热镇痛作用；茴香脑来源于八角，用于白细胞减少症。"},
+  {q:"以下哪种化合物过量可造成动物心脏的脂肪堆积？",
+   opts:["桂皮酸","芥子酸","绿原酸","迷迭香酸"], correct:1,
+   explain:"芥子酸过量可造成动物心脏的脂肪堆积；桂皮酸是较好的免疫增强剂。"},
+  {q:"具有抗菌、利胆、升高白血球作用的苯丙酸类化合物是？",
+   opts:["绿原酸","迷迭香酸","茴香脑","桂皮醛"], correct:0,
+   explain:"绿原酸具有抗菌、利胆、升高白血球等作用；迷迭香酸具有抗菌抗炎作用。"},
+  {q:"苯丙素提取分离中，常用于检识酚羟基类成分的显色试剂是？",
+   opts:["Gibb试剂","Emerson试剂","FeCl3","异羟肟酸"], correct:2,
+   explain:"苯丙素的显色：广谱显色剂、FeCl3（用于检识酚羟基类成分）。"},
+  {q:"香豆素的母核结构是？",
+   opts:["苯骈γ-吡喃酮","苯骈α-吡喃酮","苯骈呋喃酮","萘骈吡喃酮"], correct:1,
+   explain:"香豆素母核为苯骈α-吡喃酮，环上常有取代基。"},
+  {q:"为什么7-羟香豆素可以认为是香豆素类成分的母体？",
+   opts:["因为它是最早发现的香豆素","因为绝大多数香豆素在C7位都有含氧官能团存在","因为它没有取代基","因为它的分子量最小"], correct:1,
+   explain:"由于绝大多数香豆素在C7位都有含氧官能团存在，因此7-羟香豆素可以认为是香豆素类成分的母体。"},
+  {q:"香豆素母核上电负性较高、易于烷基化的位置是？",
+   opts:["C2、C4、C5","C3、C6、C8","C1、C4a、C8a","C4、C7、C8a"], correct:1,
+   explain:"通过共振结构分析，C3、C6、C8位电负性较高，易于烷基化（其中C3位烷基化属于第四类型——其他香豆素类）。"},
+  {q:"呋喃香豆素和吡喃香豆素的形成与香豆素核上的哪个基团环合有关？",
+   opts:["羰基","异戊烯基","苯基","甲氧基"], correct:1,
+   explain:"香豆素核上的异戊烯基常与邻位酚羟基（7-羟基）环合成呋喃环或吡喃环，分别形成呋喃香豆素或吡喃香豆素。"},
+  {q:"补骨脂内酯属于呋喃香豆素的哪种类型？",
+   opts:["线型：6,7-呋喃骈香豆素型","角型：7,8-呋喃骈香豆素型","线型：6,7-吡喃骈香豆素型","角型：7,8-吡喃骈香豆素型"], correct:0,
+   explain:"伞形花内酯异戊烯基6位取代后环合形成补骨脂内酯，属于线型：6,7-呋喃骈香豆素型；异戊烯基8位取代环合则形成角型白芷内酯(异补骨脂内酯型)。"},
+  {q:"花椒内酯和邪蒿内酯分别属于吡喃香豆素的哪种类型？",
+   opts:["花椒内酯为角型，邪蒿内酯为线型","花椒内酯为线型，邪蒿内酯为角型","两者都是线型","两者都是角型"], correct:1,
+   explain:"花椒内酯属于线型：6,7-吡喃骈香豆素型（异戊烯基6位取代环合）；邪蒿内酯属于角型：7,8-吡喃骈香豆素型（异戊烯基8位取代环合）。"},
+  {q:"\"其他香豆素类\"指的是什么结构特征的香豆素？",
+   opts:["苯环上有取代基","α-吡喃酮环上有取代基","只有呋喃环结构","只存在于动物中"], correct:1,
+   explain:"其他香豆素类指α-吡喃酮环上有取代基的香豆素类，还包括二聚体和三聚体；C3、C4上常有苯基、羟基、异戊烯基等取代基。"},
+  {q:"游离香豆素在紫外光下通常呈现什么颜色的荧光？",
+   opts:["绿色或黄色","蓝色或紫色","红色或橙色","无荧光"], correct:1,
+   explain:"游离香豆素多呈淡黄色或者无色，在紫外光下呈现蓝色或者紫色荧光。"},
+  {q:"香豆素碱水解（内酯性质）反应中，长时间加热后生成的稳定产物是？",
+   opts:["顺邻羟桂皮酸盐","反邻羟桂皮酸盐","香豆素原型","异羟肟酸"], correct:1,
+   explain:"OH⁻开环先生成顺邻羟桂皮酸盐（不易游离存在），长时间加热进一步转化为反邻羟桂皮酸盐（安定状态），且反式产物不能再环合成内酯。"},
+  {q:"异羟肟酸铁反应主要用于鉴别香豆素的什么结构特征？",
+   opts:["酚羟基","内酯结构","双键","糖苷键"], correct:1,
+   explain:"异羟肟酸铁反应用于识别内酯（开环后与HONH2·HCl反应生成异羟肟酸，再与Fe3+/H+生成红色异羟肟酸铁）。"},
+  {q:"Gibb反应和Emerson反应的显色结果分别是？",
+   opts:["Gibb为红色，Emerson为蓝色","Gibb为蓝色，Emerson为红色","两者都为蓝色","两者都为红色"], correct:1,
+   explain:"Gibb反应（2,6-二氯(溴)苯醌氯亚胺）呈蓝色；Emerson反应（氨基安替匹林和铁氰化钾）呈红色。"},
+  {q:"Gibb反应和Emerson反应呈阳性需要满足什么结构条件？",
+   opts:["有游离羧基","有游离酚羟基且对位无取代","有内酯环","有糖苷键"], correct:1,
+   explain:"呈阳性条件：化合物须有游离酚羟基，且其对位无取代者——呈阳性，因为试剂与酚羟基对位活性氢缩合。"},
+  {q:"香豆素提取的三种主要方法是？",
+   opts:["溶剂提取法、水蒸气蒸馏法、碱溶酸沉法","酸提碱沉法、超临界萃取法、升华法","水提醇沉法、盐析法、分子蒸馏法","渗漉法、煎煮法、压榨法"], correct:0,
+   explain:"香豆素提取的三种主要方法：1）溶剂提取法 2）水蒸气蒸馏法 3）碱溶酸沉法。"},
+  {q:"香豆素分离中，反相柱常用的填料是？",
+   opts:["硅胶、中性氧化铝","RP-18、RP-8","D101、DIAION HP20","Sephadex G、LH-20"], correct:1,
+   explain:"正相柱——硅胶、中性氧化铝；反相柱——RP-18、RP-8；树脂柱——D101、DIAION HP20、MCI CHP20P；分子筛柱——Sephadex G、LH-20。"},
+  {q:"香豆素母核无含氧官能团取代时，UV最大吸收峰大致在？",
+   opts:["220nm、250nm","274nm、311nm","350nm、400nm","200nm、230nm"], correct:1,
+   explain:"母核上无含氧官能团取代时，最大吸收峰约274nm、311nm；有含氧取代时最大吸收峰向红移，有烷基取代时变化不大。"},
+  {q:"香豆素IR谱中，羰基(C=O)伸缩振动出现在哪个波数范围？",
+   opts:["3300~3000cm⁻¹","3025~2800cm⁻¹","1750~1700cm⁻¹","900~650cm⁻¹"], correct:2,
+   explain:"羰基伸缩振动：1750~1700cm⁻¹；OH伸缩振动：3300~3000cm⁻¹；C-H伸缩振动：3025~2800cm⁻¹。"},
+  {q:"香豆素¹H-NMR中，由于内酯羰基吸电子共轭效应，以下哪组质子信号在较高场？",
+   opts:["C4, C5, C7-H","C3, C6, C8-H","C2, C4a, C8a-H","C1, C5, C6-H"], correct:1,
+   explain:"环上质子由于受内酯羰基吸电子共轭效应：C3、C6、C8-H在较高场；C4、C5、C7-H在较低场。"},
+  {q:"当C7-OR时，C4-H的化学位移和偶合常数大致是？",
+   opts:["δ6.20, d, J=9.0Hz","δ8.20, d, J=9.0Hz","δ7.00, d, J=2.5Hz","δ6.90, dd, J=9.0,2.5Hz"], correct:1,
+   explain:"当C7-OR时：C3-H为δ6.20(d, J3,4=9.0Hz)，C4-H为δ8.20(d, J3,4=9.0Hz)，C8-H为δ7.00(d, J=2.5Hz)，C6-H为δ6.90(dd, J=9.0,2.5Hz)。"},
+  {q:"香豆素¹³C-NMR中，当-OR取代时，连接的碳的化学位移变化是？",
+   opts:["+30ppm","-13ppm","-8ppm","+8ppm"], correct:0,
+   explain:"当-OR取代时：连接的碳——+30ppm；邻位碳——-13ppm；对位碳——-8ppm。"},
+  {q:"香豆素类化合物在质谱中的主要裂解途径是？",
+   opts:["首先失去H2O","首先失去CO","首先失去CH3","首先失去苯环"], correct:1,
+   explain:"香豆素类化合物MS特点：①有强的分子离子峰 ②基峰是失去CO的苯骈呋喃离子 ③主要裂解途径是首先失去CO。"},
+  {q:"calanolide A是哪种结构类型的香豆素，有什么生物活性？",
+   opts:["简单香豆素，抗炎","呋喃香豆素，抗菌","吡喃香豆素，anti-HIV","其他香豆素，抗肿瘤"], correct:2,
+   explain:"calanolide A为吡喃香豆素类化合物，具有anti-HIV（抗HIV）活性。"},
+  {q:"木脂素(lignans)的定义中，两个苯丙烷骨架结构通过哪个碳相连？",
+   opts:["α,α'碳","β,β'(8,8')碳","γ,γ'碳","3,3'碳"], correct:1,
+   explain:"木脂素定义：具有苯丙烷骨架的两个结构通过β,β'（即8,8'）碳相连而形成的一类天然产物，通常指其二聚物。"},
+  {q:"新木脂素是指苯丙素以哪种方式连接形成的化合物？",
+   opts:["β,β'(8-8')碳相连","非β碳原子相连（如3-3'、8-3'）","通过氧原子相连","通过氮原子相连"], correct:1,
+   explain:"早期定义：两分子苯丙素以侧链中β碳原子(8-8')连结而成的化合物为木脂素；非β碳原子相连(如3-3'、8-3')则为新木脂素。"},
+  {q:"苯丙素三聚体和四聚体分别称为？",
+   opts:["倍半木脂素和二木脂素","新木脂素和降木脂素","黄酮木脂素和倍半木脂素","二木脂素和倍半木脂素"], correct:0,
+   explain:"苯丙素低聚体中，三聚体称为倍半木脂素(sesquilignan)；四聚体称为二木脂素(dilignan)。"},
+  {q:"降木脂素(norlignan)的母核碳原子数大致是？",
+   opts:["10~12个","14~15个","16~17个","18~20个"], correct:2,
+   explain:"降木脂素(norlignan)——母核只有16-17个碳原子，代表化合物蒙蒿素。"},
+  {q:"以下哪个不是苯丙素的基本结构单元？",
+   opts:["桂皮酸(cinnamic acid)","桂皮醇(cinnamyl alcohol)","丙烯苯(propenyl benzene)","茴香脑(anethole)"], correct:3,
+   explain:"苯丙素的四种基本结构单元：桂皮酸、桂皮醇、丙烯苯、烯丙苯(allyl benzene)。茴香脑是苯丙酸类的代表化合物，不是基本结构单元的命名。"},
+  {q:"五味子甲素属于哪种木脂素结构类型？",
+   opts:["二苄基丁烷类","联苯环辛烯类","苯骈呋喃类","双四氢呋喃类"], correct:1,
+   explain:"五味子甲素(+)-deoxyschizandrin属于联苯环辛烯类(dibenzocyclooctenes)，以八元环联结两个芳环为核心骨架。"},
+  {q:"厚朴酚（honokiol）属于哪种木脂素结构类型？",
+   opts:["联苯类(biphenylenes)","双环辛烷类","螺二烯酮类","芳基萘类"], correct:0,
+   explain:"厚朴酚属于联苯类(biphenylenes)，两个苯环直接以单键相连（无氧桥），来源于厚朴。"},
+  {q:"水飞蓟宾属于哪种木脂素结构类型？",
+   opts:["二苄基丁内酯类","降木脂素","杂木脂素类(黄酮木脂素)","倍半木脂素"], correct:2,
+   explain:"水飞蓟宾由苯丙素与黄酮结合而成，属于杂木脂素类中的黄酮木脂素(flavonolignan)。"},
+  {q:"d-芝麻脂素遇酸（HCl/EtOH）发生异构化生成d-表芝麻脂素，这一过程涉及的关键变化是？",
+   opts:["双键的迁移","双四氢呋喃环连接处氢原子a键/e键的相互转变","苯环上甲氧基的脱去","内酯环的开环"], correct:1,
+   explain:"该异构化过程涉及双四氢呋喃环系统中环连接处氢原子从a键(直立键)变为e键(平伏键)或相反，改变两个四氢呋喃环的相对构型。"},
+  {q:"木脂素提取常用的溶剂及后续萃取所用的极性较小溶剂分别是？",
+   opts:["水和乙酸乙酯","乙醇/丙酮和乙醚/氯仿","正丁醇和石油醚","甲醇和水"], correct:1,
+   explain:"木脂素提取多用乙醇或丙酮等提取后，再用极性较小的溶剂如乙醚、氯仿等进行萃取。"},
+  {q:"木脂素结构鉴定目前主要采用的光谱方法是？",
+   opts:["UV和IR","¹H-NMR和¹³C-NMR","MS和ORD","X射线单晶衍射"], correct:1,
+   explain:"木脂素结构鉴定目前多用¹H-NMR和¹³C-NMR谱。"},
+  {q:"鬼臼毒素属于哪种木脂素结构类型，主要具有什么生物活性？",
+   opts:["联苯环辛烯类，抗病毒","二苄基丁内酯类，抗肿瘤","苯骈呋喃类，杀虫","双环辛烷类，抗炎"], correct:1,
+   explain:"鬼臼毒素属于二苄基丁内酯类骨架，是经典的抗肿瘤木脂素，其衍生药物是重要的抗癌药来源。"},
+  {q:"海风藤酮(kadsurenone)属于哪种结构类型，具有什么特殊生物活性？",
+   opts:["苯骈呋喃类，血小板活化因子(PAF)拮抗活性","联苯类，抗肿瘤活性","螺二烯酮类，杀虫活性","降木脂素，毒鱼活性"], correct:0,
+   explain:"海风藤酮属于苯骈呋喃类(benzofurans)，具有血小板活化因子(PAF)拮抗活性。"},
+];
+
+let answered = new Array(quizData.length).fill(false);
+let correctCount = 0;
+
+const quizWrap = document.getElementById('quizWrap');
+document.getElementById('quizTotal').textContent = quizData.length;
+
+function renderQuizCard(item, idx){
+  const card = document.createElement('div');
+  card.className='quiz-card';
+  card.innerHTML = `
+    <div class="quiz-q">${idx+1}. ${item.q}</div>
+    <div class="quiz-opts">
+      ${item.opts.map((o,i)=>`<div class="quiz-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o}</div>`).join('')}
+    </div>
+    <div class="quiz-explain">${item.explain}</div>
+  `;
+  const optEls = card.querySelectorAll('.quiz-opt');
+  optEls.forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      if(answered[idx]) return;
+      answered[idx]=true;
+      const chosen = parseInt(opt.dataset.i);
+      optEls.forEach((o,i)=>{
+        o.classList.add('disabled');
+        if(i===item.correct) o.classList.add('correct');
+        else if(i===chosen) o.classList.add('wrong');
+      });
+      if(chosen===item.correct) correctCount++;
+      card.querySelector('.quiz-explain').classList.add('show');
+      updateQuizStats();
+    });
+  });
+  return card;
+}
+
+quizData.forEach((item, idx)=>{
+  quizWrap.appendChild(renderQuizCard(item, idx));
+});
+
+function updateQuizStats(){
+  const done = answered.filter(Boolean).length;
+  document.getElementById('quizDone').textContent = done;
+  const score = done>0 ? Math.round(correctCount/done*100) : 0;
+  document.getElementById('quizScore').textContent = score+'%';
+}
+
+function resetQuiz(){
+  answered = new Array(quizData.length).fill(false);
+  correctCount = 0;
+  quizWrap.innerHTML='';
+  quizData.forEach((item, idx)=>{
+    quizWrap.appendChild(renderQuizCard(item, idx));
+  });
+  updateQuizStats();
+}
+updateQuizStats();
+</script>
+</body>
+</html>

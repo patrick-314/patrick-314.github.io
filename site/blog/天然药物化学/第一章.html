@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天然药物化学 · 第一章 总论 · 复习</title>
+<style>
+:root{
+  --primary:#2C5F2D;
+  --secondary:#97BC62;
+  --accent:#D9A441;
+  --bg:#F7F8F3;
+  --card:#FFFFFF;
+  --text:#23321E;
+  --muted:#6B7A63;
+  --line:#E2E8DA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:-apple-system,"PingFang SC","Microsoft Yahei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+nav{
+  width:230px;
+  background:var(--primary);
+  color:#fff;
+  padding:24px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  flex-shrink:0;
+}
+nav h1{
+  font-size:18px;
+  margin:0 20px 4px;
+  font-weight:700;
+}
+nav .sub{
+  margin:0 20px 20px;
+  font-size:12px;
+  color:#CFE3CF;
+}
+nav .nav-item{
+  display:block;
+  padding:11px 20px;
+  cursor:pointer;
+  font-size:14px;
+  color:#E5F0E3;
+  border-left:3px solid transparent;
+  transition:.15s;
+}
+nav .nav-item:hover{background:rgba(255,255,255,.08);}
+nav .nav-item.active{
+  background:rgba(255,255,255,.14);
+  border-left-color:var(--accent);
+  color:#fff;
+  font-weight:600;
+}
+nav .nav-section-title{
+  margin:18px 20px 6px;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#9DBE96;
+}
+main{
+  flex:1;
+  padding:32px 40px 80px;
+  max-width:980px;
+}
+.section{display:none;}
+.section.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-header{
+  margin-bottom:24px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.section-header h2{
+  font-size:28px;
+  margin:0 0 6px;
+  color:var(--primary);
+}
+.section-header p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px 24px;
+  margin-bottom:18px;
+  box-shadow:0 2px 10px rgba(44,95,45,.06);
+}
+.card h3{
+  margin:0 0 12px;
+  font-size:18px;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.card h3 .num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;height:26px;
+  border-radius:50%;
+  background:var(--secondary);
+  color:#fff;
+  font-size:13px;
+  flex-shrink:0;
+}
+.card h4{
+  margin:14px 0 8px;
+  font-size:15px;
+  color:#3E5C3A;
+}
+.card p{margin:6px 0;font-size:14.5px;}
+.card ul{margin:6px 0 6px 0;padding-left:22px;}
+.card li{margin:4px 0;font-size:14.5px;}
+.tag{
+  display:inline-block;
+  background:var(--secondary);
+  color:#fff;
+  font-size:11px;
+  padding:2px 9px;
+  border-radius:20px;
+  margin-right:6px;
+}
+.tag.accent{background:var(--accent);}
+.tag.muted{background:#A8B79E;}
+
+.kw{
+  background:#EFF6E6;
+  border-left:3px solid var(--secondary);
+  padding:8px 14px;
+  border-radius:8px;
+  margin:8px 0;
+  font-size:14px;
+}
+.kw b{color:var(--primary);}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+  margin:10px 0;
+}
+table th, table td{
+  border:1px solid var(--line);
+  padding:7px 10px;
+  text-align:left;
+}
+table th{
+  background:#EFF6E6;
+  color:var(--primary);
+  font-weight:600;
+}
+table tr:nth-child(even) td{background:#FAFCF7;}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:760px){
+  .grid2{grid-template-columns:1fr;}
+  .layout{flex-direction:column;}
+  nav{width:100%;height:auto;position:relative;}
+  main{padding:20px;}
+}
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:10px 0;
+}
+.timeline .step{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.timeline .dot{
+  flex-shrink:0;
+  width:30px;height:30px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;
+}
+.timeline .content{font-size:14px;}
+.timeline .content b{color:var(--primary);}
+
+/* Flashcards */
+.flash-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:14px;
+}
+.flashcard{
+  width:240px;
+  height:150px;
+  perspective:1000px;
+  cursor:pointer;
+}
+.flashcard .inner{
+  width:100%;height:100%;
+  position:relative;
+  transition:transform .5s;
+  transform-style:preserve-3d;
+}
+.flashcard.flipped .inner{transform:rotateY(180deg);}
+.flashcard .face{
+  position:absolute;width:100%;height:100%;
+  backface-visibility:hidden;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:14px;
+  font-size:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.flashcard .front{background:var(--primary);color:#fff;font-weight:600;}
+.flashcard .back{background:#fff;color:var(--text);transform:rotateY(180deg);border:1px solid var(--line);font-size:13px;overflow-y:auto;}
+.flashcard .front .hint{
+  position:absolute;bottom:8px;right:10px;font-size:10px;opacity:.6;
+}
+
+/* Quiz */
+.quiz-card{
+  background:#fff;
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(44,95,45,.06);
+}
+.quiz-q{font-weight:600;margin-bottom:10px;font-size:14.5px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.15s;
+}
+.quiz-opt:hover{border-color:var(--secondary);background:#F4F9EF;}
+.quiz-opt.correct{background:#E4F4DD;border-color:var(--primary);color:var(--primary);font-weight:600;}
+.quiz-opt.wrong{background:#FBE7E4;border-color:#C0524A;color:#C0524A;}
+.quiz-opt.disabled{cursor:default;}
+.quiz-explain{
+  margin-top:10px;
+  font-size:13.5px;
+  color:var(--muted);
+  background:#F4F7F0;
+  border-radius:8px;
+  padding:8px 12px;
+  display:none;
+}
+.quiz-explain.show{display:block;}
+
+.quiz-progress{
+  position:sticky;
+  top:0;
+  background:var(--bg);
+  padding:10px 0;
+  font-size:14px;
+  color:var(--muted);
+  z-index:5;
+  border-bottom:1px solid var(--line);
+  margin-bottom:14px;
+}
+.score-pill{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  border-radius:20px;
+  padding:3px 12px;
+  font-weight:600;
+  margin-left:8px;
+}
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:9px 18px;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.btn:hover{background:#244A25;}
+.btn.secondary{background:var(--secondary);}
+
+.collapsible{margin:8px 0;}
+.collapsible .head{
+  cursor:pointer;
+  font-weight:600;
+  color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+  font-size:14.5px;
+  padding:6px 0;
+}
+.collapsible .head::before{
+  content:"▶";
+  font-size:10px;
+  transition:.2s;
+}
+.collapsible.open .head::before{transform:rotate(90deg);}
+.collapsible .body{
+  display:none;
+  padding:6px 0 6px 18px;
+  font-size:14px;
+  border-left:2px solid var(--secondary);
+  margin-left:4px;
+}
+.collapsible.open .body{display:block;}
+
+.pathway-box{
+  background:#F4F9EF;
+  border:1px dashed var(--secondary);
+  border-radius:10px;
+  padding:12px 16px;
+  margin:8px 0;
+  font-size:14px;
+}
+.pathway-box .arrow{color:var(--accent);font-weight:700;}
+
+.intro-card{
+  background:linear-gradient(135deg,var(--primary),#3E7A3F);
+  color:#fff;
+  border-radius:14px;
+  padding:26px 28px;
+  margin-bottom:24px;
+}
+.intro-card h2{margin:0 0 8px;font-size:26px;}
+.intro-card p{margin:4px 0;font-size:14.5px;opacity:.95;}
+.intro-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+.intro-grid .item{
+  background:rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:.15s;
+}
+.intro-grid .item:hover{background:rgba(255,255,255,.22);}
+.intro-grid .item .icon{font-size:24px;}
+.intro-grid .item .label{font-size:13px;margin-top:6px;}
+@media (max-width:760px){
+  .intro-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <h1>📘 天然药物化学</h1>
+    <div class="sub">第一章 · 总论 — 复习手册</div>
+    <div class="nav-item active" data-target="overview">🏠 总览 / 重点难点</div>
+    <div class="nav-section-title">知识章节</div>
+    <div class="nav-item" data-target="sec1">第一节 绪论</div>
+    <div class="nav-item" data-target="sec2">第二节 生物合成</div>
+    <div class="nav-item" data-target="sec3">第三节 提取分离方法</div>
+    <div class="nav-item" data-target="sec4">第四节 结构研究法</div>
+    <div class="nav-section-title">复习工具</div>
+    <div class="nav-item" data-target="flashcards">🃏 速记卡片</div>
+    <div class="nav-item" data-target="quiz">📝 自测题</div>
+  </nav>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section class="section active" id="overview">
+      <div class="intro-card">
+        <h2>第一章 总论 · 复习总览</h2>
+        <p>娄红祥 / 张教真 · 山东大学药学院</p>
+        <p>本章涵盖：天然药物化学的研究内容与发展史、天然化合物的生物合成、提取分离方法、结构研究法（光谱学）四大板块。</p>
+        <div class="intro-grid">
+          <div class="item" onclick="showSection('sec1')"><div class="icon">📖</div><div class="label">第一节 绪论</div></div>
+          <div class="item" onclick="showSection('sec2')"><div class="icon">🧬</div><div class="label">第二节 生物合成</div></div>
+          <div class="item" onclick="showSection('sec3')"><div class="icon">⚗️</div><div class="label">第三节 提取分离</div></div>
+          <div class="item" onclick="showSection('sec4')"><div class="icon">🔬</div><div class="label">第四节 结构研究法</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">★</span>重点难点框架</h3>
+        <div class="grid2">
+          <div>
+            <h4>🟢 掌握（核心，必考）</h4>
+            <ul>
+              <li>天然药物常用的<b>提取、分离方法</b></li>
+              <li>各类分离材料的特点及其分离化合物的<b>基本原理和影响因素</b></li>
+            </ul>
+          </div>
+          <div>
+            <h4>🟡 熟悉</h4>
+            <ul>
+              <li>天然药物化学的研究范围和课程学习重点</li>
+              <li>天然化合物生物合成的<b>构建单元</b>和主要构建反应</li>
+              <li>各类化合物的<b>生物合成途径</b></li>
+            </ul>
+          </div>
+        </div>
+        <h4>⚪ 了解</h4>
+        <ul><li>天然药物化学的发展简史及其最新研究进展（如质谱成像、冷冻电镜）</li></ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">i</span>使用说明</h3>
+        <p>左侧导航可在四节之间切换；点击带 <b>▶</b> 的标题可展开/收起详细内容；"速记卡片"用于快速记忆关键概念（点击翻面）；"自测题"提供选择题自测并即时反馈。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="sec1">
+      <div class="section-header">
+        <h2>第一节　绪论</h2>
+        <p>研究内容 · 发展简史 · 与新药发现的关系 · 新药创新实例</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、天然药物化学的研究内容</h3>
+        <div class="kw"><b>定义：</b>天然药物化学是运用<b>现代科学理论与方法</b>研究天然药物中<b>化学成分</b>的一门学科。关键词：<span class="tag">天然</span><span class="tag">药物</span><span class="tag">化学</span></div>
+
+        <div class="collapsible">
+          <div class="head">研究流程（举例：金银花 → 绿原酸）</div>
+          <div class="body">天然药物 → 提取 → 分离 → 结构鉴定 → 活性筛选，是从原料到明确化学结构活性成分的完整流程。</div>
+        </div>
+
+        <h4>（三）天然药物的来源（四大类）</h4>
+        <div class="grid2">
+          <div class="kw">🌿 <b>植物</b>：如苔藓、鼠尾草等</div>
+          <div class="kw">🐛 <b>动物</b>：如美洲大蠊、天龙等</div>
+          <div class="kw">🪨 <b>矿物</b>：如石膏等</div>
+          <div class="kw">🦠 <b>微生物</b>：如青霉菌、放线菌等</div>
+        </div>
+
+        <h4>（四）正确理解天然药物有效成分</h4>
+        <ul>
+          <li><b>有效成分</b>：天然药物中具有一定生物活性、能代表天然药物临床疗效的化合物</li>
+          <li><b>生物活性成分</b>：经过药效试验或生物活性试验，证明对机体具有一定生理活性的成分</li>
+          <li>有效成分/生物活性成分 与 无效成分/非活性成分 之间<b>不能简单机械地划分</b>（可能是相对的、条件依赖的）</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、天然药物化学发展简史</h3>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content"><b>萌芽期（1940年以前）</b>：研究手段有限，代表药物为纯天然药物，如<b>罂粟</b>。发源于人类文明启蒙期。</div></div>
+          <div class="step"><div class="dot">2</div><div class="content"><b>形成期（1940年以后）</b>：大量天然产物被挖掘并人工合成，代表如<b>茼蒿</b>，推动学科形成。</div></div>
+          <div class="step"><div class="dot">3</div><div class="content"><b>快速发展期（20世纪80年代）</b>：组合化学与天然药物化学结合，可在短时间内合成大量结构简单、成药性好的多样性化合物，配合高通量筛选快速、低成本发现先导化合物/候选药物。</div></div>
+          <div class="step"><div class="dot">4</div><div class="content"><b>升华期（21世纪）</b>：复兴期，致力于<b>揭示生命体进化与调控规律</b>（生命体从无细胞→原核生物→真核单细胞→真菌界/植物界/动物界）。</div></div>
+        </div>
+
+        <h4>关键观点</h4>
+        <div class="kw">观点：<b>"生物碱的研究是天然药物化学发展的开端"</b></div>
+
+        <h4>发展的转折点</h4>
+        <ul>
+          <li><b>1930年前后</b>：微量元素分析法导入，试料量降至<b>毫克水平</b>，推进天然成分分析工作</li>
+          <li><b>1960年前后</b>：各种<b>层析方法</b>兴起，微量天然新成分分离纯化简便易行；同时<b>红外光谱、核磁共振、质谱</b>等新技术问世，结构研究趋向微量、快捷、正确</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>三、天然药物化学与新药发现</h3>
+        <h4>（一）从天然产物到天然药物 —— 药物来源分类</h4>
+        <table>
+          <tr><th>缩写</th><th>含义</th></tr>
+          <tr><td>B</td><td>生物制品</td></tr>
+          <tr><td>N</td><td>天然产物</td></tr>
+          <tr><td>ND</td><td>天然产物衍生物</td></tr>
+          <tr><td>S</td><td>合成药物</td></tr>
+          <tr><td>S*</td><td>合成天然产物</td></tr>
+          <tr><td>V</td><td>疫苗</td></tr>
+          <tr><td>NM</td><td>类天然产物</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--muted);">统计范围：1981年1月—2019年9月，N=1881 个上市药物。</p>
+
+        <h4>（二）天然药物是创新药物的源泉</h4>
+        <div class="grid2">
+          <div class="kw"><b>① 结构</b><br>天然产物结构类型最多样；经过长期进化与修饰</div>
+          <div class="kw"><b>② 有效性</b><br>活性最多样；与蛋白质3D结构匹配度高</div>
+          <div class="kw"><b>③ 安全性</b><br>生物相容性好；机体长期适应</div>
+        </div>
+
+        <h4>（三）天然药物发现故事（5个经典案例）</h4>
+        <div class="collapsible">
+          <div class="head">1. 阿司匹林（柳树/柳皮）</div>
+          <div class="body">
+          西方：公元前2000多年古埃及《埃伯斯纸草文稿》记录干柳叶有止痛功效。<br>
+          中国：《神农本草经》记载柳之根皮枝叶可入药，祛痰明目、清热解毒；《本草纲目》记载柳叶煎服可疗心腹内血、止痛、治疥疮，柳枝根皮煮酒可漱齿痛。<br>
+          说明天然药用经验是阿司匹林发现的源头。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">2-3. 青蒿素</div>
+          <div class="body">
+          青蒿素（artemisinin）是我国科学家20世纪70年代从中药<b>青蒿</b>的原植物<b>黄花蒿（Artemisia annua）</b>中获得的新型含<b>过氧基团</b>的倍半萜内酯，<b>过氧键</b>是其抗疟活性的必须基团。<br>
+          为提高药效、改善溶解性，对其进行结构修饰：青蒿素用 <b>NaBH4还原</b>得到<b>二氢青蒿素</b>（过氧键不受影响），以此为原料半合成衍生物，主要三类：<b>醚类、酯类、碳酸酯类</b>；其中 <b>蒿甲醚（artemether）</b>和<b>青蒿琥酯（artesunate）</b>发展成抗疟新药。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">3. 山羊豆碱与二甲双胍</div>
+          <div class="body">
+          <b>山羊豆碱（1918年发现，来自山羊豆）</b> → 各种胍类化合物具有相似结构 → <b>二甲双胍</b>：20世纪50年代上市；70年代末因其他双胍类毒性问题部分退市；1997年FDA批准上市；目前研究证明有抗肿瘤、延缓衰老等新作用。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">4. 紫杉醇</div>
+          <div class="body">
+          1963年首次从<b>短叶红豆杉</b>的树皮和木材中分离得到紫杉醇粗提物；粗提物对离体培养的鼠肿瘤细胞有很高活性；通过<b>X线分析</b>确定该活性成分的化学结构，命名为紫杉醇；后续证明其具有抗肿瘤等多种活性。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">5. 吗啡</div>
+          <div class="body">
+          吗啡是<b>1806年</b>从<b>鸦片</b>中分离得到的一个生物碱，属于<b>强效镇痛剂</b>，具有<b>成瘾性</b>。以吗啡为模板，合成了许多镇痛药物（来源植物：罂粟）。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>四、新药创新</h3>
+        <h4>（一）天然药物结构改造意义</h4>
+        <p>从天然药物和中药中发现具有生物活性的<b>先导化合物</b>，经结构修饰或改造，是目前快速、低廉地创新出<b>高效低毒</b>新药的重要途径。</p>
+        <div class="kw">天然药物常见缺陷需通过<b>化学修饰</b>解决：<span class="tag accent">稳定性差</span><span class="tag accent">水溶性差</span><span class="tag accent">毒性大</span></div>
+
+        <h4>（二）结构改造实例</h4>
+        <ul>
+          <li><b>1. 青蒿素</b>：见上文衍生物（蒿甲醚、青蒿琥酯）</li>
+          <li><b>2. 吗啡</b>：以吗啡为模板合成多种镇痛药</li>
+          <li><b>3. 可卡因</b>：天然结构改造为局麻药等</li>
+          <li><b>4. Compactin</b>：天然他汀类化合物→改造为临床降脂药（如辛伐他汀等）</li>
+        </ul>
+
+        <h4>（三）天然药物化学对新药创新的意义</h4>
+        <p>天然产物结构多样性使其可参与生命过程多环节的调节，是发现药物先导结构的重要源泉；与合成化合物/组合化学库相比，天然产物在<b>结构骨架和立体化学</b>方面更富有多样性，且<b>分子量、脂水分配系数范围更宽</b>，这些特点与已上市药物非常相似。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="sec2">
+      <div class="section-header">
+        <h2>第二节　天然化合物的生物合成</h2>
+        <p>初生/次生代谢 · 构建单元 · 组装反应机制 · 五大生物合成途径 · 生物合成意义</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、初生代谢与次生代谢</h3>
+        <div class="grid2">
+          <div class="kw">
+            <b>初生代谢（primary metabolism）</b><br>
+            维持植物生命活动<b>必需</b>，几乎存在于所有绿色植物中。<br>
+            产物（primary metabolites）：糖、蛋白质、脂质、核酸等——植物的营养物质，人类赖以生存的物质基础。
+          </div>
+          <div class="kw">
+            <b>次生代谢（secondary metabolism）</b><br>
+            <b>非</b>所有植物都发生，对维持生命活动<b>非必需</b>。<br>
+            产物（secondary metabolites）：以初生代谢产物为原料/前体，进一步代谢生成生物碱、萜类等——维持植物特性特征，是<b>重要药物资源</b>。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">次生代谢产物分类（重要框架）</div>
+          <div class="body">
+          按是否成苷分为：<b>苷类</b> 和 <b>非苷类</b>。<br>
+          非苷类按酸碱性（H+/OH-）：挥发油、酸性物质、碱性物质、中性物质。<br>
+          典型分类包括：脂肪族、芳香酚类、油脂、芳香族、生物碱（N族）、甾族、萜类（单萜/倍半萜/二萜/二倍半萜/三萜/多萜）、苯丙素类、黄酮类、醌类、鞣质、植物甾醇、强心苷、皂苷等。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、生物合成的基本构建单元</h3>
+        <table>
+          <tr><th>构建单元</th><th>来源 / 说明</th></tr>
+          <tr><td><b>C1</b></td><td>最简单结构单位，1个碳，通常以甲基形式存在，常连在O、N或C上</td></tr>
+          <tr><td><b>C2</b></td><td>多由乙酰辅酶A提供；聚合前转化为反应活性更高的<b>丙二酸单酰辅酶A</b></td></tr>
+          <tr><td><b>C5</b></td><td>异戊二烯单位，来源于<b>甲戊二羟酸（MVA）</b>或<b>去氧木酮糖磷酸酯（DXP）</b>代谢产物</td></tr>
+          <tr><td><b>C6C3</b></td><td>苯丙素结构单元，多由 <b>L-苯丙氨酸</b> 和 <b>L-酪氨酸</b> 转化而来（莽草酸途径中的芳香族氨基酸）；消去1个碳→C6C2；消去2个碳→C6C1</td></tr>
+          <tr><td><b>C4N</b></td><td>杂环吡咯烷结构，来源于非蛋白氨基酸 <b>L-鸟氨酸</b></td></tr>
+          <tr><td><b>C5N</b></td><td>以 <b>L-赖氨酸</b> 为前体，保留ε-氨基氮，构成<b>哌啶环</b></td></tr>
+          <tr><td><b>C6C2N</b></td><td>前体也是L-苯丙氨酸/L-酪氨酸（以酪氨酸为主），一个羧基碳被消去</td></tr>
+          <tr><td><b>吲哚C2N</b></td><td>来自 <b>L-色氨酸</b>（含吲哚环），经历类似苯丙氨酸/酪氨酸的脱羧过程</td></tr>
+        </table>
+        <div class="kw">⚠️ 易混点：C5单元来源 MVA/DXP（萜类）；C6C3 来源苯丙氨酸/酪氨酸（莽草酸途径）；C4N/C5N来源鸟氨酸/赖氨酸（氨基酸途径，生物碱）。</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>三、天然化合物生物合成组装机制（重要反应类型）</h3>
+        <div class="grid2">
+          <div class="kw"><b>烃化反应</b>：亲核取代 / 亲电加成</div>
+          <div class="kw"><b>Wagner-Meerwein 重排</b></div>
+          <div class="kw"><b>羟醛缩合 / 克莱森（Claisen）缩合</b>：常有辅酶A的酯参与（如乙酰辅酶A），在ATP和生物素作用下与CO2羧化生成<b>丙二酸单酰辅酶A</b></div>
+          <div class="kw"><b>席夫碱形成 + 曼尼希反应</b>：胺与醛/酮缩合形成C=N键，脱水生成亚胺/席夫碱（亲电加成）；亚胺质子化形成亚胺正离子可发生曼尼希反应</div>
+          <div class="kw"><b>转氨基反应</b></div>
+          <div class="kw"><b>脱羧反应</b></div>
+          <div class="kw"><b>氧化还原反应</b></div>
+          <div class="kw"><b>酚氧化偶联反应</b>：过氧化物酶/漆酶催化酚产生自由基后偶联；细胞色素P450依赖酶也可催化（NADPH+O2参与，但不转移氧到底物）。应用于木质素、色素、甲状腺激素、抗生素、生物碱合成。例：漆酶介导黄酮木脂素类<b>水飞蓟宾的二聚化</b></div>
+          <div class="kw"><b>糖基化反应</b></div>
+          <div class="kw"><b>Diels-Alder（D-A）反应</b>：共轭双烯（二烯体）与取代烯烃（亲双烯体）发生 <b>[4+2]环加成</b>，是构建C-C键最常用方法之一。例：桑树中D-A型天然产物</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>四、五大生物合成途径（核心考点）</h3>
+
+        <div class="collapsible open">
+          <div class="head">① 乙酸-丙二酸途径（AA-MA途径）</div>
+          <div class="body">
+          饱和/不饱和脂肪酸及<b>聚酮类化合物</b>均由此途径合成。<br>
+          <b>1. 脂肪酸类</b>：乙酰辅酶A（starter）+ 丙二酸单酰辅酶A（extender）经缩合、还原 → 偶数/奇数碳饱和脂肪酸。<br>
+          <b>2. 聚酮类</b>：两分子乙酰辅酶A经<b>Claisen缩合</b>形成乙酰乙酰辅酶A，反复进行生成多聚-β-酮酸酯链。<br>
+          <b>3. 酚及其芳聚酮类</b>：多聚-β-酮酸酯可进行分子内Claisen或Aldol反应（如C1-C6、C2-C7、C1-C4、C3-C7环化方式）；由聚酮合成芳香族化合物涉及羟醛缩合、Claisen缩合、羟基化、酚氧化偶联、芳环氧化开环等。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">② 甲戊二羟酸途径（MVA）与脱氧木酮糖磷酸酯途径（DXP）—— 萜类/甾类</div>
+          <div class="body">
+          <b>萜类化合物</b>由异戊二烯单位<b>头-尾相接</b>而成。Wallach（1887）：萜类衍生自异戊二烯的多聚体/衍生物；但部分萜类不能简单分为异戊二烯单元。<br>
+          真正活性的异戊二烯单位是 <b>IPP（焦磷酸异戊烯酯）</b> 和 <b>DMAPP（焦磷酸二甲基烯丙酯）</b>，均来自MVA。<br>
+          <b>发展史</b>：Ruzicka提出萜类衍生自MVA途径 → Lynen证实IPP在植物中存在 → Folkers (1956) 证明 3R-甲戊二羟酸是IPP的关键前体。<br>
+          <b>动物 vs 植物</b>：动物中 MVA是唯一途径；植物中大部分萜类由DXP途径产生，<b>三萜和甾类（胞液产物）由MVA途径</b>合成；MVA相关酶在胞液中，DXP相关酶在叶绿体内。<br>
+          <b>萜类分级</b>：半萜(C10，挥发油)、单萜(C10，挥发油)、倍半萜(C15，如青蒿素)、二萜(C20)、二倍半萜(C25，如蛇孢菌素A)、三萜(C30)、四萜(C40)。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">③ 莽草酸途径（shikimic acid pathway）—— 芳香族化合物</div>
+          <div class="body">
+          合成<b>芳香氨基酸类、苯甲酸类(C6-C1)、桂皮酸类(C6-C3)</b>；进一步可转化为<b>木脂素类、苯丙素类、香豆素类</b>(均C6-C3单位)。<br>
+          路径概览：糖酵解/磷酸戊糖途径 → 4-磷酸赤藓糖(E4P) + 磷酸烯醇式丙酮酸(PEP) → 莽草酸 → <b>分支酸（chorismate，关键枢纽）</b> → 分支为(1)色氨酸方向 (2)予苯酸/arogenic acid → 苯丙氨酸、酪氨酸方向。<br>
+          <b>关键</b>：莽草酸途径<b>哺乳动物中不存在</b>，3种芳香族氨基酸（苯丙氨酸、酪氨酸、色氨酸）只能由植物和微生物合成，人类需从食物获取。<br>
+          <b>1. 芳香氨基酸和简单苯甲酸类</b>：莽草酸可转化为苯甲酸类化合物。<br>
+          <b>2. 桂皮酸途径</b>：C6-C3骨架(苯丙素类、木脂素类)以及C6-C3-C6骨架(黄酮类)均由苯丙氨酸经<b>苯丙氨酸脱氨酶(PAL)</b>脱氨生成的<b>桂皮酸</b>而来；下游经4CL、CHS、CHI等酶生成查尔酮→黄酮类、异黄酮类、黄酮醇类、花色素苷、香豆素类、木质素类等。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">④ 氨基酸途径（amino acid pathway）—— 生物碱</div>
+          <div class="body">
+          氨基酸脱羧成胺类，再经甲基化、氧化、还原、重排等转变为<b>生物碱</b>。<br>
+          氨基酸碳架来源：柠檬酸循环（α-酮戊二酸→谷氨酸族；草酰乙酸→天冬氨酸族，含赖氨酸/苏氨酸/甲硫氨酸）；糖酵解（甘油酸-3-磷酸→丝氨酸族；丙酮酸→丙酮酸族，含丙氨酸/缬氨酸/亮氨酸）；磷酸烯醇式丙酮酸+戊糖磷酸途径中间体→芳香族（苯丙氨酸/酪氨酸/色氨酸）及组氨酸。<br>
+          <b>关键前体→生物碱类型</b>：
+          <ul>
+            <li><b>鸟氨酸</b> → 吡咯烷生物碱、吡咯里西啶生物碱、托品烷生物碱（例：颠茄）</li>
+            <li><b>赖氨酸</b> → 哌啶生物碱、吲哚里西啶生物碱、喹诺里西啶生物碱（例：垂盆草）</li>
+            <li><b>邻氨基苯甲酸</b> → 喹啉生物碱、吖啶酮生物碱</li>
+            <li><b>苯丙氨酸/酪氨酸</b> → 简单苯丙胺生物碱、四氢异喹啉生物碱、苄基四氢异喹啉生物碱、苄基苯乙胺生物碱、吐根碱生物碱</li>
+            <li><b>色氨酸</b> → 吲哚类生物碱</li>
+          </ul>
+          代表实例：罂粟 → <b>可待因</b>（苄基四氢异喹啉生物碱）的生物合成；长春花 → <b>长春碱</b>（双吲哚类生物碱）的生物合成。
+          </div>
+        </div>
+
+        <div class="collapsible open">
+          <div class="head">⑤ 复合途径</div>
+          <div class="body">
+          由两种或以上途径联合形成天然产物，常见组合：①甲戊二羟酸+乙酸-丙二酸 ②乙酸-丙二酸+莽草酸 ③氨基酸+甲戊二羟酸 ④氨基酸+乙酸-丙二酸 ⑤氨基酸+莽草酸。<br>
+          代表实例：<b>大麻二酚酸</b>的生物合成（萜类+聚酮）；<b>查尔酮和二氢黄酮类化合物</b>的生物合成（莽草酸+乙酸-丙二酸）；喜树 → <b>喜树碱</b>生物合成途径（萜类+生物碱）。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>五、天然产物生物合成研究的意义</h3>
+        <div class="grid2">
+          <div class="kw">① 有利于天然化合物的<b>结构分类</b></div>
+          <div class="kw">② 有利于天然化合物的<b>结构推测</b></div>
+          <div class="kw">③ 指导<b>植物化学分类学</b></div>
+          <div class="kw">④ 基于生物亲缘关系<b>寻找新药源</b>，定向寻找生物活性成分</div>
+          <div class="kw">⑤ <b>生物调控</b>，提高活性成分含量</div>
+          <div class="kw">⑥ 指导<b>仿生合成</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="sec3">
+      <div class="section-header">
+        <h2>第三节　天然药物有效成分的提取分离方法</h2>
+        <p>提取方法（溶剂法及特殊方法） · 分离与精制（五大依据）</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">0</span>前期工作 & 提取分离一般原则</h3>
+        <div class="grid2">
+          <div>
+            <h4>原植物的采集和鉴定</h4>
+            <ul>
+              <li>原植物的拉丁学名</li>
+              <li>采集地点、时间和方法</li>
+              <li>药用部位</li>
+              <li>存留样本</li>
+            </ul>
+          </div>
+          <div>
+            <h4>了解前人的应用和研究</h4>
+            <ul>
+              <li>民间药用情况</li>
+              <li>以前是否做过研究</li>
+              <li>研究的深度和广度</li>
+              <li>已有的实验方案和方法</li>
+            </ul>
+          </div>
+        </div>
+        <div class="kw">
+          流程：化学成分 → <b>提取</b> → 混合物 → <b>分离</b> → 单一化合物 → 结构鉴定<br>
+          策略：<b>已知成分/已知结构类型</b> → 参照文献方法、工业方法；<b>未知成分/有效部位</b> → <b>活性追踪（定向分离）</b>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、天然药物有效成分的提取</h3>
+
+        <h4>（一）溶剂提取法（最常用）</h4>
+        <p><b>原理</b>：相似相溶；应用于<b>所有化学成分</b>。选择溶剂的考虑因素：尽可能多溶出有效成分而少溶杂质；按"相似相溶"原则匹配有效成分/杂质/溶剂极性；一般不与化学成分起反应（生物碱、有机酸除外）；溶剂的安全、价廉易得、回收方便。</p>
+
+        <div class="collapsible">
+          <div class="head">常用有机溶剂的极性顺序（重要记忆）</div>
+          <div class="body">
+          <b>石油醚 &lt; 苯 &lt; 二氯甲烷 &lt; 乙醚 &lt; 三氯甲烷 &lt; 乙酸乙酯 &lt; 丙酮 &lt; 乙醇 &lt; 甲醇 &lt; 乙腈 &lt; 水</b><br>
+          介电常数：小→大；极性：小→大；亲脂性：强→弱；亲水性：弱→强。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">常用有机溶剂特点速记</div>
+          <div class="body">
+          <ul>
+            <li><b>比水重</b>的有机溶剂：三氯甲烷（氯仿）、二氯甲烷</li>
+            <li><b>与水分层</b>的有机溶剂：环己烷～正丁醇</li>
+            <li><b>与水任意比混溶</b>：丙酮、乙醇、甲醇</li>
+            <li><b>介电常数最小</b>：环己烷</li>
+            <li><b>从水中萃取苷类/水溶性生物碱常用</b>：正丁醇</li>
+            <li><b>溶解范围最广</b>：乙醇</li>
+          </ul>
+          </div>
+        </div>
+
+        <h4>影响溶剂提取效率的因素</h4>
+        <ul>
+          <li>溶剂种类</li>
+          <li>提取方法（回流、渗滤、超声等）</li>
+          <li>药材粉碎度（粒小者易提取）</li>
+          <li>溶剂用量（药材量的8/12/16倍等）</li>
+          <li>提取温度（温度高溶解量大）</li>
+          <li>提取时间（时间长易达饱和）</li>
+          <li>提取次数（2、3或4次）</li>
+        </ul>
+
+        <h4>常用溶剂提取分离方法（冷提/热提对比）</h4>
+        <table>
+          <tr><th>方法</th><th>溶剂</th><th>方式</th><th>适用范围</th><th>优点</th><th>缺点</th></tr>
+          <tr><td>(1) 浸渍法</td><td>水/乙醇</td><td>冷提</td><td>热不稳定成分</td><td>常温/低温即可</td><td>出膏率低，提取液易变质</td></tr>
+          <tr><td>(2) 渗漉法</td><td>乙醇</td><td>冷提</td><td>热不稳定成分</td><td>提取效率高</td><td>溶剂用量大，提取液易变质</td></tr>
+          <tr><td>(3) 煎煮法</td><td>水</td><td>热提</td><td>热稳定成分</td><td>简便</td><td>溶剂消耗量大，操作麻烦</td></tr>
+          <tr><td>(4) 回流提取法</td><td>有机溶剂</td><td>热提</td><td>热稳定成分</td><td>提取效率高</td><td>时间较长</td></tr>
+          <tr><td>(5) 连续回流提取法</td><td>有机溶剂</td><td>热提</td><td>热稳定成分</td><td>溶剂反复利用</td><td>时间较长</td></tr>
+        </table>
+
+        <h4>（6）超临界流体萃取法（SFE）</h4>
+        <p>物质处于临界温度和临界压力以上时呈<b>单一相态（超临界流体）</b>，常用CO2、N2O、SF6、NH3、乙烷、庚烷、二氯二氟甲烷。</p>
+        <div class="grid2">
+          <div class="kw"><b>特点</b>：不残留有机溶剂、速度快、收率高、流程简单；无易燃易爆危险，无公害；萃取温度低适合热不稳定物质；只需改变压力即可调溶解性；适用挥发性/脂溶性化合物；可加<b>夹带剂</b>改变极性；可循环利用成本低；可与色谱/IR/MS联用</div>
+          <div class="kw"><b>局限</b>：对脂溶性成分溶解力强，对水溶性成分弱；设备造价高；更换产品时清洗困难。<br><b>夹带剂作用</b>：①改善/维持选择性 ②提高难挥发溶质溶解度；如甲醇、乙醇、丙酮、乙腈</div>
+        </div>
+        <p><b>应用</b>：生物碱、挥发油、苯丙素、黄酮、有机酸、苷类、萜类、天然色素的萃取。</p>
+
+        <h4>（7）超声波提取技术</h4>
+        <p><b>原理</b>：超声波辅助，<b>空化现象</b>；各种溶剂均可，可加热但所需温度低，提取效率高；<b>应用</b>：皂苷类。</p>
+
+        <h4>（8）微波提取法</h4>
+        <p><b>原理</b>：微波具有吸收性、穿透性、反射性；极性溶剂（水）吸收微波能后弛豫释放热能，使内部压力增大，成分流出溶解。<br>
+        <b>优点</b>：缩短提取时间、提高速率、降低提取温度，对不耐热物质好。<br>
+        <b>应用</b>：香料、调味品、天然色素、中草药、化妆品等。<br>
+        <b>影响因素</b>：溶剂选择、样品形状粒度、样品量、微波功率。</p>
+
+        <div class="collapsible">
+          <div class="head">其他提取方法（升华法、水蒸气蒸馏法、压榨法）</div>
+          <div class="body">
+          <ul>
+            <li><b>升华法</b>：原理——遇热挥发，遇冷凝固，应用于<b>具有升华性</b>的成分，如游离蒽醌、樟脑、咖啡因</li>
+            <li><b>水蒸气蒸馏法</b>：原理——与水蒸气产生共沸点，应用于<b>具有挥发性</b>的成分，如挥发油</li>
+            <li><b>压榨法</b>：原理——机械挤压，应用于新鲜药材、种籽植物油</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、天然药物有效成分的分离与精制</h3>
+        <div class="kw"><b>分离依据（共存成分的性质差异）</b>：①溶解度差别 ②分配比不同 ③吸附性差别 ④分子大小差别 ⑤离解程度不同</div>
+
+        <h4>（一）根据物质溶解度差别进行分离</h4>
+        <p>与溶解度密切相关的因素：调节温度、改变混合溶剂极性、调节pH、加入沉淀试剂（如雷氏铵盐沉淀季铵碱）。</p>
+
+        <div class="collapsible">
+          <div class="head">1. 调节温度（结晶/重结晶）</div>
+          <div class="body">利用温度变化导致溶解度改变来分离。流程：待纯化物A+杂质B、C → 加甲醇热溶、热滤 → 残渣（C，过滤去除）与滤液（A+B）→ 冷置析晶 → 结晶（A）+ 母液（B）。</div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">2. 改变混合溶剂极性（三种方法）</div>
+          <div class="body">
+          <ul>
+            <li><b>水/醇法</b>：除去水提液中的<b>水溶性杂质</b>（蛋白质、多糖、果胶、黏液质），如制备黄芪多糖时去除水溶性大分子杂质——中药水提液 加数倍量浓醇(75%)静置过夜 → 沉淀(水溶性杂质) + 母液(目标成分)</li>
+            <li><b>醇/水法</b>：除去醇提液中的<b>水不溶性杂质</b>（油脂、叶绿素等）——中药醇提液 加数倍水静置过夜 → 沉淀(脂溶性杂质) + 母液(目标成分)</li>
+            <li><b>醇/醚法或醇/丙酮法</b>：纯化<b>皂苷</b>——皂苷醇溶液 加数倍乙醚静置 → 沉淀(皂苷) + 母液(脂溶性杂质)</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">3. 调节pH（核心：酸碱性化合物的解离/游离状态转换）</div>
+          <div class="body">
+          原理：通过加酸/加碱调节pH，改变酸性/碱性/两性化合物的存在状态（游离型/分子态 ↔ 解离型/离子态），从而改变其在水/有机相中的溶解性而分离。<br>
+          <ul>
+            <li><b>(1) 酸/碱法（酸提碱沉）</b>：用于<b>生物碱</b>的提取纯化。流程：醇提物浸膏(B,游离型/脂溶) → 稀酸水提取(BH+,解离型/水溶) → 碱化 → 沉淀(B，游离型，析出)</li>
+            <li><b>(2) 碱/酸法（碱提酸沉）</b>：用于<b>黄酮、蒽醌等酚性成分、有机酸</b>的提取纯化。流程：药材(HA,游离型) → 碱水提取(A⁻,解离型/水溶) → 酸化 → 沉淀(HA，游离型，析出)</li>
+            <li><b>(3) 调节pH至等电点</b>，沉淀蛋白</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">4. 加沉淀试剂</div>
+          <div class="body">
+          <ul>
+            <li><b>酸性成分</b>：用 Pb²⁺、Ba²⁺、Ca²⁺（如 Pb(Ac)₂）沉淀，水悬浮后通H₂S脱铅得母液</li>
+            <li><b>碱性成分（生物碱）</b>：苦味酸盐/苦酮酸盐、磷钼酸盐/磷钨酸盐/<b>雷氏铵盐</b>沉淀水溶性生物碱；或强酸化后用乙醚萃取分离</li>
+          </ul>
+          </div>
+        </div>
+
+        <h4>（二）根据物质在两相溶剂中的分配比不同进行分离</h4>
+        <p>常用方法：简单液-液萃取、纸色谱（PC）、逆流分溶（CCD）、液滴逆流色谱（DCCC）、高速逆流色谱（HSCCC）、气液分配色谱（GC/GLC）、液-液分配色谱。</p>
+
+        <div class="collapsible">
+          <div class="head">1. 液-液萃取的分离因子</div>
+          <div class="body">
+          <b>分配比 K</b> = C上相/C下相（同一物质，两相溶剂）<br>
+          <b>分离因子 β</b> = K<sub>A</sub>/K<sub>B</sub>（A、B两溶质在同一溶剂系统的分配系数比值，规定 K<sub>A</sub> &gt; K<sub>B</sub>）<br>
+          <b>β值与萃取次数关系</b>：β≥100 → 一次简单萃取即可基本分离；100&gt;β≥10 → 需萃取约10~12次；β≤2 → 需100次以上萃取；β≈1（K<sub>A</sub>≈K<sub>B</sub>）→ 性质极相近，任意次分配也无法分离。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">2. 分配比与pH</div>
+          <div class="body">
+          对<b>酸性物质(A)</b>：pH&lt;3时多以非离解形式(HA)存在，易分配于有机溶剂；pH&gt;12时以离解形式(A⁻)存在，易分配于水。<br>
+          对<b>碱性物质(B)</b>：pH&lt;3时多呈离子状态(BH⁺)；pH&gt;12时呈非离子状态(B)。<br>
+          <b>pH梯度萃取</b>：梯度调节pH，每次改变一种成分的存在状态，依次分离。缺点：手工操作繁琐、溶剂用量大、易乳化。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">3. 纸色谱（PC）与β判据</div>
+          <div class="body">
+          一般 β&gt;50，简单萃取即可解决；β&lt;50 时宜采用逆流分溶法。<br>
+          PC：固定相为水，流动相为水饱和的有机溶剂；用于检测/制备样品；Rf值计算分离因子 = Rf<sub>a</sub>(1-Rf<sub>b</sub>) / [Rf<sub>b</sub>(1-Rf<sub>a</sub>)]，其中Rf<sub>a</sub>&gt;Rf<sub>b</sub>。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">4. 逆流分溶法（CCD）与5. DCCC / HSCCC</div>
+          <div class="body">
+          <b>CCD</b>：多次连续的液-液萃取；优点——避免手工操作；缺点——溶剂用量大，机械操作易破损漏液乳化。<br>
+          <b>DCCC（液滴逆流色谱）</b>：流动相呈液滴形式垂直上升或下降通过固定相液柱。<br>
+          <b>HSCCC（高速逆流色谱）</b>：行星式旋转产生离心力场，固定相保留在蛇形管内，流动相单向低速通过固定相。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">6. 液-液分配柱色谱（正相/反相、加压、涡流、离子对HPLC）</div>
+          <div class="body">
+          固定相涂覆于硅胶等多孔载体装柱，流动相洗脱，物质按分配比不同被洗脱速度不同而分离。<br>
+          <table>
+            <tr><th></th><th>载体/固定相</th><th>流动相</th><th>适用范围</th></tr>
+            <tr><td><b>正相分配色谱</b></td><td>硅胶、硅藻土、纤维素粉（固定相为水/缓冲液）</td><td>三氯甲烷、乙酸乙酯、丁醇等<b>弱极性</b>有机溶剂</td><td>极性大的成分（CHCl3、EtOAc部位）</td></tr>
+            <tr><td><b>反相分配色谱</b></td><td>键合硅胶 RP-2/RP-8/RP-18（C2/C8/C18，石蜡油）</td><td>甲醇、乙腈、甲醇-水、乙腈-水等<b>强极性</b>有机溶剂</td><td>极性小的成分（丁醇BuOH部位）</td></tr>
+          </table>
+          <b>RP柱亲脂性强弱</b>：RP-18 &gt; RP-8 &gt; RP-2。<br>
+          <b>加压液相柱色谱</b>（常用RP-18 ODS）按压力分级：快速色谱(flash, ~2.02×10⁵Pa) &lt; 低压LPLC(&lt;5.05×10⁵Pa) &lt; 中压MPLC(5.05~20.2×10⁵Pa) &lt; 高效HPLC(&gt;20.2×10⁵Pa)。HPLC特点：加压流动相流速快，载体颗粒小、机械强度大、比表面积大，耐压柱材，自动描记分段收集。<br>
+          <b>涡流色谱</b>：大粒径填料使流动相高流速(7.5cm/s)产生涡流，加快传质，大分子（蛋白质）来不及扩散进填料即被洗出，小分子待测物保留；优点——可在线联用LC/MS、速度快、效率较高、灵敏度选择性好；缺点——杂质多、污染色谱柱。<br>
+          <b>反相离子对HPLC</b>：ODS柱中甲醇-水/乙腈-水加入0.01~0.03mol/L离子对试剂，使样品离子与反离子形成不带电中性离子对，增大在非极性固定相中的溶解度，改善分离。离子对选择：季铵类（用于强/弱酸、磺酸染料、羧酸等）；叔胺（磺酸盐、羧酸）；烷基磺酸盐（强/弱碱、生物碱、肽等）；高氯酸（有机胺、氨基酸、肽）。应用：生物碱、有机酸、磺胺类药物、抗生素、维生素的分离。
+          </div>
+        </div>
+
+        <h4>（三）根据物质吸附性差别进行分离</h4>
+        <table>
+          <tr><th>吸附类型</th><th>原理</th><th>代表吸附剂</th></tr>
+          <tr><td><b>物理吸附</b></td><td>分子间力，无选择性，可逆</td><td>硅胶、氧化铝、活性炭</td></tr>
+          <tr><td><b>化学吸附</b></td><td>化学键，选择性强，有时不可逆</td><td>硅胶—生物碱；碱性氧化铝—黄酮/蒽醌/有机酸</td></tr>
+          <tr><td><b>半化学吸附</b></td><td>氢键吸附，力量较弱多可逆</td><td>聚酰胺</td></tr>
+        </table>
+
+        <div class="collapsible">
+          <div class="head">1. 硅胶、氧化铝、活性炭（物理吸附）</div>
+          <div class="body">
+          吸附原理：<b>范德华力</b>；三要素：吸附剂、溶质、溶剂；原则：<b>"相似者易于吸附"</b>。<br>
+          <b>活性炭</b>（非极性吸附剂）：对非极性成分吸附强；溶剂极性↑则吸附力↓，可被极性弱的溶剂洗脱。<br>
+          <b>硅胶/氧化铝</b>（极性吸附剂）：对极性物质亲和力强；溶剂极性↑则吸附力↑，需用极性强的溶剂洗脱。<br>
+          <b>硅胶</b>：多孔性，SiO2组成，含硅醇基，弱酸性，可与水可逆结合；105℃加热30min脱水活化；500℃加热脱水缩合。含水量越少吸附能力越强；含水&gt;17%则无吸附作用，仅作分配层析载体。极性大的溶剂洗脱能力大。应用：TLC、CC。<br>
+          <b>氧化铝(Al2O3)</b>：由Al(OH)3高温煅烧而成，弱碱性，吸附性强，按含水量分Ⅰ~Ⅵ级。适用<b>生物碱</b>，不适分离蒽醌/黄酮/有机酸等酸性成分。<br>
+          <b>活性炭应用</b>：结晶/重结晶中脱色脱臭；从大量稀水液中浓缩微量物质（如一叶秋碱的浓缩精制）。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">2. 极性及强弱判断</div>
+          <div class="body">
+          一般物质极性由官能团种类、数目、位置、碳链长短决定。<br>
+          常用溶剂的介电常数(ε)与极性（从弱到强）：己烷(1.88) &lt; 苯(2.29) &lt; 乙醚(4.47) &lt; 三氯甲烷(5.20) &lt; 乙酸乙酯(6.11) &lt; 乙醇(26.0) &lt; 甲醇(31.2) &lt; 水(81.0)。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">3. 吸附柱色谱法（硅胶/氧化铝柱色谱操作要点）</div>
+          <div class="body">
+          A. 吸附剂用量：试样量的30~60倍，有时100~200倍<br>
+          B. 装柱：高度/直径比 (h/d) 约(15:1)~(20:1)<br>
+          C. 上样：干法/湿法上样<br>
+          D. 洗脱：常用混合溶剂，极性宜逐步增加，跳跃不能太大<br>
+          E. 洗脱系统选择：参考TLC的 Rf ≈ 0.2~0.3<br>
+          <b>TLC拖尾</b>：吸附作用过强。硅胶（碱性成分）展开剂加几滴碱（氨/吡啶/二乙胺）；氧化铝（酸性成分）展开剂加几滴酸（乙酸/甲酸）。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">4. 聚酰胺吸附色谱法（半化学吸附，氢键）</div>
+          <div class="body">
+          原理：氢键吸附（半化学吸附）。<br>
+          影响吸附力因素：①形成氢键基团数目越多，吸附越强 ②若基团易形成<b>分子内</b>氢键，吸附减弱 ③分子芳香化程度越高，吸附力增强。<br>
+          <b>上样与洗脱</b>：化合物在不同溶剂中的吸附力随溶剂极性增强而增强 → 水中最强，常以水装柱、样品溶于水上样；含水醇中次之；醇中最弱，常用浓度渐高的含水醇梯度洗脱（<b>EtOH-H2O最常用</b>）。<br>
+          各溶剂洗脱能力（弱→强）：水 &lt; 甲醇 &lt; 乙醇 &lt; 氢氧化钠水溶液 &lt; 甲酰胺 &lt; 二甲基甲酰胺 &lt; 尿素。<br>
+          应用：醌类、黄酮类等酚性成分的制备分离；脱鞣质处理。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">5. 大孔吸附树脂</div>
+          <div class="body">
+          性质：白色球形颗粒，多孔网状结构，不溶于酸碱有机溶剂。<br>
+          原理：①吸附原理（范德华力、氢键吸附）②分子筛性原理。<br>
+          影响吸附因素：①吸附剂表面性质——非极性化合物在水中易被非极性树脂吸附，极性物质易被极性树脂吸附 ②溶剂性质——物质在溶剂中溶解度大则树脂吸附力小，反之大。<br>
+          洗脱剂：甲醇、乙醇、丙酮、乙酸乙酯等。<br>
+          应用：苷与糖类分离、生物碱精制、多糖/黄酮/三萜类分离。
+          </div>
+        </div>
+
+        <h4>（四）根据物质分子大小差别进行分离</h4>
+        <div class="collapsible">
+          <div class="head">1. 凝胶滤过法（分子筛/排阻色谱）</div>
+          <div class="body">
+          原理：半透膜膜孔或凝胶三维网状结构的分子筛作用，按分子量<b>从大到小</b>依次流出而分离。<br>
+          <ul>
+            <li><b>葡聚糖凝胶（Sephadex G）</b>：葡聚糖+交联剂（环氧氯丙烷）形成分子筛，水中应用，分离<b>水溶性</b>成分</li>
+            <li><b>羟丙基葡聚糖凝胶（Sephadex LH-20）</b>：由Sephadex G-25羟丙基化所得，可在水、甲醇、乙醇、丙酮、乙酸乙酯、氯仿中使用，<b>水溶性、脂溶性成分均可分</b></li>
+          </ul>
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">2. 膜分离技术</div>
+          <div class="body">
+          <table>
+            <tr><th>膜类型</th><th>截留范围</th><th>说明/应用</th></tr>
+            <tr><td>微滤膜</td><td>0.1~10μm</td><td>截留颗粒物、澄清液体、去除大部分细菌；可作超滤/反渗透前处理</td></tr>
+            <tr><td>超滤膜</td><td>10~100nm</td><td>除去病菌、热原、胶体、蛋白质等大分子；用于分离、提纯、浓缩</td></tr>
+            <tr><td>纳滤膜</td><td>1~10nm</td><td>分离去除分子量300~1000的小分子物质，浓缩与透析一体</td></tr>
+            <tr><td>反渗透膜</td><td>≤1nm</td><td>仅透过小分子溶剂，截留无机盐/金属离子/低分子量分子；用于制备医用水、注射用水、医用透析水</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <h4>（五）根据物质离解程度不同进行分离 —— 离子交换法</h4>
+        <p>离子交换树脂外观为球形颗粒，不溶于水但可在水中溶胀。</p>
+        <table>
+          <tr><th>类型</th><th>子类型</th><th>交换基团</th></tr>
+          <tr><td rowspan="2"><b>阳离子交换树脂</b></td><td>强酸性</td><td>—SO3H</td></tr>
+          <tr><td>弱酸性</td><td>—COOH，—PO4H</td></tr>
+          <tr><td rowspan="2"><b>阴离子交换树脂</b></td><td>强碱性</td><td>—N⁺(CH3)3·X / —N⁺(CH3)3·OH</td></tr>
+          <tr><td>弱碱性</td><td>—NH2，—NH，&gt;N</td></tr>
+        </table>
+        <p>（强酸型阳离子交换树脂结构 = 母核 + 离子交换基团；应用流程见离子交换树脂分离物质流程图）</p>
+
+        <h4>（六）分子蒸馏</h4>
+        <p><b>原理</b>：依靠不同物质分子运动<b>自由程</b>的差别进行分离（重分子与轻分子自由程不同）。</p>
+        <div class="kw"><b>特点</b>：操作温度低；蒸馏压强低（真空度高）；受热时间短（轻分子逸出几乎未碰撞即达冷凝面）；分离程度高</div>
+        <p><b>应用</b>：蒸馏天然鱼肝油浓缩维生素A、提取天然/合成维生素E及β-胡萝卜素、提取鱼油/米糠油/小麦胚芽油；食品工业中混合油脂分离（如硬脂酸单甘油酯，纯度可达90%~95%以上）。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="sec4">
+      <div class="section-header">
+        <h2>第四节　结构研究法</h2>
+        <p>纯度测定 · UV/IR/NMR/MS/ORD-CD/单晶XRD · 结构解析程序 · 研究方法进展</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">1</span>一、化合物的纯度测定</h3>
+        <div class="grid2">
+          <div class="kw">
+            <b>（一）结晶形状、色泽、熔点</b><br>
+            每种化合物的结晶有一定形状、色泽、熔点；可通过晶型均匀一致、熔点明确敏锐来初步判定纯度。非结晶物质不具备这些性质，无法据此鉴定。
+          </div>
+          <div class="kw">
+            <b>（二）薄层色谱法（TLC）</b><br>
+            硅胶/纸色谱，通常以组成不同的<b>3种溶剂系统</b>展开；样品均为<b>均一斑点</b>（Rf值在<b>0.2~0.8</b>）可认为是单纯化合物。
+          </div>
+        </div>
+        <div class="kw">
+          <b>（三）气相色谱(GC)或高效液相色谱(HPLC)法</b><br>
+          GC主要适用于加热条件下能<b>汽化而不分解</b>的物质（如挥发油）；HPLC可用于挥发性及非挥发性物质，具有高速、高效、灵敏、微量、准确的优点，广泛用于纯度检测。
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">2</span>二、结构研究中的主要谱学方法 — 概览</h3>
+        <p>六大方法：① UV-vis ② IR ③ NMR ④ MS ⑤ ORD/CD ⑥ 单晶X射线衍射</p>
+
+        <h4>（一）紫外-可见吸收光谱（UV-vis）</h4>
+        <ul>
+          <li>分子吸收波长范围 <b>200~800nm</b></li>
+          <li>含共轭双键、发色团及共轭体系助色团的分子产生 <b>π→π* 及 n→π*</b> 跃迁</li>
+          <li>主要用于鉴定结构中共轭体系的<b>有无</b></li>
+        </ul>
+        <div class="collapsible">
+          <div class="head">UV谱图判读规则</div>
+          <div class="body">
+          <ul>
+            <li>220~800nm 内<b>无</b>UV吸收 → 脂肪烃、脂环烃或简单衍生物（氯化物、醇、醚、羧酸等）</li>
+            <li>220~250nm 内<b>强吸收</b>（ε≥10000）→ 共轭二烯或α,β-不饱和醛/酮结构</li>
+            <li>250~290nm 内中等强度吸收，常有<b>精细结构</b> → 苯环或某些芳杂环</li>
+            <li>250~350nm 内弱吸收 → 有羰基或共轭羰基</li>
+            <li>300nm以上高强度吸收 → 结构有较大共轭体系</li>
+          </ul>
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">溶剂效应</div>
+          <div class="body">
+          溶剂极性增大：<b>π→π*</b> 跃迁吸收峰向长波移动（<b>红移</b>）；<b>n→π*</b> 跃迁吸收峰向短波移动（<b>蓝移</b>）。非极性溶剂中可观察到清晰的<b>精细结构峰</b>。
+          </div>
+        </div>
+        <div class="collapsible">
+          <div class="head">黄酮类UV特征（重要应用）</div>
+          <div class="body">
+          黄酮类化合物分子中存在<b>桂皮酰基(B环)</b>和<b>苯甲酰基(A环)</b>组成的交叉共轭体系，甲醇溶液在200~400nm有2个主要吸收带：<br>
+          • A环(苯甲酰基)：<b>峰带Ⅱ，220~280nm</b><br>
+          • B环(桂皮酰基)：<b>峰带Ⅰ，300~400nm</b>
+          </div>
+        </div>
+        <div class="kw">
+          UV的价值：①共轭体系——对含共轭双键、α,β-不饱和羰基、芳香化合物的结构鉴定重要 ②特定吸收特征→骨架类型判断（如黄酮、香豆素、蒽醌）③加诊断试剂前后谱图规律变化→取代图式推断（如黄酮、黄酮醇）
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3</span>（二）红外光谱（IR）法</h3>
+        <p>利用红外光谱对分子进行分析鉴定：一束不同波长红外射线照射分子，特定波长被吸收形成IR吸收光谱；化学键振动在 <b>4000~400 cm⁻¹</b> 红外光区引起吸收。</p>
+        <table>
+          <tr><th>波数区域 (cm⁻¹)</th><th>归属</th></tr>
+          <tr><td>4000~2500</td><td>X—H（X=C, N, O, S等）伸缩振动区</td></tr>
+          <tr><td>2500~2000</td><td>三键及连烯类双键的伸缩振动区</td></tr>
+          <tr><td>2000~1500</td><td><b>双键伸缩振动区</b>（红外谱图中很重要的区域）</td></tr>
+          <tr><td>1500~1300</td><td>C—H弯曲振动信息（—CH2—，—CH3）</td></tr>
+          <tr><td>1300~910</td><td>所有单键伸缩振动、分子骨架振动；部分含氢基团弯曲振动；含重原子双键(P=O, P=S)伸缩振动</td></tr>
+          <tr><td>&lt;910</td><td>苯环因取代而产生的吸收(900~650)，是判断苯环取代位置的主要依据</td></tr>
+        </table>
+        <div class="kw">关键峰位记忆：双键伸缩振动区 <b>2000~1500cm⁻¹</b>；羟基伸缩振动区 <b>3650~3610cm⁻¹</b>（O-H自由）；羰基相关 <b>1730~1690cm⁻¹</b></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4</span>（三）核磁共振（NMR）法</h3>
+        <p>随着傅立叶变换波谱仪诞生，除¹H外，<b>¹³C</b>核研究自20世纪70年代中期迅速开展；多核研究包括<sup>15</sup>N, <sup>19</sup>F, <sup>31</sup>P等。二维/三维NMR技术发展后，NMR已成为结构测定的主要谱学方法。</p>
+
+        <div class="collapsible">
+          <div class="head">1. 常用氘代溶剂的化学位移值（δH / δC）</div>
+          <div class="body">
+          <table>
+            <tr><th>溶剂</th><th>δH</th><th>δC</th></tr>
+            <tr><td>丙酮-d6</td><td>2.05</td><td>206.7, 29.9</td></tr>
+            <tr><td>苯-d6</td><td>7.16</td><td>128.4</td></tr>
+            <tr><td>三氯甲烷-d</td><td>7.27</td><td>77.2</td></tr>
+            <tr><td>环己烷-d12</td><td>1.38</td><td>26.4</td></tr>
+            <tr><td>D2O</td><td>4.80</td><td>—</td></tr>
+            <tr><td>二氯甲烷-d2</td><td>5.32</td><td>54.0</td></tr>
+            <tr><td>DMSO-d6</td><td>2.50</td><td>39.5</td></tr>
+            <tr><td>甲醇-d4</td><td>4.87, 3.31</td><td>49.2</td></tr>
+            <tr><td>吡啶-d5</td><td>8.74, 7.58, 7.22</td><td>150.4, 135.9, 123.9</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">2. ¹H-NMR — (1)化学位移大致范围</div>
+          <div class="body">
+          <table>
+            <tr><th>类型</th><th>δ (ppm)</th></tr>
+            <tr><td>—C—CH3</td><td>0.8~1.2</td></tr>
+            <tr><td>—C—CH2—</td><td>1~1.5</td></tr>
+            <tr><td>—C—CH—</td><td>1.2~1.8</td></tr>
+            <tr><td>R-CH/CH（R=-OH,-COCOR,-OR,-NO2,-X，α位）</td><td>在基础值上 +2~4 (α-H)，+0.5~1 (β-H)</td></tr>
+            <tr><td>R-CH/CH（R=-C=O,-C=C,Ar-）</td><td>在基础值上 +1~2 (α-H)，+0.5~1 (β-H)</td></tr>
+            <tr><td>≡CH</td><td>2~3</td></tr>
+            <tr><td>=CH</td><td>5~8</td></tr>
+            <tr><td>芳环及芳杂环</td><td>6~9</td></tr>
+            <tr><td>—CHO</td><td>9~10</td></tr>
+            <tr><td>活泼氢（OH, SH, NH）</td><td>不确定，加D2O后信号消失</td></tr>
+          </table>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">3. ¹H-NMR — (2)峰面积 / (3)偶合常数(J)</div>
+          <div class="body">
+          <b>峰面积</b>：氢信号积分面积与分子中总质子数相当；若分子式已知可算出每信号对应的¹H数。但活泼质子（—OH、—NH、—SH，含酚/羧酸活泼质子）在某些溶剂中（或含水）常不出现信号。<br><br>
+          <b>偶合常数(J)</b>：磁不等同的1H核在一定距离内发生偶合裂分；低级偶合符合 <b>n+1规律</b>，产生d(二重)、t(三重)、q(四重)、m(多重)峰；高级偶合有dd、dt、td、m等。化学位移差值×仪器兆周数 = 偶合常数J(Hz)，大小取决于间隔键的距离。<br>
+          间隔键数越少，J绝对值越大，反之越小；通常超过3根单键的偶合可忽略，但π系统(烯丙基、芳环、萘环)中即使超3根键仍可偶合，称<b>远程偶合</b>（如烯丙偶合、W型偶合）。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">4. ¹³C-NMR — (1)信号裂分 / (2)化学位移 / (3)影响因素 / (4)DEPT</div>
+          <div class="body">
+          <b>(1) 信号裂分</b>：¹³C-¹³C同核偶合一般不考虑；¹H对¹³C的异核偶合很突出，裂分数遵循n+1规律：与直接相连¹H对应——CH3为<b>q峰</b>，CH2为<b>t峰</b>，CH为<b>d峰</b>，季C为<b>s峰</b>。<br><br>
+          <b>(2) 化学位移值</b>：
+          <table>
+            <tr><th>基团</th><th>δC (ppm)</th></tr>
+            <tr><td>脂肪碳</td><td>&lt;50</td></tr>
+            <tr><td>连杂原子碳(C-O,C-N,C-S)</td><td>50~100</td></tr>
+            <tr><td>甲氧基碳(-OCH3)</td><td>~55</td></tr>
+            <tr><td>糖端基碳</td><td>95~105</td></tr>
+            <tr><td>芳香碳/烯碳</td><td>98~160</td></tr>
+            <tr><td>连氧芳碳</td><td>140~165</td></tr>
+            <tr><td>C=O</td><td>168~220（醛190~205；酮195~220；羧酸170~185；酯/内酯165~180；酰胺/内酰胺165~180）</td></tr>
+          </table>
+          <b>(3) 影响化学位移的主要因素</b>：
+          <ul>
+            <li>碳的杂化方式：<b>sp3 &lt; sp &lt; sp2</b></li>
+            <li>碳核电子云密度↑ → 化学位移<b>减小</b>（向高场移）</li>
+            <li>共轭效应：不饱和羰基化合物中<b>β碳</b>比α碳处于低场</li>
+            <li>分子内作用：分子内氢键使C=O化学位移<b>增加</b></li>
+            <li>空间位阻γ-效应：大基团使γ-位碳上氢通过空间挤压，电子云偏向碳原子，使碳化学位移<b>向高场移动</b></li>
+            <li>其他效应：电场效应、"重原子"效应、同位素效应</li>
+          </ul>
+          <b>(4) DEPT谱</b>：通过改变照射¹H的脉冲宽度或设定不同弛豫时间，使不同类型¹³C信号呈正向或倒置峰。例：β-紫罗兰酮的DEPT谱。
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <div class="head">5. 二维核磁共振（2D-NMR）</div>
+          <div class="body">
+          <h4>(1) 同核化学位移相关谱</h4>
+          <ul>
+            <li><b>¹H-¹H COSY</b>：横纵坐标均为¹H-NMR谱；同一¹H核信号在对角线上相交形成<b>对角峰</b>；对角线以外的点叫<b>相关峰</b>；因COSY谱具对称性，解析对角线一侧即可。例：乙酸乙酯的COSY图谱。</li>
+            <li><b>NOESY</b>（nuclear Overhauser effect spectroscopy）：两个/组不同类型质子位于<b>相近空间距离</b>时，照射其中一组会使另一组信号强度增强，即<b>NOE效应</b>；NOE强弱与相关质子空间距离有关。例：贝壳杉烷二萜化合物的NOESY图谱。</li>
+          </ul>
+          <h4>(2) 异核化学位移相关谱</h4>
+          <ul>
+            <li><b>HMQC / HSQC</b>：均将¹H与<b>直接相连</b>的¹³C关联，横纵坐标为¹H、¹³C化学位移，交叉峰表示¹³C-¹H相关性；HSQC外观与HMQC相同，但<b>氢谱分辨率更高</b>。例：化合物tachioside的HMQC谱。</li>
+            <li><b>HMBC</b>：¹H与<b>远程偶合</b>的¹³C核关联（通常2~3键），可获得季碳及因杂原子切断的偶合系统间的结构信息，用于<b>连接分子片段</b>。例：化合物tamarin的HMBC谱。</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5</span>（四）质谱法</h3>
+        <p>不同质荷比的离子经质量分析器分开，被检测记录为质谱图（横坐标=质荷比；纵坐标=离子流强度，常标注为相对丰度）。质谱仪组成：<b>进样系统 → 离子源 → 质量分析器 → 检测器 → 显示器</b>。质谱作用：确定<b>分子量、分子式</b>以及<b>分子碎片结构</b>。</p>
+
+        <h4>2. 电离技术分类</h4>
+        <ul>
+          <li>电子轰击电离（EI-MS）</li>
+          <li>化学电离（CI-MS）</li>
+          <li>快原子轰击（FAB）</li>
+          <li>电喷雾（ESI）</li>
+          <li>基质辅助激光解吸电离（MALDI）</li>
+          <li>场解吸（FD）</li>
+          <li>场致电离（FI）</li>
+        </ul>
+
+        <div class="collapsible">
+          <div class="head">(1) EI-MS / (2) FAB / (3) ESI 重点对比</div>
+          <div class="body">
+          <b>EI-MS</b>：样品需<b>加热气化、离子化</b>，得分子离子峰<b>M⁺</b>；难气化、易热解成分测不到M⁺（如<b>糖、苷、氨基酸、肽、蛋白质、核酸</b>等）。<br><br>
+          <b>FAB</b>：离子枪发射高能离子与中性粒子碰撞交换电荷形成高速中性粒子，与样品碰撞使其电离；适用难气化、易热解成分；可得分子离子相关峰 <b>[M+H]⁺、[M+Na]⁺、[M+K]⁺</b>；逐个脱去糖基的碎片峰 <b>[M+H-162]⁺、[M+H-162-146]⁺</b>；可确定分子量、确定糖基的链接顺序、得到苷元的碎片。<br><br>
+          <b>ESI</b>：强静电场使试样电离；难气化、易热解、大小分子均可得到信号；准分子离子峰 <b>[M+H]⁺、[M+Na]⁺、[M+K]⁺、[M-H]⁻</b>。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6</span>（五）旋光光谱（ORD）和圆二色谱（CD）</h3>
+        <p>平面偏振光通过手性物质时，使其偏振平面发生旋转——<b>旋光现象</b>。</p>
+
+        <h4>1. ORD谱的类型</h4>
+        <ul>
+          <li><b>平坦谱线</b></li>
+          <li><b>单纯Cotton效应谱线</b>：分子中既有<b>不对称中心</b>又有<b>紫外发色团</b>时，产生异常旋光光谱，出现峰和谷——Cotton效应谱线。由长波到短波，<b>先峰后谷</b>="正性"Cotton效应；<b>先谷后峰</b>="负性"Cotton效应。例：睾丸素。</li>
+          <li><b>复合Cotton效应谱线</b>（如睾酮的旋光光谱）</li>
+        </ul>
+
+        <h4>2. CD谱</h4>
+        <p>由于ORD曲线复杂，CD曲线更简便。同样有正性/负性Cotton效应：呈<b>正峰</b>=正性曲线，呈<b>负峰</b>=负性曲线。</p>
+        <div class="kw"><b>旋光光谱测定意义</b>：①确定<b>构象</b> ②确定<b>绝对立体构型</b>（如：化合物7与化合物5的旋光光谱完全一样，提示两者构型相同）</div>
+
+        <h4>3. 八区律（环己酮经验规则）</h4>
+        <ul>
+          <li><b>(1) 八区律规则</b>：羰基化合物在八区中的位置决定Cotton效应正负</li>
+          <li><b>(2) 旋光分担规则</b>：旋光贡献具有<b>加和性</b>；距离羰基越远，贡献越小；基团越大，贡献越大</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">7</span>（六）单晶X射线衍射技术</h3>
+        <ul>
+          <li>一种<b>独立</b>的结构分析方法，可独立完成晶体结构分析</li>
+          <li>有机化合物常含C、H、N、O等，成键原子间键长约 <b>0.08~0.16nm</b>，常用 <b>Mo靶（Kα=0.071073nm）</b> 和 <b>Cu靶（Kα=0.154178nm）</b> X射线波长；<b>Cu靶可用于绝对构型测定</b></li>
+          <li>不仅可定量给出分子立体结构参数，还能完成分子<b>相对构型和绝对构型</b>的测定</li>
+          <li>目前是测定分子量<b>10万以上</b>化合物单晶样品的<b>唯一</b>分析技术</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">8</span>三、结构解析程序</h3>
+        <div class="timeline">
+          <div class="step"><div class="dot">1</div><div class="content"><b>确定平面结构</b>：①确定分子式，计算不饱和度 ②官能团、基本骨架的确定</div></div>
+          <div class="step"><div class="dot">2</div><div class="content"><b>立体结构研究</b>：单晶X射线衍射技术 / 旋光光谱(ORD)或圆二色谱(CD)法 / CD激子手性法 / 反应质谱法 / 核磁共振法</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">9</span>四、结构研究方法进展</h3>
+        <div class="grid2">
+          <div class="kw">
+            <b>（一）质谱成像技术（MSI）</b><br>
+            利用质谱中化合物的分子量（分子离子），实现样本表面物质的<b>原位定性、定量分析</b>，并可视化表征待测化合物的<b>空间分布</b>。<br>
+            流程：样品处理 → 样品离子化与质谱测定 → 质谱数据可视化。<br>
+            离子化方式：解吸电喷雾离子化（DESI）、基质辅助激光解吸电离（MALDI）等。
+          </div>
+          <div class="kw">
+            <b>（二）冷冻电镜技术（Cryo-EM）</b><br>
+            一种重要的结构生物学技术，目前已达<b>原子级分辨率</b>。<br>
+            过去主要用于测定生物大分子及生物样本精细结构；<br>
+            现可在<b>混合样品状态下迅速确定小分子化合物的绝对构型</b>（分辨率可达0.1nm）。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section class="section" id="flashcards">
+      <div class="section-header">
+        <h2>🃏 速记卡片</h2>
+        <p>点击卡片翻转查看答案，覆盖四节核心考点</p>
+      </div>
+      <div class="flash-wrap" id="flashWrap"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <div class="section-header">
+        <h2>📝 自测题</h2>
+        <p>选择题，点击选项查看是否正确及解析</p>
+      </div>
+      <div class="quiz-progress">已完成 <span id="quizDone">0</span> / <span id="quizTotal">0</span> 题 <span class="score-pill">正确率 <span id="quizScore">0%</span></span></div>
+      <div id="quizWrap"></div>
+      <button class="btn secondary" onclick="resetQuiz()">重新开始</button>
+    </section>
+  </main>
+</div>
+
+<script>
+// Navigation
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach(item=>{
+  item.addEventListener('click', ()=>showSection(item.dataset.target));
+});
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  navItems.forEach(n=>n.classList.toggle('active', n.dataset.target===id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// Collapsibles
+document.querySelectorAll('.collapsible .head').forEach(h=>{
+  h.addEventListener('click', ()=>{
+    h.parentElement.classList.toggle('open');
+  });
+});
+
+// FLASHCARDS DATA
+const flashcards = [
+  {f:"天然药物化学发展史四个阶段？", b:"萌芽期(1940前) → 形成期(1940后) → 快速发展期(20世纪80年代,组合化学) → 升华期(21世纪,揭示生命体进化与调控规律)"},
+  {f:"天然药物化学发展的两个转折点？", b:"1930年前后：微量元素分析法导入，试料降至毫克级；1960年前后：层析法兴起 + UV/IR/NMR/MS新技术问世"},
+  {f:"青蒿素中决定抗疟活性的关键基团？", b:"过氧基团（过氧键）；用NaBH4还原得二氢青蒿素，过氧键不受影响"},
+  {f:"青蒿素半合成衍生物三种类型及代表药？", b:"醚类、酯类、碳酸酯类；代表：蒿甲醚(artemether)、青蒿琥酯(artesunate)"},
+  {f:"C5单元（异戊二烯单位）来源于？", b:"甲戊二羟酸(MVA)途径 或 脱氧木酮糖磷酸酯(DXP)途径"},
+  {f:"萜类化合物中真正具有生物活性的异戊二烯单位？", b:"IPP（焦磷酸异戊烯酯）和DMAPP（焦磷酸二甲基烯丙酯），均由MVA变化而来"},
+  {f:"三萜和甾类化合物（胞液产物）由哪条途径合成？", b:"甲戊二羟酸途径（MVA途径）；动物中MVA是唯一萜类生物合成途径"},
+  {f:"莽草酸途径的关键枢纽物质？", b:"分支酸（chorismate acid），将代谢分为色氨酸合成方向、苯丙氨酸及酪氨酸合成方向"},
+  {f:"桂皮酸途径中C6-C3骨架来源的关键酶？", b:"苯丙氨酸脱氨酶（PAL），苯丙氨酸经PAL脱氨生成桂皮酸"},
+  {f:"鸟氨酸和赖氨酸分别衍生的生物碱类型？", b:"鸟氨酸→吡咯烷/吡咯里西啶/托品烷生物碱；赖氨酸→哌啶/吲哚里西啶/喹诺里西啶生物碱"},
+  {f:"Diels-Alder反应的本质？", b:"共轭双烯(二烯体)与取代烯烃(亲双烯体)发生的[4+2]环加成反应，是构建C-C键最常用方法之一"},
+  {f:"常用有机溶剂极性顺序（从弱到强）？", b:"石油醚 < 苯 < 二氯甲烷 < 乙醚 < 三氯甲烷 < 乙酸乙酯 < 丙酮 < 乙醇 < 甲醇 < 乙腈 < 水"},
+  {f:"溶解范围最广 / 介电常数最小 / 萃取苷类常用的有机溶剂分别是？", b:"溶解范围最广：乙醇；介电常数最小：环己烷；萃取苷类/水溶性生物碱常用：正丁醇"},
+  {f:"超临界流体萃取法常用的萃取剂及夹带剂代表？", b:"萃取剂：CO2、N2O、SF6、NH3、乙烷、庚烷、二氯二氟甲烷；夹带剂代表：甲醇、乙醇、丙酮、乙腈"},
+  {f:"超声波提取与微波提取分别主要适用于？", b:"超声波提取：皂苷类（利用空化现象）；微波提取：香料、调味品、天然色素、中草药等（利用极性溶剂吸收微波放热）"},
+  {f:"水/醇法、醇/水法、醇/醚法分别用于除去什么？", b:"水/醇法：除水提液中水溶性杂质(蛋白质/多糖/果胶)；醇/水法：除醇提液中脂溶性杂质(油脂/叶绿素)；醇/醚或醇/丙酮法：纯化皂苷"},
+  {f:"酸/碱法（酸提碱沉）和碱/酸法（碱提酸沉）分别用于？", b:"酸/碱法(酸提碱沉)：生物碱的提取纯化；碱/酸法(碱提酸沉)：黄酮、蒽醌等酚性成分及有机酸的提取纯化"},
+  {f:"分离因子β与萃取次数关系（β≥100 / β≤2 / β≈1）？", b:"β≥100：一次简单萃取即可基本分离；β≤2：需100次以上萃取；β≈1：性质极相近，任意次分配也无法分离"},
+  {f:"正相色谱与反相色谱的固定相/流动相极性区别？", b:"正相：固定相极性大(硅胶等)，流动相为弱极性有机溶剂(CHCl3/EtOAc)，分离极性大成分；反相：固定相为非极性键合相(RP-18等)，流动相为强极性溶剂(MeOH/MeCN-水)，分离极性小成分"},
+  {f:"硅胶、氧化铝、聚酰胺各适用分离什么类型成分？", b:"硅胶（弱酸性，化学吸附）—适合生物碱；氧化铝（弱碱性）—适合生物碱，不适合蒽醌/黄酮/有机酸；聚酰胺（氢键吸附）—适合醌类、黄酮类等酚性成分"},
+  {f:"凝胶滤过原理及Sephadex G与LH-20的区别？", b:"原理：分子筛作用，按分子量从大到小依次流出；Sephadex G（葡聚糖凝胶）——水中应用，分水溶性成分；Sephadex LH-20（羟丙基化）——多种溶剂中使用，水溶性和脂溶性成分均可分"},
+  {f:"膜分离技术四种膜的截留范围排序？", b:"微滤膜(0.1~10μm) > 超滤膜(10~100nm) > 纳滤膜(1~10nm) > 反渗透膜(≤1nm)"},
+  {f:"分子蒸馏的分离原理及四大特点？", b:"原理：依靠不同分子运动自由程的差别分离；特点：操作温度低、蒸馏压强低(真空度高)、受热时间短、分离程度高"},
+  {f:"TLC判断纯度的标准？", b:"3种不同组成的溶剂系统展开，样品均为均一斑点（Rf在0.2~0.8）则认为是单纯化合物"},
+  {f:"UV吸收谱图判读：250~290nm中等强度且有精细结构说明什么？", b:"示有苯环或某些芳杂环"},
+  {f:"UV中溶剂极性增大对π→π*和n→π*跃迁的影响？", b:"π→π*：红移（向长波移动）；n→π*：蓝移（向短波移动）"},
+  {f:"黄酮类化合物UV两个吸收带分别对应？", b:"峰带Ⅱ(220~280nm)对应A环(苯甲酰基系统)；峰带Ⅰ(300~400nm)对应B环(桂皮酰基系统)"},
+  {f:"IR中双键伸缩振动区和羟基伸缩振动区的波数范围？", b:"双键伸缩振动区：2000~1500cm⁻¹；羟基伸缩振动区：3650~3610cm⁻¹"},
+  {f:"¹H-NMR中n+1规律对应的峰型（CH3/CH2/CH/季C）？", b:"以相连¹H数+1命名：CH3→q峰(四重)；CH2→t峰(三重)；CH→d峰(二重)；季C→s峰(单峰)"},
+  {f:"¹³C化学位移与碳杂化方式的关系？", b:"sp3 < sp < sp2（化学位移随杂化方式从sp3到sp2逐渐增大）"},
+  {f:"COSY、NOESY、HMQC/HSQC、HMBC分别提供什么信息？", b:"COSY：¹H-¹H相邻偶合关系；NOESY：空间相近质子(NOE效应)；HMQC/HSQC：¹H与直接相连¹³C(1键)；HMBC：¹H与远程(2-3键)¹³C，用于连接分子片段"},
+  {f:"EI-MS、FAB、ESI三种电离技术的核心特点？", b:"EI-MS：需加热气化得M⁺，难气化/易热解成分(糖苷氨基酸蛋白质等)测不到；FAB：适合难气化易热解成分，可得[M+H]⁺等及糖基逐级脱去的碎片峰；ESI：强静电场电离，大小分子均适用，得[M+H]⁺/[M-H]⁻等准分子离子峰"},
+  {f:"Cotton效应：正性与负性曲线的区别？", b:"由长波到短波，先峰后谷=正性Cotton效应；先谷后峰=负性Cotton效应"},
+  {f:"单晶X射线衍射常用的两种靶及其用途？", b:"Mo靶（Kα=0.071073nm）；Cu靶（Kα=0.154178nm，可用于绝对构型测定）；是测定分子量10万以上化合物单晶的唯一技术"},
+  {f:"结构解析程序的两大阶段？", b:"①确定平面结构(分子式、不饱和度、官能团、基本骨架) ②立体结构研究(单晶XRD/ORD或CD/CD激子手性法/反应质谱法/NMR法)"},
+  {f:"质谱成像技术(MSI)与冷冻电镜(Cryo-EM)的特点？", b:"MSI：利用分子离子实现样本表面原位定性定量分析及空间分布可视化；Cryo-EM：原子级分辨率，可在混合样品状态确定小分子化合物绝对构型"},
+];
+
+const flashWrap = document.getElementById('flashWrap');
+flashcards.forEach((card,i)=>{
+  const el = document.createElement('div');
+  el.className='flashcard';
+  el.innerHTML = `
+    <div class="inner">
+      <div class="face front">${card.f}<span class="hint">点击翻转</span></div>
+      <div class="face back">${card.b}</div>
+    </div>`;
+  el.addEventListener('click', ()=>el.classList.toggle('flipped'));
+  flashWrap.appendChild(el);
+});
+
+// QUIZ DATA
+const quizData = [
+  {q:"天然药物化学发展史中，标志组合化学与天然药物化学结合、可快速合成多样性化合物并配合高通量筛选的阶段是？",
+   opts:["萌芽期","形成期","快速发展期","升华期"], correct:2,
+   explain:"快速发展期（20世纪80年代）：组合化学与天然药物化学结合，速度快且节省费用。"},
+  {q:"青蒿素抗疟活性的必须基团是？",
+   opts:["羰基","过氧基团","羟基","羧基"], correct:1,
+   explain:"青蒿素含过氧基团的倍半萜内酯，过氧键是其活性必须基团；NaBH4还原成二氢青蒿素时过氧键不受影响。"},
+  {q:"以下哪个构建单元来源于甲戊二羟酸(MVA)或脱氧木酮糖磷酸酯(DXP)途径？",
+   opts:["C1单元","C2单元","C5单元","C6C3单元"], correct:2,
+   explain:"C5单元即异戊二烯单位，来源于MVA或DXP途径代谢产物。"},
+  {q:"莽草酸途径中的关键枢纽物质是？",
+   opts:["乙酰辅酶A","分支酸(chorismate)","丙二酸单酰辅酶A","IPP"], correct:1,
+   explain:"分支酸是莽草酸途径的重要枢纽物质，将代谢分为色氨酸合成方向和苯丙氨酸/酪氨酸合成方向。"},
+  {q:"动物体内萜类化合物生物合成唯一的途径是？",
+   opts:["DXP途径","莽草酸途径","MVA途径","氨基酸途径"], correct:2,
+   explain:"动物中MVA(甲戊二羟酸)途径是唯一的萜类生物合成途径；植物中大部分萜类由DXP途径产生，但三萜和甾类由MVA途径合成。"},
+  {q:"鸟氨酸作为前体主要生成哪类生物碱？",
+   opts:["哌啶生物碱","吲哚类生物碱","托品烷生物碱","喹啉生物碱"], correct:2,
+   explain:"鸟氨酸→吡咯烷生物碱、吡咯里西啶生物碱、托品烷生物碱（例：颠茄）。赖氨酸才对应哌啶类生物碱。"},
+  {q:"Diels-Alder反应的本质是？",
+   opts:["[2+2]环加成","[4+2]环加成","亲核取代","脱羧反应"], correct:1,
+   explain:"D-A反应是共轭双烯(二烯体)与取代烯烃(亲双烯体)间发生的[4+2]环加成反应，是构建C-C键最常用方法之一。"},
+  {q:"以下哪种有机溶剂的极性最强？",
+   opts:["石油醚","三氯甲烷","乙醇","水"], correct:3,
+   explain:"极性顺序：石油醚 < 苯 < 二氯甲烷 < 乙醚 < 三氯甲烷 < 乙酸乙酯 < 丙酮 < 乙醇 < 甲醇 < 乙腈 < 水，水极性最强。"},
+  {q:"常用来从水中萃取苷类、水溶性生物碱类成分的有机溶剂是？",
+   opts:["环己烷","正丁醇","乙醇","乙醚"], correct:1,
+   explain:"正丁醇常用来从水中萃取苷类、水溶性生物碱类成分；环己烷介电常数最小；乙醇溶解范围最广。"},
+  {q:"超声波提取技术主要利用的物理现象及其典型应用是？",
+   opts:["微波吸收；香料类","空化现象；皂苷类","表面张力；挥发油","离心力场；生物碱"], correct:1,
+   explain:"超声波提取利用空化现象，应用于皂苷类成分的提取。"},
+  {q:"纯化皂苷时常采用的方法是？",
+   opts:["水/醇法","醇/水法","醇/醚法或醇/丙酮法","酸/碱法"], correct:2,
+   explain:"醇/醚法或醇/丙酮法用于纯化皂苷；水/醇法除水提液水溶性杂质；醇/水法除醇提液脂溶性杂质。"},
+  {q:"分离生物碱常用的提取纯化方法是？",
+   opts:["碱提酸沉","酸提碱沉","水/醇法","盐析法"], correct:1,
+   explain:"酸/碱法（酸提碱沉）：用于生物碱的提取纯化；碱/酸法（碱提酸沉）则用于黄酮、蒽醌等酚性成分及有机酸。"},
+  {q:"分离因子β≈1时意味着？",
+   opts:["一次萃取即可分离","需萃取10~12次","需100次以上萃取","任意次分配也无法实现分离"], correct:3,
+   explain:"β≈1时KA≈KB，两者性质极其相近，任意次分配都无法实现分离。"},
+  {q:"反相分配色谱（RP-18等）适合分离的成分是？",
+   opts:["极性大的成分","极性小的成分","只能分离生物碱","只能分离糖类"], correct:1,
+   explain:"反相分配色谱（键合硅胶RP-2/8/18）流动相为强极性溶剂，适合分离极性小的成分（如丁醇部位）。"},
+  {q:"硅胶吸附柱色谱中，吸附能力与含水量的关系是？",
+   opts:["含水量越大吸附能力越强","含水量越少吸附能力越强","与含水量无关","含水>17%吸附能力最强"], correct:1,
+   explain:"硅胶含水量越少吸附能力越强；含水量大于17%时无吸附作用，仅作分配层析载体。"},
+  {q:"聚酰胺色谱中，化合物在哪种溶剂中吸附力最强？",
+   opts:["乙醇", "含水醇", "水", "乙酸乙酯"], correct:2,
+   explain:"聚酰胺吸附力随溶剂极性增强而增强：水中最强（常以水装柱上样），醇中最弱（常用浓度渐高的含水醇梯度洗脱）。"},
+  {q:"Sephadex LH-20相比Sephadex G的特点是？",
+   opts:["只能分离水溶性成分", "只能分离脂溶性成分", "水溶性和脂溶性成分都可分", "不能用于柱色谱"], correct:2,
+   explain:"Sephadex LH-20是Sephadex G-25羟丙基化所得，可在水、甲醇、乙醇、丙酮、乙酸乙酯、氯仿中使用，水溶性和脂溶性成分都可分。"},
+  {q:"截留范围在10~100nm之间的膜是？",
+   opts:["微滤膜","超滤膜","纳滤膜","反渗透膜"], correct:1,
+   explain:"超滤膜截留范围约10~100nm，能除去病菌、热原、胶体、蛋白质等大分子。"},
+  {q:"分子蒸馏分离的依据是不同物质分子的？",
+   opts:["沸点差异","自由程差异","极性差异","分子量差异"], correct:1,
+   explain:"分子蒸馏依靠不同物质分子运动自由程的差别进行分离，操作温度低、压强低、受热时间短、分离程度高。"},
+  {q:"TLC判断单一化合物的Rf值范围一般为？",
+   opts:["0~0.1","0.2~0.8","0.8~1.0","1.0以上"], correct:1,
+   explain:"用3种不同组成的溶剂系统展开，样品均为均一斑点（Rf在0.2~0.8）可认为是单纯化合物。"},
+  {q:"UV谱图中250~290nm区域有中等强度吸收且常有精细结构，提示结构中含有？",
+   opts:["共轭二烯","苯环或芳杂环","羰基","较大共轭体系"], correct:1,
+   explain:"250~290nm内中等强度吸收且常有精细结构，提示有苯环或某些芳杂环。"},
+  {q:"溶剂极性增大时，n→π*跃迁吸收峰会？",
+   opts:["红移","蓝移","不变","先红移后蓝移"], correct:1,
+   explain:"溶剂极性增大，n→π*跃迁吸收峰向短波方向移动，即蓝移；π→π*跃迁则红移。"},
+  {q:"黄酮类化合物UV谱中代表B环（桂皮酰基系统）的峰带及波长范围是？",
+   opts:["峰带Ⅰ，220~280nm","峰带Ⅱ，220~280nm","峰带Ⅰ，300~400nm","峰带Ⅱ，300~400nm"], correct:2,
+   explain:"B环（桂皮酰基系统）对应峰带Ⅰ，波长范围300~400nm；A环（苯甲酰基系统）对应峰带Ⅱ，220~280nm。"},
+  {q:"红外光谱中，化学键振动引起吸收的波数范围是？",
+   opts:["200~800cm⁻¹","4000~400cm⁻¹","100~4000nm","0~100cm⁻¹"], correct:1,
+   explain:"化学键振动在红外光区(4000~400cm⁻¹)引起的吸收形成IR吸收光谱。"},
+  {q:"在¹H-NMR中，CH2基团对应的偶合裂分峰型是？",
+   opts:["s峰（单峰）","d峰（二重峰）","t峰（三重峰）","q峰（四重峰）"], correct:2,
+   explain:"以直接相连¹H为例：CH3为q峰，CH2为t峰，CH为d峰，季C为s峰，遵循n+1规律。"},
+  {q:"¹³C化学位移中，C=O（羰基）的大致范围是？",
+   opts:["<50ppm","50~100ppm","98~160ppm","168~220ppm"], correct:3,
+   explain:"C=O化学位移范围168~220ppm：醛190~205、酮195~220、羧酸170~185、酯及内酯165~180、酰胺及内酰胺165~180。"},
+  {q:"以下哪种二维NMR技术主要用于确定空间相近质子之间的关系（NOE效应）？",
+   opts:["COSY","NOESY","HMQC","HMBC"], correct:1,
+   explain:"NOESY利用核Overhauser效应(NOE)，反映空间距离相近的质子间相互作用，强弱与空间距离有关。"},
+  {q:"HMBC谱主要用于获取什么信息？",
+   opts:["¹H与直接相连¹³C的1键相关","¹H-¹H相邻偶合关系","¹H与远程(2-3键)¹³C相关，用于连接分子片段","空间相近质子关系"], correct:2,
+   explain:"HMBC（异核多键相关谱）将¹H与远程偶合（2~3键）的¹³C关联，可获得季碳信息并将分子片段连接。"},
+  {q:"以下哪种质谱电离技术中，难气化、易热解的糖、苷、氨基酸、肽、蛋白质等成分测不到分子离子峰M⁺？",
+   opts:["ESI","FAB","EI-MS","MALDI"], correct:2,
+   explain:"EI-MS需要样品加热气化离子化得到M⁺，难气化易热解的成分（糖、苷、氨基酸、肽、蛋白质、核酸等）测不到M⁺。"},
+  {q:"由长波长到短波长，先峰后谷的旋光光谱曲线称为？",
+   opts:["负性Cotton效应曲线","正性Cotton效应曲线","平坦谱线","复合谱线"], correct:1,
+   explain:"由长波到短波，先峰后谷为'正性'Cotton效应曲线；先谷后峰则为'负性'Cotton效应曲线。"},
+  {q:"单晶X射线衍射技术中，可用于绝对构型测定的靶材是？",
+   opts:["Mo靶","Cu靶","W靶","Ag靶"], correct:1,
+   explain:"Cu靶波长(Kα=0.154178nm)可用于绝对构型的测定；Mo靶波长(Kα=0.071073nm)。"},
+  {q:"目前能够测定分子量在10万以上化合物单晶样品的唯一分析技术是？",
+   opts:["核磁共振法","质谱法","单晶X射线衍射技术","旋光光谱法"], correct:2,
+   explain:"单晶X射线衍射技术是目前能够测定分子量在十万以上化合物单晶样品的唯一分析技术。"},
+  {q:"结构解析程序中，确定平面结构的第一步是？",
+   opts:["立体结构研究","确定分子式，计算不饱和度","CD激子手性法","反应质谱法"], correct:1,
+   explain:"确定平面结构包括：①确定分子式，计算不饱和度 ②官能团、基本骨架的确定；立体结构研究是第二阶段。"},
+  {q:"冷冻电镜技术(Cryo-EM)目前可在混合样品状态下迅速确定小分子化合物的什么？",
+   opts:["分子量","平面结构","绝对构型","熔点"], correct:2,
+   explain:"Cryo-EM已达原子级分辨率(0.1nm)，可在混合样品状态迅速确定小分子化合物的绝对构型。"},
+];
+
+let answered = new Array(quizData.length).fill(false);
+let correctCount = 0;
+
+const quizWrap = document.getElementById('quizWrap');
+document.getElementById('quizTotal').textContent = quizData.length;
+
+quizData.forEach((item, idx)=>{
+  const card = document.createElement('div');
+  card.className='quiz-card';
+  card.innerHTML = `
+    <div class="quiz-q">${idx+1}. ${item.q}</div>
+    <div class="quiz-opts">
+      ${item.opts.map((o,i)=>`<div class="quiz-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o}</div>`).join('')}
+    </div>
+    <div class="quiz-explain">${item.explain}</div>
+  `;
+  quizWrap.appendChild(card);
+
+  const optEls = card.querySelectorAll('.quiz-opt');
+  optEls.forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      if(answered[idx]) return;
+      answered[idx]=true;
+      const chosen = parseInt(opt.dataset.i);
+      optEls.forEach((o,i)=>{
+        o.classList.add('disabled');
+        if(i===item.correct) o.classList.add('correct');
+        else if(i===chosen) o.classList.add('wrong');
+      });
+      if(chosen===item.correct) correctCount++;
+      card.querySelector('.quiz-explain').classList.add('show');
+      updateQuizStats();
+    });
+  });
+});
+
+function updateQuizStats(){
+  const done = answered.filter(Boolean).length;
+  document.getElementById('quizDone').textContent = done;
+  const score = done>0 ? Math.round(correctCount/done*100) : 0;
+  document.getElementById('quizScore').textContent = score+'%';
+}
+
+function resetQuiz(){
+  answered = new Array(quizData.length).fill(false);
+  correctCount = 0;
+  quizWrap.innerHTML='';
+  quizData.forEach((item, idx)=>{
+    const card = document.createElement('div');
+    card.className='quiz-card';
+    card.innerHTML = `
+      <div class="quiz-q">${idx+1}. ${item.q}</div>
+      <div class="quiz-opts">
+        ${item.opts.map((o,i)=>`<div class="quiz-opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o}</div>`).join('')}
+      </div>
+      <div class="quiz-explain">${item.explain}</div>
+    `;
+    quizWrap.appendChild(card);
+    const optEls = card.querySelectorAll('.quiz-opt');
+    optEls.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        if(answered[idx]) return;
+        answered[idx]=true;
+        const chosen = parseInt(opt.dataset.i);
+        optEls.forEach((o,i)=>{
+          o.classList.add('disabled');
+          if(i===item.correct) o.classList.add('correct');
+          else if(i===chosen) o.classList.add('wrong');
+        });
+        if(chosen===item.correct) correctCount++;
+        card.querySelector('.quiz-explain').classList.add('show');
+        updateQuizStats();
+      });
+    });
+  });
+  updateQuizStats();
+}
+updateQuizStats();
+</script>
+</body>
+</html>

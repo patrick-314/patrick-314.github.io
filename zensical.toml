@@ -33,6 +33,7 @@ nav = [
        ]}
   ] },
    {"AIDD学习"=[
+       {'AI工具使用的经验分享'='blog/posts/AI工具使用的经验分享.md'}
 
    ]}
  ]
@@ -74,8 +75,10 @@ features = [
     # 只启用必要的功能
     "navigation.instant",
     "navigation.top",
+     "navigation.tabs",
     "search.suggest",
     "content.code.copy",
+    "header.autohide"
 ]
 
 logo = "images/star.png"
@@ -142,6 +145,13 @@ tags_file = "tags.md"
 toc_depth = 3                               # 目录深度
 permalink = true                            # 标题锚点链接
 
+[project.markdown_extensions.zensical.extensions.preview]
+configurations = [
+    { targets.include = [
+        "customization.md",
+        "setup/extensions/*"
+    ]}
+]
 # ===== 数学公式支持 =====
 [project.markdown_extensions."pymdownx.arithmatex"]
 generic = true  # 使用 MathJax 渲染数学公式

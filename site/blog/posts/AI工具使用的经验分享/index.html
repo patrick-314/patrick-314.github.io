@@ -1,0 +1,1518 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个使用 Zensical 构建的文档网站">
+      
+      
+        <meta name="author" content="patrick">
+      
+      
+        <link rel="canonical" href="https://www.patricklab.top/blog/posts/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">
+      
+      
+        <link rel="prev" href="../../天然药物化学/第三章.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/star.png">
+      <meta name="generator" content="zensical-0.0.32">
+    
+    
+      
+        <title>AI工具使用的经验分享 - Patrick's Blog</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.53a7feaf.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/music_player.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="导航栏"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Patrick&#x27;s Blog" class="md-header__button md-logo" aria-label="Patrick's Blog" data-md-component="logo">
+      
+  <img src="../../../images/star.png" alt="Patrick's Blog">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="导航栏">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Patrick's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI工具使用的经验分享
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="查找">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="查找">
+  <button type="button" class="md-search__button">
+    查找
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/patrick-314" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrick-314
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../markdown/" class="md-tabs__link">
+        
+  
+  Markdown语法
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-tabs__link">
+          
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="././" class="md-tabs__link">
+          
+  
+  AIDD学习
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Patrick&#x27;s Blog" class="md-nav__button md-logo" aria-label="Patrick's Blog" data-md-component="logo">
+      
+  <img src="../../../images/star.png" alt="Patrick's Blog">
+
+    </a>
+    Patrick's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrick-314" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrick-314
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../markdown/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.27 19.385H1.73A1.73 1.73 0 0 1 0 17.655V6.345a1.73 1.73 0 0 1 1.73-1.73h20.54A1.73 1.73 0 0 1 24 6.345v11.308a1.73 1.73 0 0 1-1.73 1.731zM5.769 15.923v-4.5l2.308 2.885 2.307-2.885v4.5h2.308V8.078h-2.308l-2.307 2.885-2.308-2.885H3.46v7.847zM21.232 12h-2.309V8.077h-2.307V12h-2.308l3.461 4.039z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    药物化学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    药物化学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基础知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章新药研究的基本原理与方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章药物代谢反应
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6/%E7%AC%AC%E5%9B%9B%E7%AB%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章中枢神经系统药物
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../none" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    药理学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    药物分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    药物分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%8D%AF%E7%89%A9%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../none" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    药剂学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    天然药物化学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    天然药物化学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../天然药物化学/第一章.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../天然药物化学/第二章.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../天然药物化学/第三章.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AIDD学习
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AIDD学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI工具使用的经验分享
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI工具使用的经验分享
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="正文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资料搜集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ppt制作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各ai模型的差别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码工具与软件开发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        尾声
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="正文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资料搜集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ppt制作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各ai模型的差别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码工具与软件开发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        尾声
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<p><img alt="" src="../assets/AI工具使用的经验分享/file-20260617134118313.png" /></p>
+<h1 id="ai">AI工具使用的经验分享<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h1>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>事实证明期末月除了复习做什么都很有意思，笔者近期想汇总一下之前所使用的ai工具，同时分享一些使用的经验，涉及到一些日常使用的场景与ai编程的部分，如果有描述不准确的地方，欢迎批评指正， <strong>还有一个想和大家分享的一个很有意思的问题，你认为现在你所使用的这些人工智能工具是不是真正的“智能”呢</strong></p>
+<h2 id="_2">正文<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>汇总了一下，大概较为常用的ai工具有以下的一些，国外的有chatgpt、gemini、claude、grok、manus(?)，国内的大概就是千问、deepseek、minimax、kimi、glm还有豆包，这些便是日常手机使用app与网页端常用的一些ai工具，大部分的用户都是使用豆包居多，豆包现在也满足了绝大部分的使用场景，例如翻译、搜索、生图、视频生成、ppt生成，现在甚至引入了同声传译、音乐生成等功能，但是如果你需要的是更加准确、精细化的工作，豆包就无法满足了，我想从以下几个方面去给大家介绍一些相关的ai工具。</p>
+<h3 id="_3">资料搜集<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="1gemininotebooklm">1.gemini与notebooklm<a class="headerlink" href="#1gemininotebooklm" title="Permanent link">&para;</a></h4>
+<p>在许多的工作任务中，我们都需要去进行资料收集，例如你需要去进行一个ppt制作，或者是你需要去开展一个项目，你首先是需要去对你的研究目标去进行资料收集，但手动去搜索所花费的时间成本可能很高，可是使用ai又会有幻觉方面的担忧，在这个时候gemini就发挥了一个很重要的作用，在gemini的界面中会有一个叫做deep research的功能，<img alt="" src="../assets/AI工具使用的经验分享/file-20260617155612882.png" /><img alt="" src="../assets/AI工具使用的经验分享/file-20260617160436518.png" />这个功能搜集出来的资料都有给出网址，且网址都是真实的，并不是像你让ai给出几篇某某方向的论文，他给你一些看起来特别真实的文献但是实际一查发现查无此文，这种场景下，gemini的deep research就带给了你很大的便利。除此之外，notebooklm这个工具更加实用，同属google的生态之下，在google强大的连通之下，notebooklm和gemini一起使用也变得更加丝滑，如果你恰好有个gemini pro，那你就可以真正体验到工具带给你的极致便利
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617160025817.png" />对于notebooklm，这个工具则是你将搜集到的文件（例如ppt、pdf、youtube上视频的网址等）全部上传到笔记本中，可以通过提问的方式，去快速了解某一个知识，每次的回答它都会给你标注来自你上传的文件中的哪一个段落，在你写文章的时候可以达到一个快速引用的效果，其次的话，这个ai工具有图片生成（基于nanobanana）还有ppt生成，可以选择基于哪些文件来生成图片以及生成什么风格的图片<img alt="" src="../assets/AI工具使用的经验分享/file-20260617160632322.png" />
+假设我输入想要用一张手绘风格的图片去介绍药剂学，那就会得到以下的图片（唯一的不足之处就是生成的中文图片会存在部分字体模糊的情况），可以看到效果是非常好的
+<img alt="" src="../assets/AI工具使用的经验分享/药剂学：药物变身科学.png" />
+其次notebooklm还可以制作学习指南、播客功能等，这些功能读者可以自行去探索</p>
+<h4 id="2claude-codecli">2.claude code类cli工具（只做介绍，不做演示）<a class="headerlink" href="#2claude-codecli" title="Permanent link">&para;</a></h4>
+<p>如果你有接触一些有关ai的资讯，你会听说过各种cli工具，像是claude code，codex，opencode，deepseek-tui，甚至国内的ai厂商也在不断推出新的cli工具，如glm的zcode，小米的mimocode等，读者可以选择自己喜欢的工具去进行操作，这些工具的操作逻辑是一样的，不同之处可能在于因设计架构与模型的不同而在使用体验与缓存命中率等方面而产生差异，但是由于限制问题，大部分的用户是没法使用claude等海外模型，这个时候你可以去购买国内模型的coding plan等订阅，这里比较推荐claude code+国产模型。在资料搜集方面则是依据你输入的提示词，例如，请你启用联网搜索帮我搜集一些关于某某方面的文献（资料）等等，你可以在claude code中配置一些skill来辅助你的任务。由于很多读者没有计算机的基础，所以如果后续有时间的话我会出一些这方面的使用教程。<img alt="" src="../assets/AI工具使用的经验分享/file-20260617165556111.png" /></p>
+<h4 id="3openclaw">3.openclaw类（只做介绍，不做演示）<a class="headerlink" href="#3openclaw" title="Permanent link">&para;</a></h4>
+<p>在今年的一月份一直到3月底，相信大家的社交媒体都会被所谓的龙虾刷屏，什么某某岗位要被龙虾取代了之类的帖子，开始出现了一些ai焦虑的现象，不断刷到各种各样的名词，什么mcp、cli、skill、prompt engine、harness、loop engine等，有句话说得好，如果你对这些概念了解不过来，那就干脆不学了，因为他马上会被新的概念所取代，但归根结底，我们应该是去接受和利用这些ai功能，将其与我们的工作或者生活结合这才是一个向上的做法
+说回龙虾，这个配置起来并不难，可以参考https://mp.weixin.qq.com/s/n15MLa2B4SZOvPbZjsaPiw这个教程<img alt="" src="../assets/AI工具使用的经验分享/file-20260617164718042.png" />
+这个的好处就在于可以直接连接你手机的app，可以远程进行操控，但是对于安全性的方面还是需要多加留意，如果是在本地跑的话，可能会出现你的文件被他删除等问题，所以最好是将其进行隔离，在wsl或者是docker上部署，对于搜索质量同样也是依赖于你的prompt与skill，其次的话龙虾烧token的效率是相当惊人的，如果是使用claude这种天价模型的话需要担心钱包可能会被烧穿
+所以我比较推荐大家去使用腾讯推出的qclaw，既能保证安全性的，也能使用他的免费token
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617172046518.png" /></p>
+<h3 id="ppt">ppt制作<a class="headerlink" href="#ppt" title="Permanent link">&para;</a></h3>
+<p>在这个方面，相信大家都有使用过豆包去制作汇报的ppt，效果还是不错的，笔者的大致流程则是先使用gemini的deep research功能去进行资料搜集，再将最后的汇总文件输入给ai去进行ppt制作，笔者放几张其他的ai做的ppt，读者可以自行对比一下
+这是claude做的ppt，相当的丑陋<img alt="" src="../assets/AI工具使用的经验分享/file-20260617170438080.png" />
+这是notebooklm（gemini）生成的ppt，ai味相当重：<img alt="" src="../assets/AI工具使用的经验分享/file-20260617170744820.png" />
+而千问做出来的ppt也是一言难尽
+这个是gamma（一个专门使用ai生成ppt的网站）做的，从审美来说的话，做的是相当不错的，可惜普通用户最多只能生成10页
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617171033484.png" />
+我们再看看manus的<img alt="" src="../assets/AI工具使用的经验分享/file-20260617171328284.png" />
+manus的使用体验是非常惊艳的，同样的prompt和同样的输入文件，他能自动给我生成这样一个抗体的图片，其次的话他的审美也是几个ai中较好的，比较推荐去使用这个工具。
+但是最重要的一点就是在于你才是主体，ai工具只是带给我们便利去提升我们的效率，节约时间成本，制作ppt也需要去加入一些你的理解（其实是老师要求ai痕迹不要太明显）========</p>
+<h3 id="ai_1">各ai模型的差别<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h3>
+<p>讲完这些日常的使用场景后，我想先给大家介绍一下各个模型之间的差别，算是一个测评吧
+在之前markdown格式的文件由于其对于ai来说更加轻度简便易读的特性一度称为主推的格式，但现在许多的模型厂商的领头人开始主推所谓的html文件，因其可以交互，相比于md能够更加直观地向我们展示（虽然不排除这是模型厂商想让用户多烧点token）
+任务：根据四份天然药物化学的ppt文件去生成一个精美地可交互地html文件
+提示词比较简单：我正在复习，帮我总结这些知识点，然后做出一个精美的可交互的html
+让我们先看看claude sonnet4.6的效果（因为笔者的会员过期了用不了opus，加上现在anthropic严查中国用户所以就没敢续）
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173013530.png" />
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173207085.png" />
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173301234.png" />
+可以看到这个效果是相当惊人的，在提示词如此简单的情况下，claude制作出来的文件内容完整，结构也很清晰，甚至还添加了速记卡片和自测题
+让我们看看chatgpt
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173631110.png" />
+gemini：
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173729066.png" />
+manus：https://saccharide-sn7njrmp.manus.space
+manus有个很好的点在于他可以将做好的html文件直接发布，点击连接就可以直接访问
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617193453091.png" /></p>
+<p>deepseek：<img alt="" src="../assets/AI工具使用的经验分享/file-20260617173834013.png" />
+kimi：<img alt="" src="../assets/AI工具使用的经验分享/file-20260617174044803.png" />
+kimi一直失败，最后输出了一堆没法正常使用的代码，glm更是直接给我做成ppt了
+总的分析下来claude的模型能力是最好的，manus的体验最好，其他的模型效果都一般<img alt="" src="../assets/AI工具使用的经验分享/Artificial%20Analysis%20Intelligence%20Index%20(17%20Jun%20'26).png" />
+读者可以根据自己的情况与需求去选择模型，如果你的工作是需要去开发程序或者做ML项目等，能使用最好的模型就使用最好的模型，笔者之前尝试用claude的opus4.6去做一个项目，所写的代码是一次就可以跑通的，这可以节约很多时间成本，最近看国产的glm也可以作为一个平替版本，但如果你只是做一些简单的任务，我更推荐使用deepseek（claude code+deepseek）</p>
+<h3 id="_4">代码工具与软件开发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>大概在24年的时候cursor这个软件就开始刷屏各大社交媒体，他将IDE和ai模型结合在了一起，也就是做成了直接让ai在代码编辑器里去修改代码，但当时的模型能力并不像现在这么强，能做的事情比较有限，可随着时间推移，模型迭代越来越快，能做的事情越来越多，同时也出现了很多了代码工具，cursor，antigravity，kiro，ai studio等，国内的就是trae，新手可以尝试去使用trae，这类代码工具使用起来十分顺手，你只需要说出你的需求，ai就可以自动去帮你执行，但现在用的最多的还是前文提到的claude code，网上有各种教程去教如何安装claude code，以及遇到的问题如何解决，我在这里就不过多赘述，可以参考这个教程https://www.runoob.com/claude-code/claude-code-install.html
+安装了claude code之后，你需要一个cc switch的软件<img alt="" src="../assets/AI工具使用的经验分享/file-20260617200247515.png" />
+这个软件能够让你快速切换所使用的模型，如果你想使用官方模型的话需要进行订阅（anthropic准备在七月份开始对所有用户实施kyc认证了），你可以去各大模型的官网购买coding plan，如小米的coding plan<img alt="" src="../assets/AI工具使用的经验分享/file-20260617200630197.png" />
+或者是用deepseek的api，整体用下来5000w不到9块钱，算是便宜量大了
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617200828555.png" />
+对于软件开发的话，可以看看之前做的刷题软件，近期也一直在更新，但是还没发出来 https://github.com/patrick-314/brush-questions
+现在的vibe coding也就是氛围编程，就是以和ai进行对话的方式去进行开发，程序员都在使用这样的方式去写代码，所以开发程序现在变的不那么难，但还是要放一下这张图
+<img alt="" src="../assets/AI工具使用的经验分享/file-20260617202142889.png" /></p>
+<h2 id="_5">尾声<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>对于ai工具的一些使用就简单介绍到这了，对于开头提到的问题，也是我之前和同学所讨论的一个问题，首先我们要明确一点，智能是**主体通过感知环境、建立内部模型、预测未来、制定目标、采取行动、从反馈中持续学习，从而适应、改造复杂环境的综合能力**，而现在的人工智能都是基于transformer架构的，也就是chatgpt中的T，这个架构从本质上就决定了现在的直接ai模型只是在计算下一个词（token）所出现的概率，由一堆数字所组成的答案，它并不理解所谓的物理规律，以及空间上的概念，这也是大语言模型的局限所在，所以现在的人工智能其实并不符合真正的智能，希望以上分享能给你带来一些帮助</p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">AI</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <script src="https://giscus.app/client.js"
+        data-repo="patrick-314/patrick-314.github.io"
+        data-repo-id="R_kgDOSDjrkQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSDjrkc4C6_Ae"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+       Copyright &copy; 2026 patrick
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/patrick-314" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.instant","navigation.top","navigation.tabs","search.suggest","content.code.copy","header.autohide"],"search":"../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"已复制","clipboard.copy":"复制","search.result.more.one":"在该页上还有 1 个符合条件的结果","search.result.more.other":"在该页上还有 # 个符合条件的结果","search.result.none":"没有找到符合条件的结果","search.result.one":"找到 1 个符合条件的结果","search.result.other":"# 个符合条件的结果","search.result.placeholder":"键入以开始搜索","search.result.term.missing":"缺少","select.version":"选择当前版本"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.91a19a9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+      
+        <script src="../../../javascripts/music_player.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

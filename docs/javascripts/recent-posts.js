@@ -1,7 +1,9 @@
 /* 主页最近文章列表渲染 */
-document.addEventListener("DOMContentLoaded", function () {
+function initRecentPosts() {
   var container = document.getElementById("recent-posts-container");
   if (!container) return;
+  if (container.dataset.rpLoaded === "1") return;
+  container.dataset.rpLoaded = "1";
 
   fetch("data/recent-posts.json", { cache: "no-cache" })
     .then(function (res) {
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(function (err) {
       container.innerHTML = '<div class="recent-posts-empty">最近文章加载失败：' + err.message + "</div>";
     });
-});
+}
 
 function renderCard(post) {
   var card = document.createElement("a");
@@ -70,3 +72,5 @@ function renderCard(post) {
   card.appendChild(body);
   return card;
 }
+
+document$.subscribe(initRecentPosts);

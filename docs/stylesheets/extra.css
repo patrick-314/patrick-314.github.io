@@ -16,3 +16,155 @@ button.md-top {
     font-size: 16px;
     font-weight: bold;
 }
+
+/* 主页最近文章卡片 */
+.recent-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.rp-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 14px;
+    background: var(--md-default-bg-color, #fff);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid var(--md-default-fg-color--lightest, rgba(0,0,0,0.06));
+    text-decoration: none;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.rp-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--md-primary-fg-color, #3f51b5);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.rp-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+    border-color: var(--md-primary-fg-color, #3f51b5);
+}
+
+.rp-card:hover::before {
+    opacity: 1;
+}
+
+/* 日期徽章 */
+.rp-date-badge {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    padding: 0.4rem 0;
+    border-radius: 10px;
+    background: var(--md-code-bg-color, rgba(63,81,181,0.08));
+    color: var(--md-primary-fg-color, #3f51b5);
+}
+
+.rp-date-day {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: "Roboto Mono", monospace;
+}
+
+.rp-date-my {
+    font-size: 0.62rem;
+    margin-top: 0.2rem;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* 卡片正文 */
+.rp-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.rp-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--md-default-fg-color, #333);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rp-card:hover .rp-title {
+    color: var(--md-primary-fg-color, #3f51b5);
+}
+
+.rp-excerpt {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--md-default-fg-color--light, #777);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rp-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color--lighter, #aaa);
+    transition: color 0.25s ease;
+}
+
+.rp-read-more {
+    font-weight: 500;
+}
+
+.rp-arrow {
+    transition: transform 0.25s ease;
+}
+
+.rp-card:hover .rp-meta {
+    color: var(--md-primary-fg-color, #3f51b5);
+}
+
+.rp-card:hover .rp-arrow {
+    transform: translateX(4px);
+}
+
+/* 空状态 */
+.recent-posts-empty {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--md-default-fg-color--light, #999);
+    font-size: 0.9rem;
+    border: 1px dashed var(--md-default-fg-color--lightest, rgba(0,0,0,0.1));
+    border-radius: 12px;
+}
+
+/* 移动端 */
+@media (max-width: 600px) {
+    .recent-posts-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .rp-card {
+        padding: 0.9rem 1rem;
+    }
+}

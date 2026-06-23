@@ -35,13 +35,15 @@ nav = [
    {"AIDD学习"=[
        {'AI工具使用的经验分享'='blog/posts/AI工具使用的经验分享.md'}
 
-   ]}
+   ]},
+   { "说说" = "说说/index.md" }
  ]
 
 extra_css = [
     "https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css", # Aplayer 样式表
     "stylesheets/music_player.css", # 音乐播放器样式表，
     "stylesheets/extra.css",
+    "stylesheets/说说.css",
     "https://unpkg.com/katex@0/dist/katex.min.css"
 ]
 
@@ -50,6 +52,8 @@ extra_javascript = [
     "https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js", # MetingJS 脚本
     "javascripts/music_player.js", # 音乐播放器脚本
     "javascripts/extra.js", # （可选）按钮与播放器避让页脚脚本
+    "javascripts/说说.js",
+    "javascripts/recent-posts.js",
     "javascripts/katex.js",
     "https://unpkg.com/katex@0/dist/katex.min.js",
     "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"

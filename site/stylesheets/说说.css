@@ -1,0 +1,155 @@
+/* 说说时间线样式 */
+
+.shuoshuo-timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+/* 左侧竖线 */
+.shuoshuo-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--md-default-fg-color--lightest, rgba(0,0,0,0.1));
+  z-index: 0;
+}
+
+[data-md-color-scheme="slate"] .shuoshuo-timeline::before {
+  background: var(--md-default-fg-color--lightest, rgba(255,255,255,0.12));
+}
+
+/* 单条卡片 */
+.shuoshuo-item {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  align-items: flex-start;
+}
+
+/* 头像 + 节点圆点 */
+.shuoshuo-avatar {
+  position: relative;
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  z-index: 1;
+}
+
+.shuoshuo-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--md-primary-fg-color, #3f51b5);
+  background: var(--md-default-bg-color, #fff);
+}
+
+/* 卡片主体 */
+.shuoshuo-card {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.9rem 1.1rem 1.1rem;
+  border-radius: 12px;
+  background: var(--md-default-bg-color, #fff);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease;
+  word-break: break-word;
+}
+
+.shuoshuo-card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+/* 头部：时间 + 心情 */
+.shuoshuo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.shuoshuo-time {
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light, #888);
+  font-family: "Roboto Mono", monospace;
+}
+
+.shuoshuo-mood {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: var(--md-code-bg-color, rgba(200,200,200,0.25));
+  color: var(--md-default-fg-color--light, #666);
+}
+
+/* 正文 */
+.shuoshuo-content {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--md-default-fg-color, #333);
+  white-space: pre-wrap;
+}
+
+/* 配图九宫格 */
+.shuoshuo-images {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 6px;
+}
+
+.shuoshuo-images.count-1 { grid-template-columns: 1fr; max-width: 320px; }
+.shuoshuo-images.count-2 { grid-template-columns: repeat(2, 1fr); max-width: 420px; }
+.shuoshuo-images.count-3 { grid-template-columns: repeat(3, 1fr); max-width: 480px; }
+.shuoshuo-images.count-4,
+.shuoshuo-images.count-5,
+.shuoshuo-images.count-6 { grid-template-columns: repeat(3, 1fr); max-width: 480px; }
+.shuoshuo-images.count-7,
+.shuoshuo-images.count-8,
+.shuoshuo-images.count-9 { grid-template-columns: repeat(3, 1fr); max-width: 480px; }
+
+.shuoshuo-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: zoom-in;
+  background: var(--md-code-bg-color, rgba(0,0,0,0.05));
+}
+
+.shuoshuo-images.count-1 img {
+  aspect-ratio: auto;
+  max-height: 360px;
+}
+
+/* 加载与错误提示 */
+.shuoshuo-loading,
+.shuoshuo-error {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--md-default-fg-color--light, #888);
+  font-size: 0.9rem;
+}
+
+.shuoshuo-error {
+  color: var(--md-accent-fg-color, #d32f2f);
+}
+
+/* 移动端 */
+@media (max-width: 600px) {
+  .shuoshuo-timeline { padding: 0 0.5rem; }
+  .shuoshuo-timeline::before { left: 1.55rem; }
+  .shuoshuo-avatar { width: 2.75rem; height: 2.75rem; }
+  .shuoshuo-images.count-2,
+  .shuoshuo-images.count-3 { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+  .shuoshuo-card { padding: 0.75rem 0.9rem 0.9rem; }
+}

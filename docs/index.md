@@ -22,4 +22,6 @@ title: Patrick-Lab
 
 ## 最新文章
 
-<!-- 博客文章会自动列出 -->
+<div id="recent-posts-container"></div>
+
+<noscript>启用 JavaScript 才能查看最近文章。</noscript>

@@ -70,13 +70,12 @@ custom_dir = "docs/overrides"
 language = "zh"
 
 features = [
-    # 只启用必要的功能
-    "navigation.instant",
-    "navigation.top",
-     "navigation.tabs",
-    "search.suggest",
-    "content.code.copy",
-    "header.autohide"
+     # 只启用必要的功能
+     "navigation.top",
+      "navigation.tabs",
+     "search.suggest",
+     "content.code.copy",
+     "header.autohide"
 ]
 
 logo = "images/star.png"

@@ -40,13 +40,11 @@ nav = [
  ]
 
 extra_css = [
-     "stylesheets/music_player.css", # 音乐播放器样式表，
      "stylesheets/extra.css",
      "stylesheets/闲言碎语.css"
  ]
 
 extra_javascript = [
-     "javascripts/music_player.js", # 音乐播放器脚本
      "javascripts/extra.js", # （可选）按钮与播放器避让页脚脚本
      "javascripts/闲言碎语.js",
      "javascripts/recent-posts.js",
